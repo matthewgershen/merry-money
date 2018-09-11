@@ -17,7 +17,7 @@ export default class Greeting extends React.Component {
       return (
         <div>
           <h1>Welcome {this.props.currentUser.first_name}</h1>
-          <button onClick={this.handleSubmit}>Logout</button>
+          <Link to='/login' onClick={this.handleSubmit}>Logout</Link>
         </div>
       );
     } else {
