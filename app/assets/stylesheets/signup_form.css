@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-top: 75px;
+  margin-top: 125px;
 }
 
 .signup-text{
@@ -88,13 +88,13 @@ font-weight: 500px;
 
 .signup-text > h2 {
   font-size: 48px;
-  font-weight: 100;
+  font-weight: lighter;
   padding: 15px 0;
 }
 
 .signup-text > p {
   font-size: 24px;
-  font-weight: 100;
+  font-weight: lighter;
   padding: 15px 0;
 }
 
@@ -111,10 +111,29 @@ font-weight: 500px;
 footer {
   width: 67%;
   float: left;
-  font-size: 10px;
+  font-size: 12px;
   border-top: 1px solid;
   margin-top: 100px;
   padding-top: 20px;
-  color: lightgray;
-  border-color: lightgray;
+  color: #c3c2c2;
+  border-color: #c3c2c2;
+}
+
+.top-container{
+  width: 66%;
+  margin: auto;
+  position: relative;
+}
+.top-line{
+  border-top: 3px solid #f0f0f0;
+  width: 90%;
+  float: right;
+  padding-bottom: 50px;
+}
+
+.logo-img{
+  width:80px;
+  position: absolute;
+  top: -58px;
+  left: -20px;
 }

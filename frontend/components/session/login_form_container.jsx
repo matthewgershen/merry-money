@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-wrapper">
-        <img className="login-img" src={window.image_url}/>
+        <img className="login-img" src={window.login_image_url}/>
         <form className="login-form">
           <h2>Welcome to MerryMoney</h2>
 

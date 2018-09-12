@@ -32,6 +32,10 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-wrapper">
+        <div className="top-container">
+          <img className="logo-img" src={window.logo_url}/>
+          <div className="top-line"></div>
+        </div>
         <div className="sub-header">
           <div className="signup-text">
             <h2>Make Your Money Move</h2>
@@ -64,14 +68,17 @@ class SignupForm extends React.Component {
         <div className="sub-footer">
           <footer>
             All investments involve risk and the past performance of a security, or financial product does not guarantee future results or returns. Keep in mind that while diversification may help spread risk it does not assure a profit, or protect against loss, in a down market. There is always the potential of losing money when you invest in securities, or other financial products. Investors should consider their investment objectives and risks carefully before investing.
-            <br></br>
-            <br></br>
+            <br/>
+            <br/>
             All securities and investments are offered to self-directed customers by MerryMoney Financial, LLC, member FINRA & SIPC. Additional information about your broker can be found by clicking here. MerryMoney Financial, LLC is a wholly owned subsidiary of MerryMoney Markets, Inc.
-            <br></br>
+            <br/>
+            <br/>
             Check the background of MerryMoney Financial LLC and MerryMoney Securities, LLC on FINRA’s BrokerCheck.
-            <br></br>
+            <br/>
+            <br/>
             MerryMoney Terms & Conditions  Disclosure Library  Contact Us  FAQ
-            <br></br>
+            <br/>
+            <br/>
             © 2018 MerryMoney. All rights reserved.
           </footer>
         </div>
