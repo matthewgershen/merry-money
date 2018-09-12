@@ -1,0 +1,41 @@
+.session-wrapper{
+  display: flex;
+  min-height: 100vh;
+  vertical-align: middle;
+}
+.session-form {
+  width: 50%;
+  align-self:center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-placeholder {
+  width: 50%;
+  background-color: #21ce99;
+
+}
+
+input {
+  width: 370px;
+  height: 16px;
+  padding: 15px 20px;
+  border: 1px solid black;
+  margin: 15px;
+  border-radius: 4px;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: #21ce99;
+  color: white;
+  height: 42px;
+  width: 46px;
+  padding: 0 48px;
+  border-radius: 4px;
+}

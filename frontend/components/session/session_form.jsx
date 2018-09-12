@@ -30,35 +30,42 @@ export default class SessionForm extends React.Component {
 
   render() {
     return (
-      <form >
-        <h2>{this.props.formType}</h2>
+      <div className="session-wrapper">
+        <div className="img-placeholder"></div>
+        <form className="session-form">
+          <h2>{this.props.formType}</h2>
 
-        <label>Email
-          <input type='text' value={this.state.email} onChange={this.update('email')}></input>
-        </label>
-
-        <label>Password
-          <input type='password' value={this.state.password} onChange={this.update('password')}></input>
-        </label>
-
-        {this.props.formType === 'Signup' &&
-          <div>
-            <label>First Name
-              <input type='text' value={this.state.first_name} onChange={this.update('first_name')}></input>
-            </label>
-
-            <label>Last Name
-              <input type='text' value={this.state.last_name} onChange={this.update('last_name')}></input>
-            </label>
+          <div className="label-input">
+            <label>Email</label>
+            <input type='text' value={this.state.email} onChange={this.update('email')}></input>
           </div>
-        }
 
-        {this.props.errors.session.length > 0 &&
-          <h3>{this.props.errors.session}</h3>
-        }
+          <div className="label-input">
+            <label>Password</label>
+            <input type='password' value={this.state.password} onChange={this.update('password')}></input>
+          </div>
 
-        <button onClick={this.handleSubmit}>{this.props.formType}</button>
-      </form>
+          {this.props.formType === 'Signup' &&
+            <div>
+              <div className="label-input">
+                <label>First Name</label>
+                <input type='text' value={this.state.first_name} onChange={this.update('first_name')}></input>
+              </div>
+
+              <div className="label-input">
+                <label>Last Name</label>
+                <input type='text' value={this.state.last_name} onChange={this.update('last_name')}></input>
+              </div>
+            </div>
+          }
+
+          {this.props.errors.session.length > 0 &&
+            <h3>{this.props.errors.session}</h3>
+          }
+
+          <button onClick={this.handleSubmit}>{this.props.formType}</button>
+        </form>
+      </div>
     );
   }
 }
