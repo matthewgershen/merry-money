@@ -25,6 +25,7 @@ export default class Greeting extends React.Component {
     } else {
       return (
         <div>
+          <h1>MerryMoney</h1>
           <Link onClick={()=>this.props.clearErrors()} to='/signup'>Sign Up</Link>
           <br/>
           <Link onClick={()=>this.props.clearErrors()} to='/login'>Log In</Link>

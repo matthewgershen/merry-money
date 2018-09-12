@@ -1,9 +1,9 @@
-.session-wrapper{
+.login-wrapper{
   display: flex;
   min-height: 100vh;
   vertical-align: middle;
 }
-.session-form {
+.login-form {
   width: 50%;
   align-self:center;
   height: 100%;
@@ -17,11 +17,12 @@
 
 }
 
-input {
+input{
   width: 370px;
   height: 16px;
   padding: 15px 20px;
-  border: 1px solid black;
+  border: 1px solid;
+  border-color: white;
   margin: 15px;
   border-radius: 4px;
 }

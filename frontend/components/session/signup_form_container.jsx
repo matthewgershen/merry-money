@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { signup } from './../../actions/session_actions';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -30,9 +31,7 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="session-wrapper">
-        <div className="img-placeholder"></div>
-        <form className="session-form">
+        <form className="signup-form">
           <h2>Make Your Money Move</h2>
 
           <div className="label-input">
@@ -59,9 +58,10 @@ class SignupForm extends React.Component {
             <p>{this.props.errors.session}</p>
           }
 
-          <button onClick={this.handleSubmit}>Signup</button>
+          <Link onClick={()=>this.props.clearErrors()} to='/login'>Log In</Link>
+
+          <button onClick={this.handleSubmit}>Sign Up</button>
         </form>
-      </div>
     );
   }
 }
