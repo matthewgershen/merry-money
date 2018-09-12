@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 export default class Greeting extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +11,7 @@ export default class Greeting extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.logout();
+    // .then(() => history.push("/"));
   }
 
   render() {
@@ -17,15 +19,15 @@ export default class Greeting extends React.Component {
       return (
         <div>
           <h1>Welcome {this.props.currentUser.first_name}</h1>
-          <Link to='/login' onClick={this.handleSubmit}>Logout</Link>
+          <button onClick={this.handleSubmit}>Logout</button>
         </div>
       );
     } else {
       return (
         <div>
-          <Link to='/signup'>Sign Up</Link>
+          <Link onClick={()=>this.props.clearErrors()} to='/signup'>Sign Up</Link>
           <br/>
-          <Link to='/login'>Log In</Link>
+          <Link onClick={()=>this.props.clearErrors()} to='/login'>Log In</Link>
         </div>
       );
     }

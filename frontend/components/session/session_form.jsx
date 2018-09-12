@@ -52,6 +52,11 @@ export default class SessionForm extends React.Component {
             </label>
           </div>
         }
+
+        {this.props.errors.session.length > 0 &&
+          <h3>{this.props.errors.session}</h3>
+        }
+
         <button onClick={this.handleSubmit}>{this.props.formType}</button>
       </form>
     );
