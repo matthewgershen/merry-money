@@ -31,18 +31,18 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-wrapper">
-        <img src={window.image_url}/>
+        <img className="login-img" src={window.image_url}/>
         <form className="login-form">
           <h2>Welcome to MerryMoney</h2>
 
           <div className="label-input">
             <label>Email</label>
-            <input type='text' value={this.state.email} onChange={this.update('email')}></input>
+            <input className="login-input" type='text' value={this.state.email} onChange={this.update('email')}></input>
           </div>
 
           <div className="label-input">
             <label>Password</label>
-            <input type='password' value={this.state.password} onChange={this.update('password')}></input>
+            <input className="login-input" type='password' value={this.state.password} onChange={this.update('password')}></input>
           </div>
 
           {this.props.errors.session.length > 0 &&

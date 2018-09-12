@@ -1,3 +1,120 @@
 .signup-form{
+  width: 66%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.signup-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 75px;
+}
+
+.signup-text{
+  width: 66%;
+  margin: auto;
+}
+
+.group-signup-inputs{
+  width: 70%;
+}
+
+.signup-login{
+  width: 30%;
+}
+
+[class^="signup-input"]{
+  height: 44px;
+  padding: 10px 18px;
+  border: 1px solid;
+  border-color: lightgray;
+  border-radius: 4px;
+  margin: 18px 0;
+  box-sizing: border-box;
+}
+
+::placeholder{
+  color: lightgray;
+}
+
+[class^="signup-input"]:focus {
+  border-color: #21ce99;
+}
+
+[class^="signup-input1"]{
+  width:48%;
+}
+.signup-input2{
+  width: 100%;
+}
+
+.first-last{
+  display: flex;
+  justify-content:  space-between;
+}
+
+.signup-login > button {
+background-color: #21ce99;
+color: white;
+height: 42px;
+width: 60%;
+padding: 0 48px;
+border-radius: 4px;
+text-align: center;
+font-size: 13px;
+font-weight: 500px;
+}
+
+.signup-login{
+  display: flex;
+  flex-direction: column;
+  margin: 18px 50px;
+}
+
+.login-link{
   align-self: center;
+  margin: 50px 0;
+  color: #21ce99;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+.sub-header {
+  width: 66%;
+  margin:auto;
+}
+
+.signup-text > h2 {
+  font-size: 48px;
+  font-weight: 100;
+  padding: 15px 0;
+}
+
+.signup-text > p {
+  font-size: 24px;
+  font-weight: 100;
+  padding: 15px 0;
+}
+
+.signup-text {
+  width: 67%;
+  float: left;
+}
+
+.sub-footer{
+  width: 66%;
+  margin: auto;
+}
+
+footer {
+  width: 67%;
+  float: left;
+  font-size: 10px;
+  border-top: 1px solid;
+  margin-top: 100px;
+  padding-top: 20px;
+  color: lightgray;
+  border-color: lightgray;
 }

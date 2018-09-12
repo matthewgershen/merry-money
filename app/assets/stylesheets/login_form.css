@@ -12,11 +12,11 @@
   margin: 50px;
 }
 
-img{
+.login-img{
   width: 50%;
 }
 
-input{
+.login-input{
   width: 370px;
   height: 16px;
   padding: 15px 20px;
@@ -27,11 +27,11 @@ input{
   border-radius: 4px;
 }
 
-input:hover {
+.login-input:hover {
   border-color: lightgray;
 }
 
-input:focus {
+.login-input:focus {
   border-color: #21ce99;
 }
 
@@ -40,7 +40,7 @@ input:focus {
   flex-direction: column;
 }
 
-button {
+.login-signup > button {
   background-color: #21ce99;
   color: white;
   height: 42px;
@@ -52,12 +52,12 @@ button {
   font-weight: 500px;
 }
 
-label {
+.label-input > label {
   margin: 0 15px;
   font-size: 13px;
 }
 
-h2 {
+.login-form > h2 {
   margin: 0 15px;
   padding: 30px 0;
   font-size: 26px;
