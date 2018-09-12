@@ -56,8 +56,14 @@ class SignupForm extends React.Component {
               <input className="signup-input2" placeholder="Password (min. 6 characters)" type='password' value={this.state.password} onChange={this.update('password')}></input>
 
             {this.props.errors.session.length > 0 &&
-              <p>{this.props.errors.session}</p>
+              <div>
+                <p className="errors">{this.props.errors.session[1]}</p>
+                <p className="errors">{this.props.errors.session[2]}</p>
+                <p className="errors">{this.props.errors.session[3]}</p>
+                <p className="errors">{this.props.errors.session[4]}</p>
+              </div>
             }
+
           </div>
           <div className="signup-login">
             <button onClick={this.handleSubmit}>Sign Up</button>

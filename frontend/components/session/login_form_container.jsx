@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
           </div>
 
           {this.props.errors.session.length > 0 &&
-            <p>{this.props.errors.session}</p>
+            <p className="errors">{this.props.errors.session}</p>
           }
           <div className="login-signup">
             <button onClick={this.handleSubmit}>Sign In</button>

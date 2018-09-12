@@ -73,3 +73,9 @@
 .login-signup {
   margin: 80px 15px;
 }
+
+.errors{
+  color: red;
+  font-size: 12px;
+  margin-left: 15px;
+}
