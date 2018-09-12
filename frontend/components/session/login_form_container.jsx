@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-wrapper">
-        <div className="img-placeholder"></div>
+        <img src={window.image_url}/>
         <form className="login-form">
           <h2>Welcome to MerryMoney</h2>
 
@@ -48,10 +48,11 @@ class LoginForm extends React.Component {
           {this.props.errors.session.length > 0 &&
             <p>{this.props.errors.session}</p>
           }
+          <div className="login-signup">
+            <button onClick={this.handleSubmit}>Sign In</button>
 
-          <Link onClick={()=>this.props.clearErrors()} to='/signup'>Sign Up</Link>
-
-          <button onClick={this.handleSubmit}>Sign In</button>
+            <Link className="signup-link" onClick={()=>this.props.clearErrors()} to='/signup'>Sign Up</Link>
+          </div>
         </form>
       </div>
     );

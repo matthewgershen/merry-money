@@ -9,12 +9,11 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin: 50px;
 }
 
-.img-placeholder {
+img{
   width: 50%;
-  background-color: #21ce99;
-
 }
 
 input{
@@ -23,8 +22,17 @@ input{
   padding: 15px 20px;
   border: 1px solid;
   border-color: white;
+  background-color:#f7f7fb;
   margin: 15px;
   border-radius: 4px;
+}
+
+input:hover {
+  border-color: lightgray;
+}
+
+input:focus {
+  border-color: #21ce99;
 }
 
 .label-input {
@@ -36,7 +44,32 @@ button {
   background-color: #21ce99;
   color: white;
   height: 42px;
-  width: 46px;
+  width: 52px;
   padding: 0 48px;
   border-radius: 4px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500px;
+}
+
+label {
+  margin: 0 15px;
+  font-size: 13px;
+}
+
+h2 {
+  margin: 0 15px;
+  padding: 30px 0;
+  font-size: 26px;
+  font-weight: 500px;
+}
+
+.signup-link {
+  padding: 0 48px;
+  color: #21ce99;
+  text-decoration: underline;
+  font-size: 13px;
+}
+.login-signup {
+  margin: 80px 15px;
 }
