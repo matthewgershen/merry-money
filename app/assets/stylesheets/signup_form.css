@@ -33,6 +33,7 @@
   border-radius: 4px;
   margin: 18px 0;
   box-sizing: border-box;
+  font-size: 18px;
 }
 
 ::placeholder{
@@ -63,8 +64,14 @@ width: 60%;
 padding: 0 48px;
 border-radius: 4px;
 text-align: center;
-font-size: 13px;
+font-size: 18px;
 font-weight: 500px;
+border-radius: 1px solid transparent;
+}
+
+.signup-login > button:hover {
+  background-color: #1aa278;
+  border-color: #199972;
 }
 
 .signup-login{
@@ -74,11 +81,15 @@ font-weight: 500px;
 }
 
 .login-link{
-  align-self: center;
-  margin: 50px 0;
   color: #21ce99;
   text-decoration: underline;
-  font-size: 13px;
+  font-size: 18px;
+  margin: 10px 20px;
+  box-sizing: border-box;
+}
+
+.login-link:hover{
+  color: #1ae9aa
 }
 
 .sub-header {
@@ -136,4 +147,27 @@ footer {
   position: absolute;
   top: -58px;
   left: -20px;
+}
+
+.signup-login-text{
+  width: 75%;
+  font-size: 18px;
+  color: #b1bfc4;
+  font-weight: 100;
+}
+
+[class^="container"]{
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 10px 15px 20px;
+  border-bottom: 1px solid gray;
+  color: #b1bfc4;
+}
+
+.width-div{
+  width: 75%
+}
+
+[class^="container"]:hover{
+  color: black;
 }

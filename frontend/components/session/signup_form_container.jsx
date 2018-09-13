@@ -68,8 +68,21 @@ class SignupForm extends React.Component {
           <div className="signup-login">
             <button onClick={this.handleSubmit}>Sign Up</button>
 
-            <Link className="login-link" onClick={()=>this.props.clearErrors()} to='/login'>Log In here</Link>
+            <div className="width-div">
+              <div className="container-first">
+                <p className="signup-login-text-1">How is my personal information handled?</p>
+                <div className="chevron-placeholder">V</div>
+              </div>
+
+              <div className="container-second">
+                <p className="signup-login-text-1">Will my contact info be used for advertising?</p>
+                <div className="chevron-placeholder">V</div>
+              </div>
+
+              <Link className="login-link" onClick={()=>this.props.clearErrors()} to='/login'>Already have an account? Log In here.</Link>
+            </div>
           </div>
+
         </form>
         <div className="sub-footer">
           <footer>
