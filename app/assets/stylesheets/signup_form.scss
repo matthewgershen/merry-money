@@ -78,13 +78,64 @@ border-radius: 1px solid transparent;
   display: flex;
   flex-direction: column;
   margin: 18px 50px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: lighter;
+
+  div {
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: #b1bfc4;
+    padding: 15px 0;
+    position: relative;
+
+    .dropdown1 {
+      display: none;
+      padding: 22px 0;
+      margin-left: 10px;
+      width: 95%;
+      font-size: 14px;
+    }
+    .dropdown2 {
+      display: none;
+      padding: 22px 0;
+      margin-left: 10px;
+      width: 95%;
+      font-size: 14px;
+    }
+
+
+
+    section {
+      display: flex;
+      justify-content: space-evenly;
+
+      p {
+      width: 80%;
+      }
+
+      i {
+      font-size: 22px;
+      }
+
+      &:hover{
+        cursor: pointer;
+
+          i {
+            font-size: 25px;
+          }
+      }
+    }
+  }
 }
 
 .login-link{
   color: #21ce99;
   text-decoration: underline;
   font-size: 18px;
-  margin: 10px 20px;
+  margin: 10px 15px;
   box-sizing: border-box;
 }
 
@@ -154,20 +205,5 @@ footer {
   font-size: 18px;
   color: #b1bfc4;
   font-weight: 100;
-}
 
-[class^="container"]{
-  display: flex;
-  justify-content: space-around;
-  padding: 15px 10px 15px 20px;
-  border-bottom: 1px solid gray;
-  color: #b1bfc4;
-}
-
-.width-div{
-  width: 75%
-}
-
-[class^="container"]:hover{
-  color: black;
 }

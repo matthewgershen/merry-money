@@ -10,7 +10,7 @@ class SignupForm extends React.Component {
       email: "",
       password: "",
       first_name: "",
-      last_name: "",
+      last_name: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,6 +27,15 @@ class SignupForm extends React.Component {
         [field]: e.currentTarget.value
       });
     };
+  }
+
+  toggleHidden(dropdown){
+    $(`.${dropdown}`).toggle(200);
+    if ($(`#i${dropdown}`).css("color") === "rgb(177, 191, 196)") {
+      $(`#i${dropdown}`).css("color","#21ce99");
+    } else {
+      $(`#i${dropdown}`).css("color","#b1bfc4");
+    }
   }
 
   render() {
@@ -68,19 +77,28 @@ class SignupForm extends React.Component {
           <div className="signup-login">
             <button onClick={this.handleSubmit}>Sign Up</button>
 
-            <div className="width-div">
-              <div className="container-first">
-                <p className="signup-login-text-1">How is my personal information handled?</p>
-                <div className="chevron-placeholder">V</div>
+              <div>
+                <section onClick={()=>this.toggleHidden('dropdown1')}>
+                  <p >How is my personal information handled?</p>
+                  <i id="idropdown1" className="fas fa-chevron-down"></i>
+                </section>
+                <p className="dropdown1">
+                  All of your data is 128-bit encrypted & stored securely. We do not sell your personally identifiable information.
+                </p>
               </div>
 
-              <div className="container-second">
-                <p className="signup-login-text-1">Will my contact info be used for advertising?</p>
-                <div className="chevron-placeholder">V</div>
+              <div>
+                <section onClick={()=>this.toggleHidden('dropdown2')}>
+                  <p >Will my contact info be used for advertising?</p>
+                  <i id="idropdown2" className="fas fa-chevron-down"></i>
+                </section>
+                <p className="dropdown2">
+                  No. We will only contact you with important updates about your Robinhood trading account.
+                </p>
               </div>
 
               <Link className="login-link" onClick={()=>this.props.clearErrors()} to='/login'>Already have an account? Log In here.</Link>
-            </div>
+
           </div>
 
         </form>
