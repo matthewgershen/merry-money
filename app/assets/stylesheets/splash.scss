@@ -1,0 +1,138 @@
+.splash-nav{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+.splash-logo-img{
+  width: 75px;
+  height: 75px;
+  margin-left: 222px;
+}
+
+.nav-links{
+  display: flex;
+  margin-right: 150px;
+  padding: 22px;
+}
+
+.nav-link{
+  padding: 0 30px;
+  color: #21ce99;
+  font-size: 15px;
+}
+
+.splash-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.splash-wrapper{
+
+  section{
+  height: 800px;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+  }
+
+  video{
+    height:auto;
+    width: 452px;
+  }
+
+  h1 {
+    font-size: 55px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 58px;
+  }
+
+  h4 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 200;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 33%;
+  }
+
+  .button-link {
+    background-color: #21ce99;
+    color: white;
+    height: 42px;
+    width: 65px;
+    padding: 0 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    &:hover{
+      background-color: #1ae9aa;
+    }
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -.6px;
+    line-height: 42px;
+    margin-bottom: 22px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .05px;
+    line-height: 26px;
+    margin-bottom: 22px;
+
+    &.quote{
+      font-size: 13px;
+      line-height: 20px;
+      color: #82868a;
+    }
+
+    &.quote-author{
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 700;
+      color: #82868a;
+    }
+  }
+
+  .section-5{
+    text-align: center;
+  }
+
+  .security-text-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 40%;
+  }
+
+  .phone-grid {
+    max-width: 50%;
+  }
+
+  .laptop {
+    max-height: 74%;
+    max-width: 50%;
+  }
+
+  .section-1 video{
+    margin-right: 50px;
+  }
+}
