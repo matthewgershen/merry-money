@@ -12,11 +12,18 @@ class LoginForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    this.props.processForm(user);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const user = {email: "robinhood@gmail.com", password:"takefromtherich"};
     this.props.processForm(user);
   }
 
@@ -49,9 +56,11 @@ class LoginForm extends React.Component {
             <p className="errors">{this.props.errors.session}</p>
           }
           <div className="login-signup">
-            <button onClick={this.handleSubmit}>Sign In</button>
-
-            <Link className="signup-link" onClick={()=>this.props.clearErrors()} to='/signup'>Sign Up</Link>
+            <Link className="signup-link" onClick={()=>this.props.clearErrors()} to='/signup'>Sign up for a new account</Link>
+            <div className="login-buttons">
+              <button onClick={this.handleSubmit}>Sign In</button>
+              <button onClick={this.handleDemo}>Demo Account</button>
+            </div>
           </div>
         </form>
       </div>

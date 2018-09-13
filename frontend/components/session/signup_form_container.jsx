@@ -57,10 +57,10 @@ class SignupForm extends React.Component {
 
             {this.props.errors.session.length > 0 &&
               <div>
+                <p className="errors">{this.props.errors.session[0]}</p>
                 <p className="errors">{this.props.errors.session[1]}</p>
                 <p className="errors">{this.props.errors.session[2]}</p>
                 <p className="errors">{this.props.errors.session[3]}</p>
-                <p className="errors">{this.props.errors.session[4]}</p>
               </div>
             }
 
