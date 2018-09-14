@@ -9,7 +9,7 @@ const Splash = () => (
       <div className="text-container">
         <h1>Investing.</h1>
         <h1>Now for the rest of us.</h1>
-        <h4>  Robinhood lets you learn to invest in the stock market for free.</h4>
+        <h4>  MerryMoney lets you learn to invest in the stock market for free.</h4>
         <Link className="button-link" to='/signup'>Sign Up</Link>
       </div>
       <video autoPlay loop muted>
@@ -41,7 +41,7 @@ const Splash = () => (
       <div className="text-container">
         <h2>No manual needed.</h2>
           <p>
-            We’ve designed Robinhood from the ground up for the next generation of newcomers and experts alike.
+            We’ve designed MerryMoney from the ground up for the next generation of newcomers and experts alike.
           </p>
           <p>
             It’s fast, dead simple and just works.
@@ -61,7 +61,7 @@ const Splash = () => (
       <div className="text-container">
         <h2>Learn by doing.</h2>
           <p>
-            With Robinhood, you can learn to invest in the stock market as you build out your portfolio.
+            With MerryMoney, you can learn to invest in the stock market as you build out your portfolio.
           </p>
           <p>
             Discover new stocks through Collections, track your favorites with a personalized news feed, and more.
@@ -80,19 +80,19 @@ const Splash = () => (
           We’re serious about security and use cutting-edge technology to ensure your personal information is fully encrypted and securely stored.
         </p>
         <p>
-          Robinhood Financial is a member of SIPC, which means securities in your account are protected up to $500,000. For details, please see www.sipc.org.
+          MerryMoney Financial is a member of SIPC, which means securities in your account are protected up to $500,000. For details, please see www.sipc.org.
         </p>
         <p>
-          You can also check out Robinhood Financial on FINRA’s BrokerCheck.
+          You can also check out MerryMoney Financial on FINRA’s BrokerCheck.
         </p>
       </div>
     </section>
 
     <section className="section-6">
       <div className="text-container">
-        <h2>Introducing Robinhood for Web</h2>
+        <h2>Introducing MerryMoney for Web</h2>
           <p>
-            The Robinhood you know and love, now on web.
+            The MerryMoney you know and love, now on web.
           </p>
           <Link className="button-link" to='/login'>Log In</Link>
       </div>
@@ -106,7 +106,7 @@ const Splash = () => (
       <div className="text-container">
         <h2>Introducing Free Options Trading</h2>
           <p>
-            Find out how to trade options the Robinhood way. It’s quick, straightforward & free.
+            Find out how to trade options the MerryMoney way. It’s quick, straightforward & free.
           </p>
       </div>
     </section>
