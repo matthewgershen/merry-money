@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { fetchCompany } from './util/company_api_util.js'
+import { fetchCompany, fetchChart, fetchCompanyInfo } from './actions/company_actions.js'
 
 import { login, signup, logout } from './actions/session_actions';
 
@@ -33,4 +33,6 @@ window.login = login;
 window.signup = signup;
 window.logout = logout;
 window.fetchCompany = fetchCompany;
+window.fetchChart = fetchChart;
+window.fetchCompanyInfo = fetchCompanyInfo;
 // testing
