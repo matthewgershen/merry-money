@@ -87,6 +87,7 @@ GEM
     debug_inspector (0.0.3)
     erubi (1.7.1)
     execjs (2.7.0)
+    fastercsv (1.5.5)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -224,6 +225,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  fastercsv
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
@@ -244,4 +246,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.14.6
+   1.16.2
