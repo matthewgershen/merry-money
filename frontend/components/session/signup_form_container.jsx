@@ -93,7 +93,7 @@ class SignupForm extends React.Component {
                   <i id="idropdown2" className="fas fa-chevron-down"></i>
                 </section>
                 <p className="dropdown2">
-                  No. We will only contact you with important updates about your Robinhood trading account.
+                  No. We will only contact you with important updates about your MerryMoney trading account.
                 </p>
               </div>
 
