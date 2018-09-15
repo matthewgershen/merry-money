@@ -3,13 +3,18 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'r
 
 const Chart = (props) =>{
   const data = props.data
-  console.log(data);
+  const max = data.reduce((prev, current) => (prev.close > current.close) ? prev : current)
+  const min = data.reduce((prev, current) => (prev.close < current.close) ? prev : current)
+  const first = data[0].close
+  const last = data[data.length - 1].close
+  const stroke = (last > first) ? "#21ce99" : "#f45531";
+
   return(
-      <LineChart width={600} height={300} data={data}>
-        <Line type="monotone" dataKey="high" stroke="#8884d8"/>
-        <CartesianGrid stroke="#ccc" />
-        <XAxis dataKey="date" />
-        <YAxis />
+      <LineChart width={675} height={200} data={data}>
+        <Line type="monotone" dataKey="close" stroke={stroke} dot={false}/>
+        <Tooltip />
+        <XAxis dataKey="date" hide={true}/>
+        <YAxis  domain={[{min},{max}]} hide={true}/>
       </LineChart>
 
   );
