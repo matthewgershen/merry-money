@@ -32,7 +32,7 @@ export const fetchQuote = (symbol) => {
 export const fetchStockInfo = (symbol) => {
   return $.ajax({
     method: 'GET',
-    url:`https://api.iextrading.com/1.0/stock/${symbol}/batch?types=quote,company`,
+    url:`https://api.iextrading.com/1.0/stock/${symbol}/batch?types=quote,company,news`,
     dataType: 'jsonp'
   });
 };
