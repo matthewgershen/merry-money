@@ -7,7 +7,7 @@ import Chart from './chart';
 class Stock extends React.Component{
   constructor(props){
     super(props);
-
+    this.handleChartClick = this.handleChartClick.bind(this)
   }
 
   componentDidMount(){
@@ -18,6 +18,10 @@ class Stock extends React.Component{
       });
   }
 
+  handleChartClick(range){
+    this.props.fetchChart(this.props.stock.company.symbol,range)
+  }
+
   render(){
       if (!this.props.stock.chart[0]) {
         return (<div></div>);
@@ -25,7 +29,14 @@ class Stock extends React.Component{
         return(
         <div>
           <Chart data={this.props.stock.chart}/>
-          <CompanyInfo info={this.props.stock.stockInfo.company}/>
+          <div>
+            <button onClick={()=>this.handleChartClick("1d")}>1D</button>
+            <button onClick={()=>this.handleChartClick("1m")}>1M</button>
+            <button onClick={()=>this.handleChartClick("3m")}>3M</button>
+            <button onClick={()=>this.handleChartClick("1y")}>1Y</button>
+            <button onClick={()=>this.handleChartClick("5y")}>5Y</button>
+          </div>
+          <CompanyInfo stockInfo={this.props.stock.stockInfo}/>
         </div>
         );
       }
