@@ -20,3 +20,19 @@ export const fetchCompanyInfo = (symbol) => {
     dataType: 'jsonp'
   });
 };
+
+export const fetchQuote = (symbol) => {
+  return $.ajax({
+    method: 'GET',
+    url:`https://api.iextrading.com/1.0/stock/${symbol}/quote`,
+    dataType: 'jsonp'
+  });
+};
+
+export const fetchStockInfo = (symbol) => {
+  return $.ajax({
+    method: 'GET',
+    url:`https://api.iextrading.com/1.0/stock/${symbol}/batch?types=quote,company`,
+    dataType: 'jsonp'
+  });
+};
