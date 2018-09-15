@@ -72,7 +72,7 @@ const CompanyInfo = (props) =>{
             <div className="news-content">
               <div className="news-source">
                 <p>{article.source}</p>
-                <span>{toDateString(article.datetime)}</span>
+                <span>{article.datetime}</span>
               </div>
               <p>{article.headline}</p>
               <p>{article.summary}</p>

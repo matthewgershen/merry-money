@@ -6,14 +6,17 @@ import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 import Splash from './splash/splash';
 import StockContainer from './stocks/stock_container';
+import PortfolioContainer from './portfolio/portfolio_container';
 
 const App = () => (
   <div>
-    <Route exact path="/" component={GreetingContainer} />
-    <Route exact path="/" component={Splash} />
+    <AuthRoute exact path="/" component={GreetingContainer} />
+    <AuthRoute exact path="/" component={Splash} />
     <AuthRoute path="/login" component={LoginForm} />
     <AuthRoute path="/signup" component={SignupForm} />
-    <Route path="/stocks/:id" component={StockContainer} />
+    <ProtectedRoute path="/" component={GreetingContainer} />
+    <ProtectedRoute path="/" component={PortfolioContainer} />
+    <ProtectedRoute path="/stocks/:id" component={StockContainer} />
   </div>
 );
 
