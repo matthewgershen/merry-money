@@ -5,6 +5,7 @@ import SignupForm from './session/signup_form_container';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 import Splash from './splash/splash';
+import StockContainer from './stocks/stock_container';
 
 const App = () => (
   <div>
@@ -12,6 +13,7 @@ const App = () => (
     <Route exact path="/" component={Splash} />
     <AuthRoute path="/login" component={LoginForm} />
     <AuthRoute path="/signup" component={SignupForm} />
+    <Route path="/stocks/:id" component={StockContainer} />
   </div>
 );
 

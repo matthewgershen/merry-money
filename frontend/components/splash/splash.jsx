@@ -76,6 +76,7 @@ const Splash = () => (
     <section className="section-5">
       <div className="security-text-container">
         <h2>Trusted by Millions in the USA</h2>
+        <i className="fas fa-lock"></i>
         <p>
           We’re serious about security and use cutting-edge technology to ensure your personal information is fully encrypted and securely stored.
         </p>
