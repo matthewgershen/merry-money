@@ -27,9 +27,11 @@ class Stock extends React.Component{
         return (<div></div>);
       } else {
         return(
-        <div>
+        <div className="stock-wrapper">
+          <h1>{this.props.stock.company.name}</h1>
+          <h1>{this.props.stock.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
           <Chart data={this.props.stock.chart}/>
-          <div>
+          <div className="chart-ranges">
             <button onClick={()=>this.handleChartClick("1d")}>1D</button>
             <button onClick={()=>this.handleChartClick("1m")}>1M</button>
             <button onClick={()=>this.handleChartClick("3m")}>3M</button>
