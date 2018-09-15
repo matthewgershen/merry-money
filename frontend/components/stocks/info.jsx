@@ -12,7 +12,7 @@ const CompanyInfo = (props) =>{
   return(
     <div>
       <div className="about">
-        <div className="about-header">
+        <div className="info-section-header">
           <h2>About</h2>
         </div>
         <h5>{props.stockInfo.company.description}</h5>
@@ -61,25 +61,30 @@ const CompanyInfo = (props) =>{
       </div>
 
 
-      // <div>
-      //   {props.stockInfo.news.map((article,idx)=>{
-      //     return (
-      //     <div>
-      //       <img src={article.image}/>
-      //       <div>
-      //         <p>{article.datetime}</p>
-      //         <p>{article.source}</p>
-      //       </div>
-      //       <p>{article.headline}</p>
-      //       <p>{article.summary}</p>
-      //     </div>
-      //     )
-      //   })}
-      //
-      //
-      //
-      //
-      // </div>
+      <div>
+        <div className="info-section-header">
+          <h2>News</h2>
+        </div>
+        {props.stockInfo.news.map((article,idx)=>{
+          return (
+          <div className="news-block">
+            <img src={article.image}/>
+            <div className="news-content">
+              <div className="news-source">
+                <p>{article.source}</p>
+                <span>{toDateString(article.datetime)}</span>
+              </div>
+              <p>{article.headline}</p>
+              <p>{article.summary}</p>
+            </div>
+          </div>
+          )
+        })}
+
+
+
+
+      </div>
 
     </div>
 

@@ -39,7 +39,7 @@
     line-height: 30px;
   }
 
-  .about-header {
+  .info-section-header {
     border-bottom: 1px solid black;
     padding-bottom: 16px;
     padding-top: 32px;
@@ -74,6 +74,41 @@
   }
 
   .about {
-    padding-bottom: 40px;
+    padding-bottom: 32px;
+  }
+
+  .news-block{
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      width: 196px;
+      height: 134px;
+    }
+
+    .news-content{
+      margin-left: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .news-source {
+      font-size: 13px;
+      font-weight: 400px;
+      letter-spacing: .25px;
+      line-height: 19px;
+      display: flex;
+
+      p{
+        margin-right: 4px;
+      }
+    }
+
+    .span{
+      color: gray;
+      font-weight: 300px;
+    }
   }
 }
