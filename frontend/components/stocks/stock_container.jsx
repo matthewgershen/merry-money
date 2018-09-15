@@ -12,19 +12,19 @@ class Stock extends React.Component{
 
   componentDidMount(){
     this.props.fetchCompany(this.props.id).then(action =>
-      this.props.fetchStockInfo(action.company.symbol));
-      // .then(action => {
-      //   return this.props.fetchChart(action.info.symbol,"1d")
-      // });
+      this.props.fetchStockInfo(action.company.symbol))
+      .then(action => {
+        return this.props.fetchChart(action.stockInfo.company.symbol,"1y")
+      });
   }
 
   render(){
-      if (!this.props.stock.stockInfo.company) {
+      if (!this.props.stock.chart[0]) {
         return (<div></div>);
       } else {
         return(
         <div>
-          // <Chart chart={this.props.stock.chart}/>
+          <Chart data={this.props.stock.chart}/>
           <CompanyInfo info={this.props.stock.stockInfo.company}/>
         </div>
         );
