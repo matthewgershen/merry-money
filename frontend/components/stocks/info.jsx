@@ -26,6 +26,25 @@ const CompanyInfo = (props) =>{
       <p>{props.stockInfo.quote.marketCap}</p>
 
 
+      <div>
+        {props.stockInfo.news.map((article,idx)=>{
+          return (
+          <div>
+            <img src={article.image}/>
+            <div>
+              <p>{article.datetime}</p>
+              <p>{article.source}</p>
+            </div>
+            <p>{article.headline}</p>
+            <p>{article.summary}</p>
+          </div>
+          )
+        })}
+
+
+
+
+      </div>
 
 
 
