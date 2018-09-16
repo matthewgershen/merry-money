@@ -17,6 +17,7 @@ const Chart = (props) =>{
       <div className="diff">
         <span>{sign}{diff}</span>
         <span>({percent})</span>
+        <span>Past {props.range}</span>
       </div>
       <LineChart width={675} height={200} data={data}>
         <Line type="monotone" dataKey="close" stroke={stroke} dot={false}/>

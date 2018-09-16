@@ -7,6 +7,9 @@ import Chart from './chart';
 class Stock extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      range: '1y'
+    };
     this.handleChartClick = this.handleChartClick.bind(this)
   }
 
@@ -20,6 +23,7 @@ class Stock extends React.Component{
 
   handleChartClick(range){
     this.props.fetchChart(this.props.stock.company.symbol,range)
+    this.setState({range: range});
   }
 
   render(){
@@ -30,7 +34,7 @@ class Stock extends React.Component{
         <div className="stock-wrapper">
           <h1>{this.props.stock.company.name}</h1>
           <h1>{this.props.stock.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
-          <Chart data={this.props.stock.chart}/>
+          <Chart data={this.props.stock.chart} range={this.state.range}/>
           <div className="chart-ranges">
             <button onClick={()=>this.handleChartClick("1d")}>1D</button>
             <button onClick={()=>this.handleChartClick("1m")}>1M</button>

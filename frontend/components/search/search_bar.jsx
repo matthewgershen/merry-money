@@ -45,7 +45,7 @@ class SearchBar extends React.Component{
   render(){
 
     const results = this.matches().slice(0,10).map((result) => {
-      let stockshow = `stocks/${result.id}`
+      let stockshow = `/stocks/${result.id}`
       return (
         <li key={result.id}><Link to={stockshow}>{result.name}</Link></li>
       );
@@ -53,7 +53,11 @@ class SearchBar extends React.Component{
 
     return (
       <div>
-        <input value={this.state.inputVal} placeholder="Search" onChange={this.handleInput}/>
+        <input value={this.state.inputVal}
+          placeholder="Search"
+          onChange={this.handleInput}
+          
+          />
         <ul>{results}</ul>
       </div>
     )
