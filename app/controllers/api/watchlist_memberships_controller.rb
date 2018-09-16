@@ -1,20 +1,25 @@
 class Api::WatchlistMembershipsController < ApplicationController
 
   def create
-    @watchlistmembership = WatchlistMembership.new(user_id: current_user.id, company_id: params[:id])
-    if @watchlistmembership.save
-      @company = Company.find(@watchlistmembership.company_id)
-      render 'api/compny/show'
+    @watchlist_membership = WatchlistMembership.new(user_id: current_user.id, company_id: params[:company_id])
+    if @watchlist_membership.save
+      @company = Company.find(@watchlist_membership.company_id)
+      render json: @watchlist_membership
     else
-      render json: @watchlistmembership.errors.full_messages, status: 422
+      render json: @watchlist_membership.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @watchlistmembership = WatchlistMembership.find_by(user_id: current_user.id, company_id: params[:id])
-    @company = Company.find(@watchlistmembership.company_id)
-    @watchlistmembership.destroy
-    render 'api/compny/show'
+    @watchlist_membership = WatchlistMembership.find(params[:id])
+    @company = Company.find(@watchlist_membership.company_id)
+    @watchlist_membership.destroy
+    render json: @watchlist_membership
+  end
+
+  def index
+    @watchlist = current_user.watchlist_memberships
+    render :index
   end
 
 
