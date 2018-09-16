@@ -9,7 +9,7 @@ require 'csv'
 
 Company.destroy_all
 
-CSV.foreach("/merry-money/lib/data/company_seed.csv") do |row|
+CSV.foreach("lib/data/company_seed.csv") do |row|
   Company.create(symbol:row[0],name:row[1])
 end
 

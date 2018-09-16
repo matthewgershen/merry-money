@@ -5,11 +5,19 @@ export const RECEIVE_CHART = "RECEIVE_CHART";
 export const RECEIVE_COMPANY_INFO = "RECEIVE_COMPANY_INFO";
 export const RECEIVE_QUOTE = "RECEIVE_QUOTE";
 export const RECEIVE_STOCK_INFO = "RECEIVE_STOCK_INFO";
+export const RECEIVE_ALL_COMPANIES = "RECEIVE_ALL_COMPANIES";
 
 const receiveCompany = (company) => {
   return {
     type: RECEIVE_COMPANY,
     company
+  };
+};
+
+const receiveAllCompanies = (companies) => {
+  return {
+    type:RECEIVE_ALL_COMPANIES,
+    companies
   };
 };
 
@@ -44,6 +52,11 @@ const receiveStockInfo = (stockInfo) => {
 export const fetchCompany = (id) => dispatch => (
   CompanyApiUtil.fetchCompany(id).then((company) =>
   dispatch(receiveCompany(company)))
+);
+
+export const fetchAllCompanies = () => dispatch => (
+  CompanyApiUtil.fetchAllCompanies().then((companies) =>
+  dispatch(receiveAllCompanies(companies)))
 );
 
 export const fetchChart = (symbol, range) => dispatch => (

@@ -5,6 +5,13 @@ export const fetchCompany = (id) => {
   });
 };
 
+export const fetchAllCompanies = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/companies`
+  });
+};
+
 export const fetchChart = (symbol, range) => {
   return $.ajax({
     method:'GET',
