@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { fetchCompany, fetchChart, fetchCompanyInfo } from './actions/company_actions.js'
-import { fetchWatchlistMemberships, createWatchlistMembership, removeWatchlistMembership } from './util/watchlist_api_util';
+import { fetchWatchlistMemberships, createWatchlistMembership, removeWatchlistMembership } from './actions/watchlist_memberships_actions';
 
 import { login, signup, logout } from './actions/session_actions';
 
