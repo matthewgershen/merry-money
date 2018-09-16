@@ -26,6 +26,7 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :watchlist_memberships
 
 
   def self.find_by_credentials(email, password)
