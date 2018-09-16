@@ -18,10 +18,15 @@ export default class Greeting extends React.Component {
   render() {
     if (this.props.currentUser) {
       return (
-        <div>
-          <h1>Welcome {this.props.currentUser.first_name}</h1>
-          <SearchBar />
-          <button onClick={this.handleSubmit}>Logout</button>
+        <div className="nav-bar">
+          <div className="logo-search">
+            <img className="nav-logo-img" src={window.logo_url}/>
+            <SearchBar />
+          </div>
+          <div className="links">
+            <Link to='/'>Home</Link>
+            <button onClick={this.handleSubmit}>Logout</button>
+          </div>
         </div>
       );
     } else {
