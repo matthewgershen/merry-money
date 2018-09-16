@@ -67,7 +67,7 @@ const CompanyInfo = (props) =>{
         </div>
         {props.stockInfo.news.map((article,idx)=>{
           return (
-          <div className="news-block">
+          <div key={idx} className="news-block">
             <img src={article.image}/>
             <div className="news-content">
               <div className="news-source">

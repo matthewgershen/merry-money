@@ -10,7 +10,7 @@ const Chart = (props) =>{
   const stroke = (last > first) ? "#21ce99" : "#f45531";
   const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'})
   const percent = (((last - first)/first) * 100).toFixed(2) + '%'
-  const sign = ((last-first) > 0) ? "+" : "-"
+  const sign = ((last-first) > 0) ? "+" : ""
 
   return(
     <div>

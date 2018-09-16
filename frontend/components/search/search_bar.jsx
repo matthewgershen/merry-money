@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchAllCompanies } from '../../actions/company_actions';
+import { Link } from 'react-router-dom';
 
 
 
@@ -44,8 +45,9 @@ class SearchBar extends React.Component{
   render(){
 
     const results = this.matches().slice(0,10).map((result) => {
+      let stockshow = `stocks/${result.id}`
       return (
-        <li key={result.key}>{result.name}</li>
+        <li key={result.id}><Link to={stockshow}>{result.name}</Link></li>
       );
     });
 

@@ -10,8 +10,8 @@ import PortfolioContainer from './portfolio/portfolio_container';
 
 const App = () => (
   <div>
-    <AuthRoute exact path="/" component={GreetingContainer} />
-    <AuthRoute exact path="/" component={Splash} />
+    <Route exact path="/" component={GreetingContainer} />
+    <Route exact path="/" component={Splash} />
     <AuthRoute path="/login" component={LoginForm} />
     <AuthRoute path="/signup" component={SignupForm} />
     <ProtectedRoute path="/" component={GreetingContainer} />
