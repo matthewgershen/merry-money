@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { fetchCompany, fetchChart, fetchCompanyInfo } from './actions/company_actions.js'
+import { fetchWatchlistMemberships, createWatchlistMembership, removeWatchlistMembership } from './util/watchlist_api_util';
 
 import { login, signup, logout } from './actions/session_actions';
 
@@ -35,4 +36,7 @@ window.logout = logout;
 window.fetchCompany = fetchCompany;
 window.fetchChart = fetchChart;
 window.fetchCompanyInfo = fetchCompanyInfo;
+window.fetchWatchlistMemberships = fetchWatchlistMemberships
+window.createWatchlistMembership = createWatchlistMembership
+window.removeWatchlistMembership = removeWatchlistMembership
 // testing
