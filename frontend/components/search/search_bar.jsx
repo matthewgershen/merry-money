@@ -7,16 +7,53 @@ import { fetchAllCompanies } from '../../actions/company_actions';
 class SearchBar extends React.Component{
   constructor(props) {
     super(props);
-
+    this.state = {
+      inputVal: ''
+    };
+    this.handleInput = this.handleInput.bind(this)
   }
 
   componentDidMount(){
     this.props.fetchAllCompanies()
   }
 
+  handleInput(e){
+    e.preventDefault()
+    this.setState({inputVal: e.currentTarget.value});
+  }
+
+  matches() {
+   const matches = [];
+   if (this.state.inputVal.length === 0) {
+     return []
+   }
+
+   Object.values(this.props.companies).forEach(company => {
+     if (company.name.toLowerCase().includes(this.state.inputVal.toLowerCase())) {
+       matches.push(company);
+     }
+   });
+
+   if (matches.length === 0) {
+     matches.push('No matches');
+   }
+
+   return matches;
+ }
+
   render(){
+
+    const results = this.matches().slice(0,10).map((result) => {
+      return (
+        <li key={result.key}>{result.name}</li>
+      );
+    });
+
     return (
-      <div>Search bar is gonna go all up in here</div>
+      <div>
+        <input value={this.state.inputVal} placeholder="Search" onChange={this.handleInput}/>
+        <ul>{results}</ul>
+      </div>
     )
   }
 
@@ -29,7 +66,7 @@ class SearchBar extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    companies: state.companies
+    companies: state.entities.companies
   }
 }
 
