@@ -20,7 +20,7 @@ export default class Greeting extends React.Component {
       return (
         <div className="nav-bar">
           <div className="logo-search">
-            <img className="nav-logo-img" src={window.logo_url}/>
+              <Link to='/'><img className="nav-logo-img" src={window.logo_url}/></Link>
             <SearchBar />
           </div>
           <div className="links">

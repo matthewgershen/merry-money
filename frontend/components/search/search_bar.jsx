@@ -12,6 +12,7 @@ class SearchBar extends React.Component{
       inputVal: ''
     };
     this.handleInput = this.handleInput.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount(){
@@ -21,6 +22,10 @@ class SearchBar extends React.Component{
   handleInput(e){
     e.preventDefault()
     this.setState({inputVal: e.currentTarget.value});
+  }
+
+  handleSubmit(){
+    this.setState({inputVal:''});
   }
 
   matches() {
@@ -56,7 +61,7 @@ class SearchBar extends React.Component{
         <input value={this.state.inputVal}
           placeholder="Search"
           onChange={this.handleInput}
-          
+          onSubmit={this.handleSubmit}
           />
         <ul>{results}</ul>
       </div>
