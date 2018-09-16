@@ -10,11 +10,12 @@ import PortfolioContainer from './portfolio/portfolio_container';
 
 const App = () => (
   <div>
-    <Route exact path="/" component={GreetingContainer} />
-    <Route exact path="/" component={Splash} />
+    <AuthRoute exact path="/" component={GreetingContainer} />
+    <AuthRoute exact path="/" component={Splash} />
     <AuthRoute path="/login" component={LoginForm} />
     <AuthRoute path="/signup" component={SignupForm} />
-    <ProtectedRoute path="/" component={PortfolioContainer} />
+    <ProtectedRoute path="/" component={GreetingContainer} />
+    <ProtectedRoute exact path="/" component={PortfolioContainer} />
     <ProtectedRoute path="/stocks/:id" component={StockContainer} />
   </div>
 );
