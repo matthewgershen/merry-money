@@ -5,5 +5,9 @@ class Api::CompaniesController < ApplicationController
     render :show
   end
 
+  def index
+    @companies = Company.all
+    render :index
+  end
 
 end
