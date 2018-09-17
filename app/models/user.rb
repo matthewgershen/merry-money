@@ -27,6 +27,44 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :watchlist_memberships
+  has_many :transactions
+  has_many :portfolio_snapshots
+
+  def holdings_value
+    value = 0
+    self.portfolio_holdings.each do |asset|
+      id = asset[0]
+      symbol = Company.find(id).symbol
+      price = PortfolioSnapshot.get_price(symbol)
+      shares = asset[1]
+      value += (shares * price)
+    end
+    return value
+  end
+
+  def portfolio_holdings
+    holdings = Hash.new(0)
+    Transaction.where(user_id: self.id).each do |transaction|
+      if transaction.transaction_type == "buy"
+        holdings[transaction.company_id] += transaction.shares
+      elsif transaction.transaction_type == "sell"
+        holdings[transaction.company_id] -= transaction.shares
+      end
+    end
+    return holdings
+  end
+
+  def cash
+    cash = 0
+    Transaction.where(user_id: self.id).each do |transaction|
+      if transaction.transaction_type == "deposit"
+        cash += transaction.price
+      elsif transaction.transaction_type == "withdraw"
+        cash -= transaction.price
+      end
+    end
+    return cash.round
+  end
 
 
   def self.find_by_credentials(email, password)

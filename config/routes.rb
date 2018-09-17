@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resource :session
     resources :companies
     resources :watchlist_memberships
+    resources :transactions
+    
 
   end
 
