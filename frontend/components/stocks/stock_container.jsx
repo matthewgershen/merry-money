@@ -31,18 +31,21 @@ class Stock extends React.Component{
         return (<div></div>);
       } else {
         return(
-        <div className="stock-wrapper">
-          <h1>{this.props.stock.company.name}</h1>
-          <h1>{this.props.stock.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
-          <Chart data={this.props.stock.chart} range={this.state.range}/>
-          <div className="chart-ranges">
-            <button onClick={()=>this.handleChartClick("1d")}>1D</button>
-            <button onClick={()=>this.handleChartClick("1m")}>1M</button>
-            <button onClick={()=>this.handleChartClick("3m")}>3M</button>
-            <button onClick={()=>this.handleChartClick("1y")}>1Y</button>
-            <button onClick={()=>this.handleChartClick("5y")}>5Y</button>
+        <div className="show-wrapper">
+          <div className="stock-wrapper">
+            <h1>{this.props.stock.company.name}</h1>
+            <h1>{this.props.stock.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
+            <Chart data={this.props.stock.chart} range={this.state.range}/>
+            <div className="chart-ranges">
+              <button onClick={()=>this.handleChartClick("1d")}>1D</button>
+              <button onClick={()=>this.handleChartClick("1m")}>1M</button>
+              <button onClick={()=>this.handleChartClick("3m")}>3M</button>
+              <button onClick={()=>this.handleChartClick("1y")}>1Y</button>
+              <button onClick={()=>this.handleChartClick("5y")}>5Y</button>
+            </div>
+            <CompanyInfo stockInfo={this.props.stock.stockInfo}/>
           </div>
-          <CompanyInfo stockInfo={this.props.stock.stockInfo}/>
+          <button onClick={()=>this.props.createWatchlistMembership(this.props.id)}>Add to Watchlist</button>
         </div>
         );
       }
@@ -65,7 +68,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchChart: (symbol, range) => dispatch(fetchChart(symbol, range)),
     fetchCompanyInfo: (symbol) => dispatch(fetchCompanyInfo(symbol)),
     fetchQuote: (symbol) => dispatch(fetchQuote(symbol)),
-    fetchStockInfo: (symbol) => dispatch(fetchStockInfo(symbol))
+    fetchStockInfo: (symbol) => dispatch(fetchStockInfo(symbol)),
+    createWatchlistMembership: (company_id) => dispatch(createWatchlistMembership(company_id))
   };
 };
 
