@@ -45,7 +45,7 @@ class Stock extends React.Component{
             </div>
             <CompanyInfo stockInfo={this.props.stock.stockInfo}/>
           </div>
-          <button onClick={()=>this.props.createWatchlistMembership(this.props.id)}>Add to Watchlist</button>
+          <button className="watch-button" onClick={()=>this.props.createWatchlistMembership(this.props.id)}>Add to Watchlist</button>
         </div>
         );
       }
