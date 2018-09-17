@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchWatchlistMemberships } from './../../actions/watchlist_memberships_actions';
 import React from 'react';
 import { selectAllWatchlistMemberships } from './../../reducers/selectors'
-
+import { Link } from 'react-router-dom';
 
 class Watchlist extends React.Component{
   constructor(props){
@@ -19,16 +19,20 @@ class Watchlist extends React.Component{
     if (Object.keys(this.props.companies).length === 0 || !this.props.watchlist.length) {
       return (<div></div>);
     } else {
-      
+
       const watchlistItems = this.props.watchlist.map((item,idx)=>{
+        let stockshow = `/stocks/${item.company_id}`
         return (
-          <li key={idx}>{this.props.companies[item.company_id].name}</li>
+          <li key={item.id}><Link to={stockshow}>{this.props.companies[item.company_id].symbol}</Link></li>
         );
       });
       return(
-        <ul>
-          {watchlistItems}
-        </ul>
+        <div className="watchlist">
+          <h3>Watchlist</h3>
+          <ul>
+            {watchlistItems}
+          </ul>
+        </div>
       );
     }
   }

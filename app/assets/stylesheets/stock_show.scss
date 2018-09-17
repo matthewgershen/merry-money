@@ -115,4 +115,18 @@
       font-weight: 300px;
     }
   }
+  }
+  .watch-button{
+    position: fixed;
+    top: 100px;
+    right: 175px;
+    border: 1px solid black;
+    width: 130px;
+    height: 46px;
+    padding: 0 48px;
+    font-size: 13px;
+    letter-spacing: .25px;
+    line-height: 19px;
+    border-radius: 4px;
+    text-align: center;
 }

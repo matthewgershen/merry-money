@@ -1,0 +1,24 @@
+.watchlist {
+  position: absolute;
+  width: 285px;
+  top: 100px;
+  right: 175px;
+  border: 1px solid black;
+  font-size: 13px;
+  letter-spacing: .25px;
+  line-height: 19px;
+  font-weight: 600;
+
+  li {
+    margin: 24px;
+  }
+
+  ul {
+    border-top: 1px solid black;
+  }
+
+  h3 {
+    margin-left: 24px;
+  }
+
+}
