@@ -24,7 +24,10 @@ class Stock extends React.Component{
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.fetchCompany(nextProps.id).then(action =>
-        this.props.fetchStockInfo(action.company.symbol));
+        this.props.fetchStockInfo(action.company.symbol))
+        .then(action => {
+          return this.props.fetchChart(action.stockInfo.company.symbol,"1y")
+        });
     }
   }
 
