@@ -87,10 +87,10 @@ class SearchBar extends React.Component{
  }
 
   render(){
-    const results = this.matches().slice(0,10).map((result) => {
+    const results = this.matches().slice(0,10).map((result,idx) => {
       let stockshow = `/stocks/${result.id}`
       return (
-        <li key={result.id}><Link onClick={this.handleSubmit} to={stockshow}>{result.name}</Link></li>
+        <li className={this.state.searchIdx===idx ? "pick-me" : ""} key={result.id}><Link onClick={this.handleSubmit} to={stockshow}>{result.name}</Link></li>
       );
     });
 
