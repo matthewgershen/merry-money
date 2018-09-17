@@ -3,18 +3,19 @@
   width: 285px;
   top: 100px;
   right: 175px;
-  border: 1px solid black;
+  // border: 1px solid black;
   font-size: 13px;
   letter-spacing: .25px;
   line-height: 19px;
   font-weight: 600;
+  box-shadow: 0 0 4px 1px rgba(0,0,0,.04), 0 3px 24px rgba(48,51,51,.15);
 
   li {
     margin: 24px;
   }
 
   ul {
-    border-top: 1px solid black;
+    border-top: 1px solid lightgray;
   }
 
   h3 {

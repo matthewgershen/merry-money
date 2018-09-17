@@ -52,7 +52,7 @@ class SearchBar extends React.Component{
     const results = this.matches().slice(0,10).map((result) => {
       let stockshow = `/stocks/${result.id}`
       return (
-        <li key={result.id}><Link to={stockshow}>{result.name}</Link></li>
+        <li key={result.id}><Link onClick={this.handleSubmit} to={stockshow}>{result.name}</Link></li>
       );
     });
 
@@ -63,7 +63,7 @@ class SearchBar extends React.Component{
           onChange={this.handleInput}
           onSubmit={this.handleSubmit}
           />
-        <ul>{results}</ul>
+        <ul className="search-results">{results}</ul>
       </div>
     )
   }
