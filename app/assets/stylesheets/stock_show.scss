@@ -17,7 +17,7 @@
   .chart-ranges {
     height: 33px;
     margin: 24px 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
 
     button {
       margin: 0px 12px;
@@ -44,7 +44,7 @@
   }
 
   .info-section-header {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
     padding-bottom: 16px;
     padding-top: 32px;
   }
@@ -120,7 +120,7 @@
     position: fixed;
     top: 100px;
     right: 175px;
-    border: 1px solid black;
+    border: 1px solid gray;
     width: 130px;
     height: 46px;
     padding: 0 48px;
