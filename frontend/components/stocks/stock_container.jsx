@@ -21,6 +21,13 @@ class Stock extends React.Component{
       });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.props.fetchCompany(nextProps.id).then(action =>
+        this.props.fetchStockInfo(action.company.symbol));
+    }
+  }
+
   handleChartClick(range){
     this.props.fetchChart(this.props.stock.company.symbol,range)
     this.setState({range: range});
