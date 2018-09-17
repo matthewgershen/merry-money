@@ -7,6 +7,7 @@ import { AuthRoute, ProtectedRoute } from './../util/route_util';
 import Splash from './splash/splash';
 import StockContainer from './stocks/stock_container';
 import PortfolioContainer from './portfolio/portfolio_container';
+import Watchlist from './watchlist/watchlist';
 
 const App = () => (
   <div>
@@ -15,6 +16,7 @@ const App = () => (
     <AuthRoute path="/login" component={LoginForm} />
     <AuthRoute path="/signup" component={SignupForm} />
     <ProtectedRoute path="/" component={GreetingContainer} />
+    <ProtectedRoute path="/" component={Watchlist} />
     <ProtectedRoute path="/stocks/:id" component={StockContainer} />
   </div>
 );
