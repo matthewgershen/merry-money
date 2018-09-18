@@ -1,4 +1,4 @@
-class TransactionsController < ApplicationController
+class Api::TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
@@ -6,6 +6,7 @@ class TransactionsController < ApplicationController
       render :show
     else
       render json: @transaction.errors.full_messages, status: 422
+    end
   end
 
   private
