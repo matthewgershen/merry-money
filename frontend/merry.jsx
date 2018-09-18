@@ -6,6 +6,7 @@ import { fetchCompany, fetchChart, fetchCompanyInfo } from './actions/company_ac
 import { fetchWatchlistMemberships, createWatchlistMembership, removeWatchlistMembership } from './actions/watchlist_memberships_actions';
 import { login, signup, logout } from './actions/session_actions';
 import { createTransaction } from './actions/transaction_actions';
+import { updateColor } from './actions/ui_actions';
 
 
 
@@ -42,4 +43,5 @@ window.fetchWatchlistMemberships = fetchWatchlistMemberships
 window.createWatchlistMembership = createWatchlistMembership
 window.removeWatchlistMembership = removeWatchlistMembership
 window.createTransaction = createTransaction
+window.updateColor = updateColor
 // testing

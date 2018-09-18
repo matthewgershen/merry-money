@@ -4,6 +4,7 @@ import React from 'react';
 import CompanyInfo from './info';
 import Chart from './chart';
 import WatchlistButton from './watchlist_button';
+import { updateColor } from './../../actions/ui_actions'
 
 
 class Stock extends React.Component{
@@ -39,15 +40,25 @@ class Stock extends React.Component{
   }
 
   render(){
+      const color = this.props.color
+      const bColor = color === "#21ce99" ? "rgb(33,206,153, .15)" : "rgb(244,85,49, .15)"
+
       if (!this.props.stock.chart[0]) {
         return (<div></div>);
       } else {
         return(
         <div className="show-wrapper">
           <div className="stock-wrapper">
+            <ul className="tags">
+            {this.props.stock.stockInfo.company.tags.map((tag,idx)=>{
+              return (
+                <li style={{color: color,backgroundColor:bColor}} className="tag" key={idx}>{tag}</li>
+              )
+            })}
+            </ul>
             <h1>{this.props.stock.company.name}</h1>
             <h1>{this.props.stock.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
-            <Chart data={this.props.stock.chart} range={this.state.range}/>
+            <Chart data={this.props.stock.chart} range={this.state.range} color={this.props.color} updateColor={this.props.updateColor}/>
             <div className="chart-ranges">
               <button onClick={()=>this.handleChartClick("1d")}>1D</button>
               <button onClick={()=>this.handleChartClick("1m")}>1M</button>
@@ -57,7 +68,7 @@ class Stock extends React.Component{
             </div>
             <CompanyInfo stockInfo={this.props.stock.stockInfo}/>
           </div>
-          <WatchlistButton contprops={this.props}/>
+          <WatchlistButton contprops={this.props} color={this.props.color}/>
         </div>
         );
       }
@@ -71,7 +82,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.id,
     stock: state.entities.stock,
-    watchlist: state.entities.watchlist
+    watchlist: state.entities.watchlist,
+    color: state.ui
   };
 };
 
@@ -82,7 +94,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchCompanyInfo: (symbol) => dispatch(fetchCompanyInfo(symbol)),
     fetchQuote: (symbol) => dispatch(fetchQuote(symbol)),
     fetchStockInfo: (symbol) => dispatch(fetchStockInfo(symbol)),
-    createWatchlistMembership: (company_id) => dispatch(createWatchlistMembership(company_id))
+    createWatchlistMembership: (company_id) => dispatch(createWatchlistMembership(company_id)),
+    updateColor: (color) => dispatch(updateColor(color))
   };
 };
 

@@ -145,3 +145,21 @@
     text-align: center;
 
 }
+
+.tags{
+  display: flex;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .25px;
+  line-height: 19px;
+
+}
+
+.tag {
+  height: 27px;
+  margin: 0 12px 12px 0;
+  vertical-align: center;
+  border-radius: 17px;
+  padding: 6px 8px 0px 8px;
+}

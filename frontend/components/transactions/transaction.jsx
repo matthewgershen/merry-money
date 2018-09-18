@@ -51,6 +51,10 @@ class Transaction extends React.Component{
     }
 
   render(){
+
+    const color = this.props.color
+
+
     if (this.props.loading) {
 
       return (<div></div>)
@@ -72,14 +76,14 @@ class Transaction extends React.Component{
               />
           </div>
           <div>
-            <div>Market Price</div>
+            <div style={{color: color}} >Market Price</div>
             <div>{this.props.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</div>
           </div>
           <div>
             <div>Estimated Cost</div>
             <div>{(this.state.shares * this.props.stockInfo.quote.latestPrice).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</div>
           </div>
-          <button onClick={this.handleSubmit}>Submit Buy Order</button>
+          <button style={{backgroundColor: color}} onClick={this.handleSubmit}>Submit Buy Order</button>
             {this.props.errors.transaction.length > 0 &&
               <p className="errors">{this.props.errors.transaction}</p>
             }
@@ -103,14 +107,14 @@ class Transaction extends React.Component{
               />
           </div>
           <div>
-            <div>Market Price</div>
+            <div style={{color: color}} >Market Price</div>
             <div>{this.props.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</div>
           </div>
           <div>
             <div>Estimated Value</div>
             <div>{(this.state.shares * this.props.stockInfo.quote.latestPrice).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</div>
           </div>
-          <button onClick={this.handleSubmit}>Submit Sell Order</button>
+          <button style={{backgroundColor: color}} onClick={this.handleSubmit}>Submit Sell Order</button>
             {this.props.errors.transaction.length > 0 &&
               <p className="errors">{this.props.errors.transaction}</p>
             }
@@ -125,7 +129,6 @@ class Transaction extends React.Component{
 
 
 const mapStateToProps = (state) => {
-  debugger
   if ( !state.entities.users[state.session.id].buyingPower ||
     !state.entities.stock.company.symbol ||
     !state.entities.stock.stockInfo.quote) {
@@ -142,7 +145,8 @@ const mapStateToProps = (state) => {
       company_id: state.entities.stock.company.id,
       user_id: state.session.id,
       stockInfo: state.entities.stock.stockInfo,
-      errors: state.errors
+      errors: state.errors,
+      color: state.ui
     };
   }
 
