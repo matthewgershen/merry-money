@@ -43,6 +43,39 @@
     line-height: 19px;
     border-radius: 4px;
     text-align: center;
-    margin: 12px 0 24px 0;
+    margin: 12px 0 20px 0;
+  }
+
+  .buy-sell{
+    margin: 12px 0 2px 0;
+    cursor: pointer;
+  }
+
+  .available{
+    width: 100%;
+    text-align: center;
+    padding: 0 24px;
+    margin-bottom: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+  }
+
+  input{
+    border: 1px solid transparent;
+    border-radius: 4px;
+    height: 34px;
+    width: 54px;
+    padding: 0 13px;
+    text-align: right;
+
+    &:hover{
+      border: 1px solid lightgray;
+      border-radius: 4px;
+    }
+
+    &:focus{
+      border: 1px solid black;
+    }
   }
 }
