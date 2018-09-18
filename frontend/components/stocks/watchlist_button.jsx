@@ -16,6 +16,8 @@ class WatchlistButton extends React.Component{
 
 
   render(){
+    const color = this.props.color
+
     const watchlistId = []
     this.props.watchlist.forEach((item)=>{
       if (item.company_id === parseInt(this.props.contprops.id)) {
@@ -24,11 +26,11 @@ class WatchlistButton extends React.Component{
     });
     if (watchlistId.length === 0) {
       return(
-        <button className="watch-add" onClick={()=>this.props.createWatchlistMembership(this.props.contprops.id)}>Add to Watchlist</button>
+        <button style={{color: color,borderColor:color}} className="watch-add" onClick={()=>this.props.createWatchlistMembership(this.props.contprops.id)}>Add to Watchlist</button>
       )
     } else {
       return(
-        <button className="watch-remove" onClick={()=>this.props.removeWatchlistMembership(watchlistId[0])}>Remove From Watchlist</button>
+        <button style={{color: color,borderColor:color}} className="watch-remove" onClick={()=>this.props.removeWatchlistMembership(watchlistId[0])}>Remove From Watchlist</button>
       )}
 
   }
