@@ -4,8 +4,10 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { fetchCompany, fetchChart, fetchCompanyInfo } from './actions/company_actions.js'
 import { fetchWatchlistMemberships, createWatchlistMembership, removeWatchlistMembership } from './actions/watchlist_memberships_actions';
-
 import { login, signup, logout } from './actions/session_actions';
+import { createTransaction } from './actions/transaction_actions';
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -39,4 +41,5 @@ window.fetchCompanyInfo = fetchCompanyInfo;
 window.fetchWatchlistMemberships = fetchWatchlistMemberships
 window.createWatchlistMembership = createWatchlistMembership
 window.removeWatchlistMembership = removeWatchlistMembership
+window.createTransaction = createTransaction
 // testing
