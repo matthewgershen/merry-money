@@ -62,7 +62,9 @@ class Transaction extends React.Component{
           </div>
           <div>
             <div className="shares">Shares</div>
-            <input value={this.state.shares}
+            <input
+              type="number"
+              value={this.state.shares}
               placeholder="0"
               onChange={this.handleInput}
               />
@@ -91,7 +93,9 @@ class Transaction extends React.Component{
           </div>
           <div>
             <div className="shares">Shares</div>
-            <input value={this.state.shares}
+            <input
+              type="number"
+              value={this.state.shares}
               placeholder="0"
               onChange={this.handleInput}
               />
