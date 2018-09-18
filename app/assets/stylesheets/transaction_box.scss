@@ -1,0 +1,48 @@
+.transaction-box{
+  position: fixed;
+  top: 100px;
+  right: 175px;
+  max-width: 225px;
+  height: 354px;
+  padding: 0 48px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .25px;
+  line-height: 19px;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 4px 1px rgba(0,0,0,.04), 0 3px 24px rgba(48,51,51,.15);
+
+  div{
+    display: flex;
+    justify-content:space-between;
+  }
+
+  .head{
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 12px 0 2px 0;
+    border-bottom: 1px solid lightgray;
+  }
+
+  .shares{
+    font-weight: 400;
+  }
+
+  button{
+    border: 1px solid gray;
+    width: 130px;
+    height: 46px;
+    font-size: 13px;
+    padding: 0 48px;
+    letter-spacing: .25px;
+    line-height: 19px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 12px 0 24px 0;
+  }
+}
