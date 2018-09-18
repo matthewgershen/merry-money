@@ -3,7 +3,8 @@ import { fetchCompany, fetchChart, fetchStockInfo, fetchCompanyInfo, fetchQuote 
 import React from 'react';
 import CompanyInfo from './info';
 import Chart from './chart';
-import WatchlistButton from './watchlist_button'
+import WatchlistButton from './watchlist_button';
+
 
 class Stock extends React.Component{
   constructor(props){

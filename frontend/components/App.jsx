@@ -8,6 +8,7 @@ import Splash from './splash/splash';
 import StockContainer from './stocks/stock_container';
 import PortfolioContainer from './portfolio/portfolio_container';
 import Watchlist from './watchlist/watchlist';
+import Transaction from './transactions/transaction';
 
 const App = () => (
   <div>
@@ -17,6 +18,7 @@ const App = () => (
     <AuthRoute path="/signup" component={SignupForm} />
     <ProtectedRoute path="/" component={GreetingContainer} />
     <ProtectedRoute exact path="/" component={Watchlist} />
+    <ProtectedRoute path="/stocks/:id" component={Transaction} />
     <ProtectedRoute path="/stocks/:id" component={StockContainer} />
   </div>
 );

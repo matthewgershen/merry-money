@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_USER } from './../actions/session_actions';
+import { RECEIVE_TRANSACTION } from './../actions/transaction_actions';
 import merge from 'lodash/merge';
 
 const usersReducer = (state = {}, action) => {
@@ -6,6 +7,12 @@ const usersReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, {[action.user.id]: action.user });
+    case RECEIVE_TRANSACTION:
+      const newUser = merge( {}, state[action.transaction.user_id]);
+      newUser.buyingPower = action.transaction.buyingPower;
+      newUser.portfolioHoldings = action.transaction.portfolioHoldings;
+      const newState = merge({}, state, {[action.transaction.user_id]: newUser});
+      return newState;
     default:
       return state;
   }

@@ -2,6 +2,7 @@ class Api::TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    @user = User.find(@transaction.user_id)
     if @transaction.save
       render :show
     else
