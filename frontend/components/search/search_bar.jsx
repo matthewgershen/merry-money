@@ -34,7 +34,6 @@ class SearchBar extends React.Component{
   handleKeyDown(e){
 
     if (e.key === "Enter") {
-      debugger
       let newId = this.matches()[this.state.searchIdx].id
       this.props.history.push(`/stocks/${newId}`)
       this.setState({inputVal:''});
@@ -61,7 +60,6 @@ class SearchBar extends React.Component{
   }
 
   handleEnter(){
-    debugger
     this.matches()[this.state.searchIdx]
 
   }

@@ -4,6 +4,7 @@ import React from 'react';
 import { selectAllWatchlistMemberships } from './../../reducers/selectors'
 import { Link } from 'react-router-dom';
 
+
 class Watchlist extends React.Component{
   constructor(props){
     super(props);
