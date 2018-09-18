@@ -116,7 +116,21 @@
     }
   }
   }
-  .watch-button{
+  .watch-add{
+    position: fixed;
+    top: 100px;
+    right: 175px;
+    border: 1px solid gray;
+    width: 130px;
+    height: 46px;
+    padding: 0 48px;
+    font-size: 13px;
+    letter-spacing: .25px;
+    line-height: 19px;
+    border-radius: 4px;
+    text-align: center;
+}
+  .watch-remove{
     position: fixed;
     top: 100px;
     right: 175px;

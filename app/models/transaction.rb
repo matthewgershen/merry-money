@@ -16,7 +16,6 @@ class Transaction < ApplicationRecord
   end
 
   def sufficient_shares
-    debugger
     if self.transaction_type == "sell" && (User.find(self.user_id).portfolio_holdings[self.company_id] < self.shares)
       errors.add(:shares, "Insufficient shares to complete transaction")
     end

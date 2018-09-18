@@ -3,6 +3,7 @@ import { fetchCompany, fetchChart, fetchStockInfo, fetchCompanyInfo, fetchQuote 
 import React from 'react';
 import CompanyInfo from './info';
 import Chart from './chart';
+import WatchlistButton from './watchlist_button'
 
 class Stock extends React.Component{
   constructor(props){
@@ -55,7 +56,7 @@ class Stock extends React.Component{
             </div>
             <CompanyInfo stockInfo={this.props.stock.stockInfo}/>
           </div>
-          <button className="watch-button" onClick={()=>this.props.createWatchlistMembership(this.props.id)}>Add to Watchlist</button>
+          <WatchlistButton contprops={this.props}/>
         </div>
         );
       }
@@ -68,7 +69,8 @@ class Stock extends React.Component{
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.id,
-    stock: state.entities.stock
+    stock: state.entities.stock,
+    watchlist: state.entities.watchlist
   };
 };
 
