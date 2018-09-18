@@ -51,9 +51,11 @@ class Transaction extends React.Component{
     }
 
   render(){
-    if (!this.props.stockInfo["quote"]) {
+    if (this.props.loading) {
+
       return (<div></div>)
     } else if (this.state.buy === true) {
+
       return(
       <div className="transaction-box">
           <div>
@@ -123,16 +125,27 @@ class Transaction extends React.Component{
 
 
 const mapStateToProps = (state) => {
-  return{
-    buyingPower: state.entities.users[state.session.id].buyingPower,
-    sharesOwned: state.entities.users[state.session.id].portfolioHoldings[state.entities.stock.company.id],
-    portfolioHoldings: state.entities.users[state.session.id].portfolioHoldings,
-    symbol: state.entities.stock.company.symbol,
-    company_id: state.entities.stock.company.id,
-    user_id: state.session.id,
-    stockInfo: state.entities.stock.stockInfo,
-    errors: state.errors
-  };
+  debugger
+  if ( !state.entities.users[state.session.id].buyingPower ||
+    !state.entities.stock.company.symbol ||
+    !state.entities.stock.stockInfo.quote) {
+    return {
+      loading: true
+    }
+  } else {
+    return{
+      loading: false,
+      buyingPower: state.entities.users[state.session.id].buyingPower,
+      sharesOwned: state.entities.users[state.session.id].portfolioHoldings[state.entities.stock.company.id],
+      portfolioHoldings: state.entities.users[state.session.id].portfolioHoldings,
+      symbol: state.entities.stock.company.symbol,
+      company_id: state.entities.stock.company.id,
+      user_id: state.session.id,
+      stockInfo: state.entities.stock.stockInfo,
+      errors: state.errors
+    };
+  }
+
 };
 
 const mapDispatchToProps = (dispatch) => {
