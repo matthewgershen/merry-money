@@ -11,13 +11,13 @@ class Transaction < ApplicationRecord
 
   def sufficient_funds
     if self.transaction_type == "buy" && (User.find(self.user_id).cash < self.price * self.shares)
-      errors.add(:funds, "Insufficient funds to complete transaction")
+      errors.add(:buying_power, "insufficient to complete transaction")
     end
   end
 
   def sufficient_shares
     if self.transaction_type == "sell" && (User.find(self.user_id).portfolio_holdings[self.company_id] < self.shares)
-      errors.add(:shares, "Insufficient shares to complete transaction")
+      errors.add(:shares, "exceeds amount currently owned")
     end
   end
 

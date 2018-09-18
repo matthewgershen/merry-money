@@ -2,10 +2,10 @@ import React from 'react';
 
 
 const CompanyInfo = (props) =>{
-  const vol = (!props.stockInfo.quote.avgTotalVolume) ?  "-" : props.stockInfo.quote.avgTotalVolume.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) 
-  const highToday = (!props.stockInfo.quote.high) ?  "-" : props.stockInfo.quote.high.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) 
-  const lowToday = (!props.stockInfo.quote.low) ?  "-" : props.stockInfo.quote.low.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) 
-  const openPrice = (!props.stockInfo.quote.open) ?  "-" : props.stockInfo.quote.open.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) 
+  const vol = (!props.stockInfo.quote.avgTotalVolume) ?  "-" : props.stockInfo.quote.avgTotalVolume.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
+  const highToday = (!props.stockInfo.quote.high) ?  "-" : props.stockInfo.quote.high.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
+  const lowToday = (!props.stockInfo.quote.low) ?  "-" : props.stockInfo.quote.low.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
+  const openPrice = (!props.stockInfo.quote.open) ?  "-" : props.stockInfo.quote.open.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
 
 
   return(
