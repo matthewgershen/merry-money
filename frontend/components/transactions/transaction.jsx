@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { createTransaction } from './../../actions/transaction_actions';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { clearErrors } from './../../actions/session_actions'
 
 
 class Transaction extends React.Component{
@@ -24,9 +25,11 @@ class Transaction extends React.Component{
 
     handleSwitch(){
       if (this.state.buy === true) {
-        this.setState({buy: false});
+        this.setState({buy: false, shares: ''});
+        this.props.clearErrors();
       } else {
-        this.setState({buy: true});
+        this.setState({buy: true, shares: ''});
+        this.props.clearErrors();
       }
     }
 
@@ -43,8 +46,7 @@ class Transaction extends React.Component{
         transaction2["price"] = (this.state.shares * this.props.stockInfo.quote.latestPrice)
         transaction2["transaction_type"] = this.state.buy === true ? "withdraw" : "deposit"
 
-      this.props.createTransaction(transaction1);
-      this.props.createTransaction(transaction2);
+      this.props.createTransaction(transaction1).then(action => this.props.createTransaction(transaction2));
       this.setState({shares: 0});
     }
 
@@ -56,7 +58,7 @@ class Transaction extends React.Component{
       <div className="transaction-box">
           <div>
             <div className="head">Buy {this.props.symbol}</div>
-            <button onClick={this.handleSwitch}>Sell</button>
+            <div className="buy-sell" onClick={this.handleSwitch}>Sell</div>
           </div>
           <div>
             <div className="shares">Shares</div>
@@ -74,14 +76,17 @@ class Transaction extends React.Component{
             <div>{(this.state.shares * this.props.stockInfo.quote.latestPrice).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</div>
           </div>
           <button onClick={this.handleSubmit}>Submit Buy Order</button>
-          <div>{this.props.buyingPower.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} Buying Power Available</div>
+            {this.props.errors.transaction.length > 0 &&
+              <p className="errors">{this.props.errors.transaction}</p>
+            }
+          <div className="available" >{this.props.buyingPower.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} Buying Power Available</div>
       </div>
       );
     } else {
       return(
       <div className="transaction-box">
           <div>
-            <button onClick={this.handleSwitch}>Buy</button>
+            <div className="buy-sell" onClick={this.handleSwitch}>Buy</div>
             <div className="head">Sell {this.props.symbol}</div>
           </div>
           <div>
@@ -100,7 +105,10 @@ class Transaction extends React.Component{
             <div>{(this.state.shares * this.props.stockInfo.quote.latestPrice).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</div>
           </div>
           <button onClick={this.handleSubmit}>Submit Sell Order</button>
-          <div>{this.props.sharesOwned} Shares Available</div>
+            {this.props.errors.transaction.length > 0 &&
+              <p className="errors">{this.props.errors.transaction}</p>
+            }
+          <div className="available" >{this.props.sharesOwned} Shares Available</div>
       </div>
       );
     }
@@ -118,14 +126,15 @@ const mapStateToProps = (state) => {
     symbol: state.entities.stock.company.symbol,
     company_id: state.entities.stock.company.id,
     user_id: state.session.id,
-    stockInfo: state.entities.stock.stockInfo
-
+    stockInfo: state.entities.stock.stockInfo,
+    errors: state.errors
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    createTransaction: (transaction) => dispatch(createTransaction(transaction))
+    createTransaction: (transaction) => dispatch(createTransaction(transaction)),
+    clearErrors: () => dispatch(clearErrors())
   };
 };
 
