@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSnapshots } from '../../actions/portfolio_snapshot_actions';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'recharts';
+import News from './../news/news';
 
 class Portfolio extends React.Component{
   constructor(props) {
@@ -67,27 +68,30 @@ class Portfolio extends React.Component{
       const sign = ((last-first) > 0) ? "+" : ""
 
         return(
-          <div className="portfolio-wrapper">
-              <div className="diff">
-                <h1>{parseFloat(last).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
-                <span>{sign}{diff}</span>
-                <span>({percent})</span>
-                <span>{this.state.rangeShow}</span>
-              </div>
-          	<LineChart width={675} height={200} data={data}>
-                <Line type="monotone" dataKey="total_value" stroke={stroke} dot={false}/>
-               <XAxis dataKey="date" hide={true}/>
-               <YAxis  domain={[min,max]} hide={true}/>
-               <Tooltip/>
-            </LineChart>
+          <div>
+            <div className="portfolio-wrapper">
+                <div className="diff">
+                  <h1>{parseFloat(last).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
+                  <span>{sign}{diff}</span>
+                  <span>({percent})</span>
+                  <span>{this.state.rangeShow}</span>
+                </div>
+            	<LineChart width={675} height={200} data={data}>
+                  <Line type="monotone" dataKey="total_value" stroke={stroke} dot={false}/>
+                 <XAxis dataKey="date" hide={true}/>
+                 <YAxis  domain={[min,max]} hide={true}/>
+                 <Tooltip/>
+              </LineChart>
 
-            <div className="chart-ranges">
-              <button onClick={()=>this.handleChartClick(7,"Past Week")}>1W</button>
-              <button onClick={()=>this.handleChartClick(30,"Past Month")}>1M</button>
-              <button onClick={()=>this.handleChartClick(90,"Past 3 Months")}>3M</button>
-              <button onClick={()=>this.handleChartClick(365,"Past Year")}>1Y</button>
-              <button onClick={()=>this.handleChartClick(1825,"Past 5 Years")}>5Y</button>
+              <div className="chart-ranges">
+                <button onClick={()=>this.handleChartClick(7,"Past Week")}>1W</button>
+                <button onClick={()=>this.handleChartClick(30,"Past Month")}>1M</button>
+                <button onClick={()=>this.handleChartClick(90,"Past 3 Months")}>3M</button>
+                <button onClick={()=>this.handleChartClick(365,"Past Year")}>1Y</button>
+                <button onClick={()=>this.handleChartClick(1825,"Past 5 Years")}>5Y</button>
+              </div>
             </div>
+            <News search={"business"}/>
           </div>
         );
     }

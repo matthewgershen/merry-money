@@ -8,6 +8,7 @@ import { login, signup, logout } from './actions/session_actions';
 import { createTransaction } from './actions/transaction_actions';
 import { updateColor } from './actions/ui_actions';
 import { fetchSnapshots } from './actions/portfolio_snapshot_actions'
+import { fetchNews } from './actions/news_actions'
 
 
 
@@ -46,4 +47,5 @@ window.removeWatchlistMembership = removeWatchlistMembership
 window.createTransaction = createTransaction
 window.updateColor = updateColor
 window.fetchSnapshots = fetchSnapshots
+window.fetchNews = fetchNews
 // testing

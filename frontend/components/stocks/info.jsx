@@ -60,30 +60,7 @@ const CompanyInfo = (props) =>{
       </div>
 
 
-      <div>
-        <div className="info-section-header">
-          <h2>News</h2>
-        </div>
-        {props.stockInfo.news.map((article,idx)=>{
-          return (
-          <div key={idx} className="news-block">
-            <img src={article.image}/>
-            <div className="news-content">
-              <div className="news-source">
-                <p>{article.source}</p>
-                <span>{article.datetime}</span>
-              </div>
-              <p>{article.headline}</p>
-              <p>{article.summary}</p>
-            </div>
-          </div>
-          )
-        })}
-
-
-
-
-      </div>
+    
 
     </div>
 
