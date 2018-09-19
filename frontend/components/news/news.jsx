@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchNews } from '../../actions/news_actions';
+import { convertDate } from './../../util/date_util';
 
 class News extends React.Component{
   constructor(props) {
@@ -14,13 +15,14 @@ class News extends React.Component{
 
 
   render(){
+
     if (!this.props.news.status) {
       return (<div></div>);
     } else {
     return (
       <div>
         <div className="info-section-header">
-          <h2>News</h2>
+          <h2>Recent News</h2>
         </div>
         {this.props.news.articles.map((article,idx)=>{
           return (
@@ -30,9 +32,9 @@ class News extends React.Component{
                 <div className="news-content">
                   <div className="news-source">
                     <p>{article.source.name}</p>
-                    <span>{article.publishedAt}</span>
+                    <span>{convertDate(article.publishedAt)}</span>
                   </div>
-                  <p>{article.title}</p>
+                  <p classsName="title">{article.title}</p>
                   <p>{article.description}</p>
                 </div>
               </div>

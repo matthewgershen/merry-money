@@ -5,7 +5,7 @@
 .stock-wrapper{
   width: 50%;
   margin-left: 13%;
-  padding-top: 10%;
+  padding-top: 7%;
 
   h1{
     font-size: 36px;
@@ -17,7 +17,7 @@
   .chart-ranges {
     height: 33px;
     margin: 24px 0;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid lightgray;
 
     button {
       margin: 0px 12px;
@@ -34,6 +34,11 @@
       font-weight: 600;
       padding-left: 2px;
     }
+
+    .range{
+      color: gray;
+      font-weight: 400;
+    }
   }
 
   h2 {
@@ -44,7 +49,7 @@
   }
 
   .info-section-header {
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid lightgray;
     padding-bottom: 16px;
     padding-top: 32px;
   }

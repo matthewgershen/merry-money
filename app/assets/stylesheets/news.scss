@@ -4,25 +4,30 @@
   justify-content: space-between;
 
   &:hover{
-    background-color: lightgray;
+    background-color: rgba(247, 247, 247,.5);
     cursor: pointer;
   }
 
   img {
     width: 196px;
     height: 134px;
+    border-radius: 4px;
   }
+
+
 
   .news-content{
     margin-left: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 13px;
+    width: 75%;
   }
 
   .news-source {
     font-size: 13px;
-    font-weight: 400px;
+    font-weight: 500px;
     letter-spacing: .25px;
     line-height: 19px;
     display: flex;
@@ -36,4 +41,19 @@
     color: gray;
     font-weight: 300px;
   }
+
+  .title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+}
+.info-section-header {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 16px;
+  padding-top: 32px;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -.14px;
+  line-height: 30px;
 }
