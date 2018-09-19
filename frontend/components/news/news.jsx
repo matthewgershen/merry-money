@@ -34,7 +34,7 @@ class News extends React.Component{
                     <p>{article.source.name}</p>
                     <span>{convertDate(article.publishedAt)}</span>
                   </div>
-                  <p classsName="title">{article.title}</p>
+                  <p className="title">{article.title}</p>
                   <p>{article.description}</p>
                 </div>
               </div>
