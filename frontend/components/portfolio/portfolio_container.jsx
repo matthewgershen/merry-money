@@ -53,7 +53,7 @@ class Portfolio extends React.Component{
       const last = data[data.length - 1].total_value
       const stroke = (last > first) ? "#21ce99" : "#f45531";
       const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'})
-      const percent = (((last - first)/first) * 100).toFixed(2) + '%'
+      const percent = isNaN((last - first)/first) ? '0.00%' : (((last - first)/first) * 100).toFixed(2) + '%'
       const sign = ((last-first) > 0) ? "+" : ""
 
         return(
@@ -65,11 +65,11 @@ class Portfolio extends React.Component{
                   <span>({percent})</span>
                   <span className="range">{this.state.rangeShow}</span>
                 </div>
-            	<LineChart className="port-chart" width={675} height={200} data={data}>
-                  <Line type="monotone" dataKey="total_value" stroke={stroke} dot={false}/>
+            	<LineChart className="port-chart" width={675} height={200}  data={data.length > 1 ? data : []}>
+                  <Line type="monotone" dataKey="total_value"  stroke={stroke} dot={false}/>
                  <XAxis dataKey="date" hide={true}/>
                  <YAxis  domain={[min,max]} hide={true}/>
-                 <Tooltip/>
+                 <Tooltip />
               </LineChart>
 
               <div className="chart-ranges">
