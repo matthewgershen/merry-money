@@ -18,16 +18,16 @@ class Chart extends React.Component{
   }
 
   render(){
+
   const data = this.props.data
-  const max = data.reduce((prev, current) => (prev.close > current.close) ? prev : current)
-  const min = data.reduce((prev, current) => (prev.close < current.close) ? prev : current)
+  const max = parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close)
+  const min = parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close)
   const first = data[0].close
   const last = data[data.length - 1].close
   const stroke = (last > first) ? "#21ce99" : "#f45531";
   const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'})
   const percent = (((last - first)/first) * 100).toFixed(2) + '%'
   const sign = ((last-first) > 0) ? "+" : ""
-
     return(
     <div>
       <div className="diff">
@@ -39,7 +39,7 @@ class Chart extends React.Component{
         <Line type="monotone" dataKey="close" stroke={this.props.color} dot={false}/>
         <Tooltip />
         <XAxis dataKey="date" hide={true}/>
-        <YAxis  domain={[{min},{max}]} hide={true}/>
+        <YAxis  domain={[min,max]} hide={true}/>
       </LineChart>
     </div>
     );
