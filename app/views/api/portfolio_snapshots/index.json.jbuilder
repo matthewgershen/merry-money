@@ -1,5 +1,3 @@
-@portfolio_snapshots.each do |snap|
-  json.set! snap.id do
-    json.extract! snap, :id, :user_id, :cash, :assets, :total_value, :date
-  end
+json.array!(@portfolio_snapshots) do |snap|
+  json.extract! snap, :id, :user_id, :cash, :assets, :total_value, :date
 end
