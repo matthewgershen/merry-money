@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :companies
     resources :watchlist_memberships
     resources :transactions
-    
+    resources :portfolio_snapshots
 
   end
 
