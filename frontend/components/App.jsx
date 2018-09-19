@@ -9,6 +9,7 @@ import StockContainer from './stocks/stock_container';
 import PortfolioContainer from './portfolio/portfolio_container';
 import Watchlist from './watchlist/watchlist';
 import Transaction from './transactions/transaction';
+import Portfolio from './portfolio/portfolio_container';
 
 const App = () => (
   <div>
@@ -20,6 +21,7 @@ const App = () => (
     <ProtectedRoute exact path="/" component={Watchlist} />
     <ProtectedRoute path="/stocks/:id" component={Transaction} />
     <ProtectedRoute path="/stocks/:id" component={StockContainer} />
+    <ProtectedRoute exact path="/" component={Portfolio} />
   </div>
 );
 
