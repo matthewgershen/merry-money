@@ -33,7 +33,7 @@ class Chart extends React.Component{
       <div className="diff">
         <span>{sign}{diff}</span>
         <span>({percent})</span>
-        <span>Past {this.props.range}</span>
+        <span>{this.props.rangeShow}</span>
       </div>
       <LineChart width={675} height={200} data={data}>
         <Line type="monotone" dataKey="close" stroke={this.props.color} dot={false}/>
