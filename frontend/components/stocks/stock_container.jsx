@@ -5,6 +5,7 @@ import CompanyInfo from './info';
 import Chart from './chart';
 import WatchlistButton from './watchlist_button';
 import { updateColor } from './../../actions/ui_actions'
+import News from './../news/news'
 
 
 class Stock extends React.Component{
@@ -67,7 +68,8 @@ class Stock extends React.Component{
               <button onClick={()=>this.handleChartClick("1y", "Past Year")}>1Y</button>
               <button onClick={()=>this.handleChartClick("5y", "Past 5 Years")}>5Y</button>
             </div>
-            <CompanyInfo stockInfo={this.props.stock.stockInfo}/>
+            <CompanyInfo stockInfo={this.props.stock.stockInfo} news={this.props.news}/>
+            <News search={this.props.stock.company.name}/>
           </div>
           <WatchlistButton contprops={this.props} color={this.props.color}/>
         </div>
