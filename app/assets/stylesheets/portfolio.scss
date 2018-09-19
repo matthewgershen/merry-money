@@ -1,5 +1,41 @@
 .portfolio-wrapper{
-  margin: auto;
-  padding: 300px;
+  width: 50%;
+  padding-left: 15%;
+  padding-top: 100px;
 
+
+  h1 {
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -.29px;
+    line-height: 42px;
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .25px;
+    line-height: 19px;
+  }
+
+  .range{
+    color: gray;
+    font-weight: 400;
+    padding-left: 2px;
+  }
+
+  .chart-ranges {
+    height: 33px;
+    margin: 24px 0;
+    border-bottom: 1px solid lightgray;
+
+    button {
+      margin: 0px 12px;
+      font-weight: 700;
+    }
+  }
+
+  .port-chart{
+    margin-top: 25px;
+  }
 }

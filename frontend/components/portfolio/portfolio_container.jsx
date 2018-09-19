@@ -9,7 +9,7 @@ class Portfolio extends React.Component{
     super(props);
     this.state = {
       range: 365,
-      rangeShow: "Year"
+      rangeShow: "Past Year"
     };
     this.filterRange = this.filterRange.bind(this)
     this.handleChartClick = this.handleChartClick.bind(this)
@@ -40,18 +40,7 @@ class Portfolio extends React.Component{
     if (this.props.snapshots.length === 0) {
       return (
         <div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
-          <div>Is This Visible</div>
+
         </div>
       )
 
@@ -68,15 +57,15 @@ class Portfolio extends React.Component{
       const sign = ((last-first) > 0) ? "+" : ""
 
         return(
-          <div>
+
             <div className="portfolio-wrapper">
                 <div className="diff">
                   <h1>{parseFloat(last).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
                   <span>{sign}{diff}</span>
                   <span>({percent})</span>
-                  <span>{this.state.rangeShow}</span>
+                  <span className="range">{this.state.rangeShow}</span>
                 </div>
-            	<LineChart width={675} height={200} data={data}>
+            	<LineChart className="port-chart" width={675} height={200} data={data}>
                   <Line type="monotone" dataKey="total_value" stroke={stroke} dot={false}/>
                  <XAxis dataKey="date" hide={true}/>
                  <YAxis  domain={[min,max]} hide={true}/>
@@ -90,9 +79,9 @@ class Portfolio extends React.Component{
                 <button onClick={()=>this.handleChartClick(365,"Past Year")}>1Y</button>
                 <button onClick={()=>this.handleChartClick(1825,"Past 5 Years")}>5Y</button>
               </div>
+              <News search={"business"}/>
             </div>
-            <News search={"business"}/>
-          </div>
+
         );
     }
   }
