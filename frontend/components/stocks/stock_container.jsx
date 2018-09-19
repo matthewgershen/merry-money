@@ -11,7 +11,8 @@ class Stock extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      range: '1y'
+      range: '1y',
+      rangeShow: "Past Year"
     };
     this.handleChartClick = this.handleChartClick.bind(this)
   }
@@ -34,9 +35,9 @@ class Stock extends React.Component{
     }
   }
 
-  handleChartClick(range){
+  handleChartClick(range, rangeShow){
     this.props.fetchChart(this.props.stock.company.symbol,range)
-    this.setState({range: range});
+    this.setState({range: range, rangeShow: rangeShow});
   }
 
   render(){
@@ -58,13 +59,13 @@ class Stock extends React.Component{
             </ul>
             <h1>{this.props.stock.company.name}</h1>
             <h1>{this.props.stock.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
-            <Chart data={this.props.stock.chart} range={this.state.range} color={this.props.color} updateColor={this.props.updateColor}/>
+            <Chart data={this.props.stock.chart} rangeShow={this.state.rangeShow} color={this.props.color} updateColor={this.props.updateColor}/>
             <div className="chart-ranges">
-              <button onClick={()=>this.handleChartClick("1d")}>1D</button>
-              <button onClick={()=>this.handleChartClick("1m")}>1M</button>
-              <button onClick={()=>this.handleChartClick("3m")}>3M</button>
-              <button onClick={()=>this.handleChartClick("1y")}>1Y</button>
-              <button onClick={()=>this.handleChartClick("5y")}>5Y</button>
+              <button onClick={()=>this.handleChartClick("1d","Today")}>1D</button>
+              <button onClick={()=>this.handleChartClick("1m","Past Month")}>1M</button>
+              <button onClick={()=>this.handleChartClick("3m","Past 3 Months")}>3M</button>
+              <button onClick={()=>this.handleChartClick("1y", "Past Year")}>1Y</button>
+              <button onClick={()=>this.handleChartClick("5y", "Past 5 Years")}>5Y</button>
             </div>
             <CompanyInfo stockInfo={this.props.stock.stockInfo}/>
           </div>
