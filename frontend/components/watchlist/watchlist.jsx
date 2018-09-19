@@ -18,9 +18,13 @@ class Watchlist extends React.Component{
 
   render(){
     if (Object.keys(this.props.companies).length === 0 || !this.props.watchlist.length) {
-      return (<div></div>);
-    } else {
+      return (
+        <div className="watchlist">
+          <h3>Watchlist</h3>
 
+        </div>
+      );
+    } else {
       const watchlistItems = this.props.watchlist.map((item,idx)=>{
         let stockshow = `/stocks/${item.company_id}`
         return (

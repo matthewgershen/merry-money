@@ -3,6 +3,11 @@
   display: flex;
   justify-content: space-between;
 
+  &:hover{
+    background-color: lightgray;
+    cursor: pointer;
+  }
+
   img {
     width: 196px;
     height: 134px;

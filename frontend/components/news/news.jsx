@@ -24,17 +24,19 @@ class News extends React.Component{
         </div>
         {this.props.news.articles.map((article,idx)=>{
           return (
-          <div key={idx} className="news-block">
-            <img src={article.urlToImage}/>
-            <div className="news-content">
-              <div className="news-source">
-                <p>{article.source.name}</p>
-                <span>{article.publishedAt}</span>
+            <a key={idx} href={article.url}>
+              <div className="news-block" >
+                <img src={article.urlToImage}/>
+                <div className="news-content">
+                  <div className="news-source">
+                    <p>{article.source.name}</p>
+                    <span>{article.publishedAt}</span>
+                  </div>
+                  <p>{article.title}</p>
+                  <p>{article.description}</p>
+                </div>
               </div>
-              <p>{article.title}</p>
-              <p>{article.description}</p>
-            </div>
-          </div>
+            </a>
           )
         })}
       </div>
