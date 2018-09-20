@@ -15,6 +15,8 @@ class SearchBar extends React.Component{
     this.handleInput = this.handleInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleMouse = this.handleMouse.bind(this)
+
 
   }
 
@@ -31,6 +33,15 @@ class SearchBar extends React.Component{
     this.setState({inputVal:''});
   }
 
+  handleMouse(e){
+    let idx = parseInt(e.currentTarget.attributes.class.value)
+    if (!isNaN(idx)) {
+      this.setState({searchIdx: idx});
+    }
+
+  }
+
+
   handleKeyDown(e){
 
     if (e.key === "Enter") {
@@ -39,10 +50,7 @@ class SearchBar extends React.Component{
       this.setState({inputVal:''});
 
     } else if (e.key === "ArrowDown") {
-      if (this.state.searchIdx === this.matches().slice(0,10).length) {
-        let newIdx = this.matches().slice(0,10).length
-        this.setState({searchIdx: newIdx})
-      } else {
+      if (this.state.searchIdx < this.matches().slice(0,10).length-1) {
         let newIdx = (this.state.searchIdx + 1)
         this.setState({searchIdx: newIdx})
       }
@@ -88,7 +96,11 @@ class SearchBar extends React.Component{
     const results = this.matches().slice(0,10).map((result,idx) => {
       let stockshow = `/stocks/${result.id}`
       return (
-        <li className={this.state.searchIdx===idx ? "pick-me" : ""} key={result.id}><Link onClick={this.handleSubmit} to={stockshow}>{result.name}</Link></li>
+        <Link to={stockshow} key={result.id}>
+          <li onMouseOver={this.handleMouse} className={this.state.searchIdx===idx ? "pick-me" : idx }
+            onClick={this.handleSubmit}
+            >{result.name}</li>
+        </Link>
       );
     });
 

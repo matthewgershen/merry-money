@@ -61,5 +61,9 @@
   }
   .pick-me{
     background-color: lightgray;
+
+    &:hover{
+      cursor: pointer;
+    }
   }
 }
