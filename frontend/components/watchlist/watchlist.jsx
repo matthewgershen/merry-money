@@ -17,6 +17,7 @@ class Watchlist extends React.Component{
 
 
   render(){
+    
     if (Object.keys(this.props.companies).length === 0 || !this.props.watchlist.length) {
       return (
         <div className="watchlist">
@@ -28,7 +29,12 @@ class Watchlist extends React.Component{
       const watchlistItems = this.props.watchlist.map((item,idx)=>{
         let stockshow = `/stocks/${item.company_id}`
         return (
-          <li key={item.id}><Link to={stockshow}>{this.props.companies[item.company_id].symbol}</Link></li>
+          <Link to={stockshow} key={item.id}>
+            <li>
+              <div>{this.props.companies[item.company_id].symbol}</div>
+              <div>{item.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</div>
+            </li>
+          </Link>
         );
       });
       return(

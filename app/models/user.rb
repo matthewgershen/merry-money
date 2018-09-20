@@ -31,12 +31,16 @@ class User < ApplicationRecord
   has_many :transactions
   has_many :portfolio_snapshots
 
+  def total_portfolio_value
+    self.cash + self.holdings_value
+  end
+
   def holdings_value
     value = 0
     self.portfolio_holdings.each do |asset|
       id = asset[0]
-      symbol = Company.find(id).symbol
-      price = PortfolioSnapshot.get_price(symbol)
+      comp = Company.find(id)
+      price = comp.get_price
       shares = asset[1]
       value += (shares * price)
     end
