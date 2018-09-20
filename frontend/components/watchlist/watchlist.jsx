@@ -53,17 +53,19 @@ class Watchlist extends React.Component{
 
 
         return (
-          <Link to={stockshow} key={item.id}>
-            <li>
-              <span>{this.props.companies[item.company_id].symbol}</span>
-              <LineChart width={75} height={50} data={data}>
-                <Line type="monotone" dataKey="close" stroke={stroke} dot={false}/>
-                <XAxis dataKey="date" hide={true}/>
-                <YAxis  domain={[min,max]} hide={true}/>
-              </LineChart>
-              <span>{item.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</span>
-            </li>
-          </Link>
+          <div key={item.id} className="items">
+            <Link to={stockshow}>
+              <li>
+                <span>{this.props.companies[item.company_id].symbol}</span>
+                <LineChart width={75} height={50} data={data}>
+                  <Line type="monotone" dataKey="close" stroke={stroke} dot={false}/>
+                  <XAxis dataKey="date" hide={true}/>
+                  <YAxis  domain={[min,max]} hide={true}/>
+                </LineChart>
+                <span>{item.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</span>
+              </li>
+            </Link>
+          </div>
         );
       });
       return(
