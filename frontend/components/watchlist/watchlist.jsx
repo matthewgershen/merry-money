@@ -17,7 +17,6 @@ class Watchlist extends React.Component{
 
 
   render(){
-    
     if (Object.keys(this.props.companies).length === 0 || !this.props.watchlist.length) {
       return (
         <div className="watchlist">
