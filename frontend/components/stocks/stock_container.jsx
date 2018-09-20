@@ -46,7 +46,7 @@ class Stock extends React.Component{
       const color = this.props.color
       const bColor = color === "#21ce99" ? "rgb(33,206,153, .15)" : "rgb(244,85,49, .15)"
 
-      if (!this.props.stock.chart[0]) {
+      if (!this.props.stock.chart[0] ) {
         return (<div></div>);
       } else {
         return(
