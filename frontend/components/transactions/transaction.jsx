@@ -85,7 +85,7 @@ class Transaction extends React.Component{
           </div>
           <button style={{backgroundColor: color}} onClick={this.handleSubmit}>Submit Buy Order</button>
             {this.props.errors.transaction.length > 0 &&
-              <p className="errors">{this.props.errors.transaction}</p>
+              <p className="transaction-errors">{this.props.errors.transaction}</p>
             }
           <span className="available" >{this.props.buyingPower.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} Buying Power Available</span>
       </div>
@@ -116,7 +116,7 @@ class Transaction extends React.Component{
           </div>
           <button style={{backgroundColor: color}} onClick={this.handleSubmit}>Submit Sell Order</button>
             {this.props.errors.transaction.length > 0 &&
-              <p className="errors">{this.props.errors.transaction}</p>
+              <p className="transaction-errors">{this.props.errors.transaction}</p>
             }
           <span className="available" >{this.props.sharesOwned} Shares Available</span>
       </div>

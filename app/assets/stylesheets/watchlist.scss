@@ -11,13 +11,13 @@
   box-shadow: 0 0 4px 1px rgba(0,0,0,.04), 0 3px 24px rgba(48,51,51,.15);
 
   li {
-    margin: 24px;
+    padding: 12px;
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
 
     span{
-      vertical-align:middle;
+      margin-top: 15px;
     }
   }
 
@@ -30,4 +30,10 @@
     font-weight: 600;
   }
 
+  .items{
+    &:hover{
+      background-color: rgba(247, 247, 247,.5);
+      cursor: pointer;
+    }
+  }
 }

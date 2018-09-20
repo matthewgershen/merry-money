@@ -7,6 +7,11 @@ class Chart extends React.Component{
 
   }
 
+  componentDidMount(){
+
+
+  }
+
   componentDidUpdate(previousProps){
     const data = this.props.data
     const first = data[0].close
