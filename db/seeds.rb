@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-# Company.destroy_all
-#
-# CSV.foreach("lib/data/company_seed.csv") do |row|
-#   Company.create(symbol:row[0],name:row[1])
-# end
+Company.destroy_all
+
+CSV.foreach("lib/data/company_seed.csv") do |row|
+  Company.create(symbol:row[0],name:row[1])
+end
 
 User.destroy_all
 
