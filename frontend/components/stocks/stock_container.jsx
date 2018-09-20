@@ -32,15 +32,31 @@ class Stock extends React.Component{
         this.props.fetchStockInfo(action.company.symbol))
         .then(action => {
           return this.props.fetchChart(action.stockInfo.company.symbol,"1y")
-        });
+        }).then(action =>
+          this.setState({range: "1y", rangeShow: "Past Year"}))
     }
   }
 
   componentDidUpdate(previousProps){
     if (!!this.props.stock.chart[0]) {
+      const find_first_not_null = (data) => {
+        for (var i = 0; i < data.length; i++) {
+          if (!!data[i].close) {
+            return data[i].close
+          }
+        }
+      }
+
+      const find_last_not_null = (data) => {
+        for (var i = 1; i < data.length; i++) {
+          if (!!data[data.length - i].close) {
+            return data[data.length - i].close
+          }
+        }
+      }
       const data = this.props.stock.chart
-      const first = data[0].close
-      const last = data[data.length - 1].close
+      const first = find_first_not_null(data)
+      const last = find_last_not_null(data)
       const stroke = (last > first) ? "#21ce99" : "#f45531";
       if (stroke !== this.props.color){
         this.props.updateColor(stroke)
@@ -51,7 +67,6 @@ class Stock extends React.Component{
   handleChartClick(event,range, rangeShow){
     this.props.fetchChart(this.props.stock.company.symbol,range)
     this.setState({range: range, rangeShow: rangeShow});
-    $('button').toggleClass('active').siblings('button').removeClass('active')
   }
 
   render(){
