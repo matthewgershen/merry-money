@@ -78,3 +78,8 @@ export const fetchStockInfo = (symbol) => dispatch => (
   CompanyApiUtil.fetchStockInfo(symbol).then((stockInfo) =>
   dispatch(receiveStockInfo(stockInfo)))
 );
+
+export const fetchSearch = (query) => dispatch => (
+  CompanyApiUtil.fetchSearch(query).then((companies) =>
+  dispatch(receiveAllCompanies(companies)))
+);

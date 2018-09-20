@@ -5,6 +5,14 @@ export const fetchCompany = (id) => {
   });
 };
 
+export const fetchSearch = (query) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/companies/search',
+    data: {query}
+  });
+};
+
 export const fetchAllCompanies = () => {
   return $.ajax({
     method: 'GET',

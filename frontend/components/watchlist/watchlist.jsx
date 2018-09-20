@@ -14,6 +14,7 @@ class Watchlist extends React.Component{
 
   componentDidMount(){
     this.props.fetchWatchlistMemberships();
+
   }
 
 
@@ -106,7 +107,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    fetchWatchlistMemberships: () => dispatch(fetchWatchlistMemberships())
+    fetchWatchlistMemberships: () => dispatch(fetchWatchlistMemberships()),
+    fetchCompany: (id) => dispatch(fetchCompany(id))
   };
 };
 

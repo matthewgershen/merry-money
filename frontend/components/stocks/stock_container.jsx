@@ -100,7 +100,7 @@ class Stock extends React.Component{
             <CompanyInfo stockInfo={this.props.stock.stockInfo} news={this.props.news}/>
             <News search={this.props.stock.company.name}/>
           </div>
-          <WatchlistButton contprops={this.props} color={this.props.color}/>
+          <WatchlistButton contprops={this.props} watchlist={this.props.watchlist} color={this.props.color}/>
         </div>
         );
       }
