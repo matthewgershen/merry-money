@@ -4,4 +4,10 @@ class Company < ApplicationRecord
 
   has_many :watchlist_memberships
 
+  def get_price
+    day = Time.now.strftime("%Y%m%d")
+    response = HTTParty.get("https://api.iextrading.com/1.0/stock/#{self.symbol}/chart/date/#{day}")
+    response.last["close"]
+  end
+
 end
