@@ -118,7 +118,7 @@ class Transaction extends React.Component{
             {this.props.errors.transaction.length > 0 &&
               <p className="transaction-errors">{this.props.errors.transaction}</p>
             }
-          <span className="available" >{this.props.sharesOwned} Shares Available</span>
+          <span className="available" >{this.props.sharesOwned > 0 ? this.props.sharesOwned : 0} Shares Available</span>
       </div>
       );
     }
@@ -129,7 +129,7 @@ class Transaction extends React.Component{
 
 
 const mapStateToProps = (state) => {
-  if ( !state.entities.users[state.session.id].buyingPower ||
+  if (
     !state.entities.stock.company.symbol ||
     !state.entities.stock.stockInfo.quote) {
     return {
