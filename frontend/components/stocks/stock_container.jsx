@@ -82,6 +82,7 @@ class Stock extends React.Component{
 
 
 const mapStateToProps = (state, ownProps) => {
+  
   return {
     id: ownProps.match.params.id,
     stock: state.entities.stock,

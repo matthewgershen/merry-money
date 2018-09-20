@@ -87,7 +87,7 @@ class Transaction extends React.Component{
             {this.props.errors.transaction.length > 0 &&
               <p className="errors">{this.props.errors.transaction}</p>
             }
-          <div className="available" >{this.props.buyingPower.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} Buying Power Available</div>
+          <span className="available" >{this.props.buyingPower.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} Buying Power Available</span>
       </div>
       );
     } else {

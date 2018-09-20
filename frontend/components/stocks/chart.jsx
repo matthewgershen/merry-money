@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 class Chart extends React.Component{
   constructor(props){
@@ -12,7 +12,7 @@ class Chart extends React.Component{
     const first = data[0].close
     const last = data[data.length - 1].close
     const stroke = (last > first) ? "#21ce99" : "#f45531";
-    if (stroke !== previousProps.color){
+    if (stroke !== this.props.color){
       this.props.updateColor(stroke)
     }
   }
