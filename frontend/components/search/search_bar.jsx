@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAllCompanies } from '../../actions/company_actions';
+import { fetchSearch } from '../../actions/company_actions';
 import { Link, withRouter } from 'react-router-dom';
+import { selectCompanies } from './../../reducers/selectors'
 
 
 
@@ -10,26 +11,40 @@ class SearchBar extends React.Component{
     super(props);
     this.state = {
       inputVal: '',
-      searchIdx: 0
+      searchIdx: 0,
+      searched: []
     };
     this.handleInput = this.handleInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleMouse = this.handleMouse.bind(this)
+    this.handleBlur = this.handleBlur.bind(this)
 
 
   }
 
-  componentDidMount(){
-    this.props.fetchAllCompanies()
-  }
 
   handleInput(e){
     e.preventDefault()
     this.setState({inputVal: e.currentTarget.value});
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId)
+    }
+    this.timeoutId = setTimeout(()=> {
+      this.props.fetchSearch(this.state.inputVal).then((action)=> {
+        this.setState({searched:Object.values(action.companies)});
+          })},500)
+
+
+  }
+
+  handleBlur(){
+    this.setState({searched: []});
+    this.setState({inputVal:''});
   }
 
   handleSubmit(){
+    debugger
     this.setState({inputVal:''});
   }
 
@@ -45,12 +60,12 @@ class SearchBar extends React.Component{
   handleKeyDown(e){
 
     if (e.key === "Enter") {
-      let newId = this.matches()[this.state.searchIdx].id
+      let newId = this.state.searched[this.state.searchIdx].id
       this.props.history.push(`/stocks/${newId}`)
       this.setState({inputVal:''});
 
     } else if (e.key === "ArrowDown") {
-      if (this.state.searchIdx < this.matches().slice(0,10).length-1) {
+      if (this.state.searchIdx < this.state.searched.slice(0,10).length-1) {
         let newIdx = (this.state.searchIdx + 1)
         this.setState({searchIdx: newIdx})
       }
@@ -68,52 +83,48 @@ class SearchBar extends React.Component{
   }
 
   handleEnter(){
-    this.matches()[this.state.searchIdx]
+    debugger
+    this.state.searched[this.state.searchIdx]
 
   }
 
 
-  matches() {
-   const matches = [];
-   if (this.state.inputVal.length === 0) {
-     return []
-   }
-
-   Object.values(this.props.companies).forEach(company => {
-     if (company.name.toLowerCase().includes(this.state.inputVal.toLowerCase())) {
-       matches.push(company);
-     }
-   });
-
-   if (matches.length === 0) {
-     matches.push({name:'No matches'});
-   }
-
-   return matches;
- }
 
   render(){
-    const results = this.matches().slice(0,10).map((result,idx) => {
-      let stockshow = `/stocks/${result.id}`
-      return (
-        <Link to={stockshow} key={result.id}>
-          <li onMouseOver={this.handleMouse} className={this.state.searchIdx===idx ? "pick-me" : idx }
-            onClick={this.handleSubmit}
-            >{result.name}</li>
-        </Link>
-      );
-    });
-
-    return (
-      <div>
+    if (this.state.inputVal === "") {
+      return (<div>
         <input value={this.state.inputVal}
           placeholder="Search"
           onChange={this.handleInput}
           onKeyDown={this.handleKeyDown}
+          onBlur={this.handleBlur}
           />
-        <ul className="search-results">{results}</ul>
       </div>
-    )
+      )
+    } else {
+      const results = this.state.searched.slice(0,10).map((result,idx) => {
+        let stockshow = `/stocks/${result.id}`
+        return (
+          <Link to={stockshow} key={result.id}>
+            <li onMouseOver={this.handleMouse} className={this.state.searchIdx===idx ? "pick-me" : idx }
+              onClick={this.handleSubmit}
+              >{result.name}</li>
+          </Link>
+        );
+      });
+
+      return (
+        <div>
+          <input value={this.state.inputVal}
+            placeholder="Search"
+            onChange={this.handleInput}
+            onKeyDown={this.handleKeyDown}
+            onBlur={this.handleBlur}
+            />
+          <ul className="search-results">{results}</ul>
+        </div>
+      )
+    }
   }
 
 
@@ -125,13 +136,13 @@ class SearchBar extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    companies: state.entities.companies
+    companies: selectCompanies(state)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllCompanies: () => dispatch(fetchAllCompanies())
+    fetchSearch: (query) => dispatch(fetchSearch(query))
   }
 }
 

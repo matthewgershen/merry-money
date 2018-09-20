@@ -10,4 +10,9 @@ class Api::CompaniesController < ApplicationController
     render :index
   end
 
+  def search
+    @companies = Company.filter_companies(params[:query])
+    render :index
+  end
+
 end

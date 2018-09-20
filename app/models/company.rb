@@ -15,4 +15,8 @@ class Company < ApplicationRecord
     response = HTTParty.get("https://api.iextrading.com/1.0/stock/#{self.symbol}/chart/date/#{day}")
     response.parsed_response
   end
+
+  def self.filter_companies(query)
+    Company.where('name ILIKE ?',"%#{query}%")
+  end
 end

@@ -5,10 +5,11 @@ export const RECEIVE_WATCHLIST_MEMBERSHIP = "CREATE_WATCHLIST_MEMBERSHIP";
 export const DELETE_WATCHLIST_MEMBERSHIP = "REMOVE_WATCHLIST_MEMBERSHIP";
 
 
-const receiveWatchlist= (watchlist) => {
+const receiveWatchlist= ({watchlist,companies}) => {
   return {
     type: RECEIVE_WATCHLIST,
-    watchlist
+    watchlist,
+    companies
   };
 };
 
@@ -27,8 +28,8 @@ const deleteWatchlistMembership = (watchlist_membership) => {
 };
 
 export const fetchWatchlistMemberships = () => dispatch => (
-  WatchlistApiUtil.fetchWatchlistMemberships().then((watchlist) =>
-  dispatch(receiveWatchlist(watchlist)))
+  WatchlistApiUtil.fetchWatchlistMemberships().then((payload) =>
+  dispatch(receiveWatchlist(payload)))
 );
 
 export const createWatchlistMembership = (company_id) => dispatch => (

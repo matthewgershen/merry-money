@@ -31,6 +31,10 @@ class User < ApplicationRecord
   has_many :transactions
   has_many :portfolio_snapshots
 
+  has_many :watched_companies,
+  through: :watchlist_memberships,
+  source: :company
+
   def total_portfolio_value
     self.cash + self.holdings_value
   end
