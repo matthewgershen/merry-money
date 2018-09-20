@@ -7,10 +7,6 @@ class Chart extends React.Component{
 
   }
 
-  componentDidMount(){
-
-
-  }
 
   componentDidUpdate(previousProps){
     const data = this.props.data
@@ -41,7 +37,7 @@ class Chart extends React.Component{
         <span className="range">{this.props.rangeShow}</span>
       </div>
       <LineChart width={675} height={200} data={data}>
-        <Line type="monotone" dataKey="close" stroke={this.props.color} dot={false}/>
+        <Line connectNulls={true} type="monotone" dataKey="close" stroke={this.props.color} dot={false}/>
         <Tooltip />
         <XAxis dataKey="date" hide={true}/>
         <YAxis  domain={[min,max]} hide={true}/>
