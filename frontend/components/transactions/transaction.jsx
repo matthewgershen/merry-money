@@ -118,7 +118,7 @@ class Transaction extends React.Component{
             {this.props.errors.transaction.length > 0 &&
               <p className="errors">{this.props.errors.transaction}</p>
             }
-          <div className="available" >{this.props.sharesOwned} Shares Available</div>
+          <span className="available" >{this.props.sharesOwned} Shares Available</span>
       </div>
       );
     }
