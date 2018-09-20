@@ -8,15 +8,7 @@ class Chart extends React.Component{
   }
 
 
-  componentDidUpdate(previousProps){
-    const data = this.props.data
-    const first = data[0].close
-    const last = data[data.length - 1].close
-    const stroke = (last > first) ? "#21ce99" : "#f45531";
-    if (stroke !== this.props.color){
-      this.props.updateColor(stroke)
-    }
-  }
+  
 
   render(){
 
