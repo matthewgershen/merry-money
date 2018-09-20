@@ -7,13 +7,14 @@
   font-size: 13px;
   letter-spacing: .25px;
   line-height: 19px;
-  font-weight: 600;
+  font-weight:500;
   box-shadow: 0 0 4px 1px rgba(0,0,0,.04), 0 3px 24px rgba(48,51,51,.15);
 
   li {
     margin: 24px;
     display: flex;
     justify-content: space-between;
+    vertical-align: middle;
 
     span{
       vertical-align:middle;
@@ -26,6 +27,7 @@
 
   h3 {
     margin-left: 24px;
+    font-weight: 600;
   }
 
 }

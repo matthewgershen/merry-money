@@ -18,7 +18,19 @@ class Watchlist extends React.Component{
 
 
   render(){
-    if (Object.keys(this.props.companies).length === 0 || !this.props.watchlist.length) {
+      const priceCheck = (obj) => {
+        let check = 0
+        obj.forEach((item) => {
+          if (!item.price) {
+            check += 1
+          }
+        })
+        return check
+      }
+
+    if (Object.keys(this.props.companies).length === 0 ||
+        !this.props.watchlist.length ||
+        (priceCheck(this.props.watchlist)) > 0) {
       return (
         <div className="watchlist">
           <h3>Watchlist</h3>

@@ -36,9 +36,10 @@ class Stock extends React.Component{
     }
   }
 
-  handleChartClick(range, rangeShow){
+  handleChartClick(event,range, rangeShow){
     this.props.fetchChart(this.props.stock.company.symbol,range)
     this.setState({range: range, rangeShow: rangeShow});
+    $('button').toggleClass('active').siblings('button').removeClass('active')
   }
 
   render(){
@@ -62,11 +63,11 @@ class Stock extends React.Component{
             <h1>{this.props.stock.stockInfo.quote.latestPrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
             <Chart data={this.props.stock.chart} rangeShow={this.state.rangeShow} color={this.props.color} updateColor={this.props.updateColor}/>
             <div className="chart-ranges">
-              <button onClick={()=>this.handleChartClick("1d","Today")}>1D</button>
-              <button onClick={()=>this.handleChartClick("1m","Past Month")}>1M</button>
-              <button onClick={()=>this.handleChartClick("3m","Past 3 Months")}>3M</button>
-              <button onClick={()=>this.handleChartClick("1y", "Past Year")}>1Y</button>
-              <button onClick={()=>this.handleChartClick("5y", "Past 5 Years")}>5Y</button>
+              <button onClick={()=>this.handleChartClick(event,"1d","Today")}>1D</button>
+              <button onClick={()=>this.handleChartClick(event,"1m","Past Month")}>1M</button>
+              <button onClick={()=>this.handleChartClick(event,"3m","Past 3 Months")}>3M</button>
+              <button onClick={()=>this.handleChartClick(event,"1y", "Past Year")}>1Y</button>
+              <button onClick={()=>this.handleChartClick(event,"5y", "Past 5 Years")}>5Y</button>
             </div>
             <CompanyInfo stockInfo={this.props.stock.stockInfo} news={this.props.news}/>
             <News search={this.props.stock.company.name}/>
@@ -82,7 +83,7 @@ class Stock extends React.Component{
 
 
 const mapStateToProps = (state, ownProps) => {
-  
+
   return {
     id: ownProps.match.params.id,
     stock: state.entities.stock,
