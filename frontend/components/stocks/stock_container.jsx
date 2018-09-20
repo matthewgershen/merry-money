@@ -36,6 +36,18 @@ class Stock extends React.Component{
     }
   }
 
+  componentDidUpdate(previousProps){
+    if (!!this.props.stock.chart[0]) {
+      const data = this.props.stock.chart
+      const first = data[0].close
+      const last = data[data.length - 1].close
+      const stroke = (last > first) ? "#21ce99" : "#f45531";
+      if (stroke !== this.props.color){
+        this.props.updateColor(stroke)
+      }
+    }
+  }
+
   handleChartClick(event,range, rangeShow){
     this.props.fetchChart(this.props.stock.company.symbol,range)
     this.setState({range: range, rangeShow: rangeShow});
@@ -46,7 +58,8 @@ class Stock extends React.Component{
       const color = this.props.color
       const bColor = color === "#21ce99" ? "rgb(33,206,153, .15)" : "rgb(244,85,49, .15)"
 
-      if (!this.props.stock.chart[0] ) {
+
+      if (!this.props.stock.chart[0] || (this.props.color === "")  ) {
         return (<div></div>);
       } else {
         return(
