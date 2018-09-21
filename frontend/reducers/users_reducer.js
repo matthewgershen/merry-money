@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from './../actions/session_actions';
+import { RECEIVE_CURRENT_USER,LOGOUT_CURRENT_USER } from './../actions/session_actions';
 import { RECEIVE_TRANSACTION } from './../actions/transaction_actions';
 import merge from 'lodash/merge';
 
@@ -13,6 +13,8 @@ const usersReducer = (state = {}, action) => {
       newUser.portfolioHoldings = action.transaction.portfolioHoldings;
       const newState = merge({}, state, {[action.transaction.user_id]: newUser});
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }

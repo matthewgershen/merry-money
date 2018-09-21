@@ -1,4 +1,5 @@
 import { RECEIVE_WATCHLIST,RECEIVE_WATCHLIST_MEMBERSHIP,DELETE_WATCHLIST_MEMBERSHIP } from './../actions/watchlist_memberships_actions';
+import { LOGOUT_CURRENT_USER } from './../actions/session_actions';
 import merge from 'lodash/merge';
 
 const watchlistReducer = (state = {}, action) => {
@@ -12,6 +13,8 @@ const watchlistReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.watchlist_membership.id];
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }
