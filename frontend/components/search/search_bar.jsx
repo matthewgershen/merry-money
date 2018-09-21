@@ -83,7 +83,6 @@ class SearchBar extends React.Component{
   }
 
   handleEnter(){
-    debugger
     this.state.searched[this.state.searchIdx]
 
   }
