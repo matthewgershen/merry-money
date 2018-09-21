@@ -31,7 +31,8 @@ class Watchlist extends React.Component{
 
     if (Object.keys(this.props.companies).length === 0 ||
         !this.props.watchlist.length ||
-        (priceCheck(this.props.watchlist)) > 0) {
+        (priceCheck(this.props.watchlist)) > 0 ||
+        (!this.props.watchlist[0].chart.length > 0)) {
       return (
         <div className="watchlist">
           <h3>Watchlist</h3>
