@@ -11,8 +11,8 @@ class Company < ApplicationRecord
   end
 
   def get_chart
-    day = Time.now.strftime("%Y%m%d")
-    response = HTTParty.get("https://api.iextrading.com/1.0/stock/#{self.symbol}/chart/date/#{day}")
+    day = Date.yesterday.strftime("%Y%m%d")
+    response = HTTParty.get("https://api.iextrading.com/1.0/stock/#{self.symbol}/chart/1d")
     response.parsed_response
   end
 
