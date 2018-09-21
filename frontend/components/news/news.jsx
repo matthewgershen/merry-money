@@ -15,7 +15,6 @@ class News extends React.Component{
 
 
   render(){
-
     if (!this.props.news.status) {
       return (<div></div>);
     } else {

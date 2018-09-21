@@ -18,7 +18,7 @@ class SearchBar extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleMouse = this.handleMouse.bind(this)
-    this.handleBlur = this.handleBlur.bind(this)
+    // this.handleBlur = this.handleBlur.bind(this)
 
 
   }
@@ -38,14 +38,14 @@ class SearchBar extends React.Component{
 
   }
 
-  handleBlur(){
-    this.setState({searched: []});
-    this.setState({inputVal:''});
-  }
+  // handleBlur(){
+  //   this.setState({searched: []});
+  //   this.setState({inputVal:''});
+  // }
 
   handleSubmit(){
-    debugger
     this.setState({inputVal:''});
+    this.setState({searched: []});
   }
 
   handleMouse(e){
@@ -63,7 +63,7 @@ class SearchBar extends React.Component{
       let newId = this.state.searched[this.state.searchIdx].id
       this.props.history.push(`/stocks/${newId}`)
       this.setState({inputVal:''});
-
+      this.setState({searched: []});
     } else if (e.key === "ArrowDown") {
       if (this.state.searchIdx < this.state.searched.slice(0,10).length-1) {
         let newIdx = (this.state.searchIdx + 1)
@@ -105,11 +105,12 @@ class SearchBar extends React.Component{
       const results = this.state.searched.slice(0,10).map((result,idx) => {
         let stockshow = `/stocks/${result.id}`
         return (
-          <Link to={stockshow} key={result.id}>
-            <li onMouseOver={this.handleMouse} className={this.state.searchIdx===idx ? "pick-me" : idx }
-              onClick={this.handleSubmit}
-              >{result.name}</li>
-          </Link>
+          <div onClick={this.handleSubmit} key={result.id}>
+            <Link to={stockshow} >
+              <li onMouseOver={this.handleMouse} className={this.state.searchIdx===idx ? "pick-me" : idx }
+                >{result.name}</li>
+            </Link>
+          </div>
         );
       });
 
@@ -119,7 +120,6 @@ class SearchBar extends React.Component{
             placeholder="Search"
             onChange={this.handleInput}
             onKeyDown={this.handleKeyDown}
-            onBlur={this.handleBlur}
             />
           <ul className="search-results">{results}</ul>
         </div>
