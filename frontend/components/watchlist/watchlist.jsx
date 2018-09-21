@@ -51,7 +51,6 @@ class Watchlist extends React.Component{
             }
           }
         }
-        debugger
         const find_last_not_null = (data) => {
           for (var i = 1; i < data.length; i++) {
             if (!!data[data.length - i].close) {
