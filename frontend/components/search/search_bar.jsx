@@ -97,7 +97,6 @@ class SearchBar extends React.Component{
           placeholder="Search"
           onChange={this.handleInput}
           onKeyDown={this.handleKeyDown}
-          onBlur={this.handleBlur}
           />
       </div>
       )
