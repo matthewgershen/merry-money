@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSearch } from '../../actions/company_actions';
 import { Link, withRouter } from 'react-router-dom';
-import { selectCompanies } from './../../reducers/selectors'
+import { selectCompanies } from './../../reducers/selectors';
 
 
 
@@ -14,10 +14,10 @@ class SearchBar extends React.Component{
       searchIdx: 0,
       searched: []
     };
-    this.handleInput = this.handleInput.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
-    this.handleMouse = this.handleMouse.bind(this)
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleMouse = this.handleMouse.bind(this);
     // this.handleBlur = this.handleBlur.bind(this)
 
 
@@ -25,15 +25,15 @@ class SearchBar extends React.Component{
 
 
   handleInput(e){
-    e.preventDefault()
+    e.preventDefault();
     this.setState({inputVal: e.currentTarget.value});
     if (this.timeoutId) {
-      clearTimeout(this.timeoutId)
+      clearTimeout(this.timeoutId);
     }
     this.timeoutId = setTimeout(()=> {
       this.props.fetchSearch(this.state.inputVal).then((action)=> {
         this.setState({searched:Object.values(action.companies)});
-          })},500)
+      });},500);
 
 
   }
@@ -49,7 +49,7 @@ class SearchBar extends React.Component{
   }
 
   handleMouse(e){
-    let idx = parseInt(e.currentTarget.attributes.class.value)
+    let idx = parseInt(e.currentTarget.attributes.class.value);
     if (!isNaN(idx)) {
       this.setState({searchIdx: idx});
     }
@@ -60,21 +60,21 @@ class SearchBar extends React.Component{
   handleKeyDown(e){
 
     if (e.key === "Enter") {
-      let newId = this.state.searched[this.state.searchIdx].id
-      this.props.history.push(`/stocks/${newId}`)
+      let newId = this.state.searched[this.state.searchIdx].id;
+      this.props.history.push(`/stocks/${newId}`);
       this.setState({inputVal:''});
       this.setState({searched: []});
     } else if (e.key === "ArrowDown") {
       if (this.state.searchIdx < this.state.searched.slice(0,10).length-1) {
-        let newIdx = (this.state.searchIdx + 1)
-        this.setState({searchIdx: newIdx})
+        let newIdx = (this.state.searchIdx + 1);
+        this.setState({searchIdx: newIdx});
       }
     } else if (e.key === "ArrowUp") {
       if (this.state.searchIdx === 0) {
-        this.setState({searchIdx: 0})
+        this.setState({searchIdx: 0});
       } else {
-        let newIdx = (this.state.searchIdx - 1)
-        this.setState({searchIdx: newIdx})
+        let newIdx = (this.state.searchIdx - 1);
+        this.setState({searchIdx: newIdx});
       }
     } else {
       this.setState({searchIdx: 0});
@@ -83,8 +83,7 @@ class SearchBar extends React.Component{
   }
 
   handleEnter(){
-    this.state.searched[this.state.searchIdx]
-
+    this.state.searched[this.state.searchIdx];
   }
 
 
@@ -98,10 +97,10 @@ class SearchBar extends React.Component{
           onKeyDown={this.handleKeyDown}
           />
       </div>
-      )
+    );
     } else {
       const results = this.state.searched.slice(0,10).map((result,idx) => {
-        let stockshow = `/stocks/${result.id}`
+        let stockshow = `/stocks/${result.id}`;
         return (
           <div onClick={this.handleSubmit} key={result.id}>
             <Link to={stockshow} >
@@ -121,7 +120,7 @@ class SearchBar extends React.Component{
             />
           <ul className="search-results">{results}</ul>
         </div>
-      )
+      );
     }
   }
 
@@ -135,13 +134,13 @@ class SearchBar extends React.Component{
 const mapStateToProps = (state) => {
   return {
     companies: selectCompanies(state)
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchSearch: (query) => dispatch(fetchSearch(query))
-  }
-}
+  };
+};
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(SearchBar));
