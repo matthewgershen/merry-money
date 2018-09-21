@@ -11,7 +11,11 @@ const companiesIndexReducer = (state = {},action) => {
     case RECEIVE_COMPANY:
       return merge({}, state, {[action.company.id]:action.company});
     case RECEIVE_WATCHLIST:
-      return action.companies;
+      if (!action.companies) {
+        return {};
+      } else {
+        return action.companies;
+      }
     default:
       return state;
   }
