@@ -10,11 +10,6 @@ class WatchlistButton extends React.Component{
 
     };
 
-  // componentDidMount(){
-  //   this.props.fetchWatchlistMemberships();
-  // }
-
-
   render(){
     const color = this.props.color
 
