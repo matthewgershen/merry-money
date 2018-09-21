@@ -31,8 +31,7 @@ class Watchlist extends React.Component{
 
     if (Object.keys(this.props.companies).length === 0 ||
         !this.props.watchlist.length ||
-        (priceCheck(this.props.watchlist)) > 0 ||
-        (!this.props.watchlist[0].chart.length > 0)) {
+        (priceCheck(this.props.watchlist)) > 0) {
       return (
         <div className="watchlist">
           <h3>Watchlist</h3>
@@ -52,7 +51,7 @@ class Watchlist extends React.Component{
             }
           }
         }
-
+        debugger
         const find_last_not_null = (data) => {
           for (var i = 1; i < data.length; i++) {
             if (!!data[data.length - i].close) {
