@@ -13,6 +13,12 @@ class News extends React.Component{
     this.props.fetchNews(this.props.search);
   }
 
+  componentWillReceiveProps(nextProps) {
+
+    if (this.props.search !== nextProps.search) {
+      this.props.fetchNews(nextProps.search);
+    }
+  }
 
   render(){
     if (!this.props.news.status) {
