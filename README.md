@@ -25,10 +25,11 @@ Merry-Money is a clone of Robinhood, an app that allows you to invest in the sto
 
    * Detailed portfolio information
    * More stock detail for analysis
-   * Tags and collections to compare like companies
+   * Tags and collections to find/compare similar companies
    * Realtime portfolio value tracking
    * Dashboard news tailored to portfolio holdings
    * Responsive site
+   * Optimize batch requests to IEX API for faster loading
 
 
 ### Demos
@@ -39,7 +40,8 @@ Merry-Money is a clone of Robinhood, an app that allows you to invest in the sto
 
 ##### Stock Details
 
-*giphy here*
+<img src="https://media.giphy.com/media/3kzuuuvw4k6qkaR2Wa/giphy.gif"
+alt="stock details" width="480" height="262" />
 
 
 ### Code Samples
