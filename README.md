@@ -36,7 +36,8 @@ Merry-Money is a clone of Robinhood, an app that allows you to invest in the sto
 
 ##### Portfolio/Dashboard
 
-*giphy here*
+<img src="https://media.giphy.com/media/kW9AKrCobad2hO18nh/giphy.gif"
+alt="stock details" width="480" height="262" />
 
 ##### Stock Details
 
