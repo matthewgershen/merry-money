@@ -21,7 +21,7 @@ User.create(first_name: "Robin",last_name: "hood", email: "robinhood@gmail.com",
 Transaction.destroy_all
 
 Transaction.create(user_id: User.find_by(email: "robinhood@gmail.com").id, transaction_type: "deposit", price: 5000)
-Transaction.create(user_id: User.find_by(email: "robinhood@gmail.com").id, transaction_type: "deposit", price: 200000)
+Transaction.create(user_id: User.find_by(email: "robinhood@gmail.com").id, transaction_type: "deposit", price: 300000)
 Transaction.create(user_id: User.find_by(email: "robinhood@gmail.com").id, transaction_type: "withdraw", price: 22000)
 Transaction.create(user_id: User.find_by(email: "robinhood@gmail.com").id, transaction_type: "buy", company_id: Company.find_by(name: "Apple Inc.").id, shares: 100, price: 22.22)
 Transaction.create(user_id: User.find_by(email: "robinhood@gmail.com").id, transaction_type: "buy", company_id: Company.find_by(name: "Tesla Inc.").id, shares: 50, price: 22.22)
