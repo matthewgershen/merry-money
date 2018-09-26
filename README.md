@@ -2,13 +2,13 @@
 
 ### Overview
 
-Merry-Money is a clone of Robinhood, an app that allows you to invest in the stock market for free. You can research companies, put them on a watchlist to keep an eye on performance, and of course buy and sell.
+Merry-Money is a clone of Robinhood, an app that allows you to invest in the stock market for free. You can research companies, put them on a watchlist to keep an eye on performance, and buy and sell.
 
 [Live Site](http://merry-money.herokuapp.com/#/)
 
 ### Technologies Used
-* Frontend: Rails/ActiveRecord/PostgreSQL
-* Backend: React/Redux
+* Frontend: React/Redux
+* Backend: Rails/ActiveRecord/PostgreSQL
 * [IEX API](https://iextrading.com/)
 * [News API](https://newsapi.org/)
 * [Recharts](http://recharts.org/en-US/)
@@ -38,7 +38,7 @@ Merry-Money is a clone of Robinhood, an app that allows you to invest in the sto
 
 <img src="https://media.giphy.com/media/kW9AKrCobad2hO18nh/giphy.gif"
 alt="stock details" width="480" height="262" />
-
+cd
 ##### Stock Details
 
 <img src="https://media.giphy.com/media/3kzuuuvw4k6qkaR2Wa/giphy.gif"
