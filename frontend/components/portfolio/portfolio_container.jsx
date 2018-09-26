@@ -11,25 +11,25 @@ class Portfolio extends React.Component{
       range: 365,
       rangeShow: "Past Year"
     };
-    this.filterRange = this.filterRange.bind(this)
-    this.handleChartClick = this.handleChartClick.bind(this)
+    this.filterRange = this.filterRange.bind(this);
+    this.handleChartClick = this.handleChartClick.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchSnapshots()
+    this.props.fetchSnapshots();
   }
 
   filterRange() {
 
-    const filtered = []
-    let filterDay = new Date ()
-    new Date(filterDay.setDate(filterDay.getDate()-this.state.range))
+    const filtered = [];
+    let filterDay = new Date ();
+    new Date(filterDay.setDate(filterDay.getDate()-this.state.range));
     this.props.snapshots.forEach((snap)=>{
       if (new Date(snap.date) > filterDay) {
-        filtered.push(snap)
+        filtered.push(snap);
       }
-    })
-    return filtered
+    });
+    return filtered;
   }
 
   handleChartClick(range,rangeShow){
@@ -42,19 +42,19 @@ class Portfolio extends React.Component{
         <div>
 
         </div>
-      )
+      );
 
     } else {
 
-      const data = this.filterRange()
-      const max = parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) > parseFloat(current.total_value)) ? prev : current).total_value)
-      const min = parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) < parseFloat(current.total_value)) ? prev : current).total_value)
-      const first = data[0].total_value
-      const last = data[data.length - 1].total_value
+      const data = this.filterRange();
+      const max = parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) > parseFloat(current.total_value)) ? prev : current).total_value);
+      const min = parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) < parseFloat(current.total_value)) ? prev : current).total_value);
+      const first = data[0].total_value;
+      const last = data[data.length - 1].total_value;
       const stroke = (last > first) ? "#21ce99" : "#f45531";
-      const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'})
-      const percent = isNaN((last - first)/first) ? '0.00%' : (((last - first)/first) * 100).toFixed(2) + '%'
-      const sign = ((last-first) > 0) ? "+" : ""
+      const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+      const percent = isNaN((last - first)/first) ? '0.00%' : (((last - first)/first) * 100).toFixed(2) + '%';
+      const sign = ((last-first) > 0) ? "+" : "";
 
         return(
 
@@ -65,7 +65,7 @@ class Portfolio extends React.Component{
                   <span>({percent})</span>
                   <span className="range">{this.state.rangeShow}</span>
                 </div>
-            	<LineChart className="port-chart" width={675} height={200}  data={data.length > 1 ? data : []}>
+              <LineChart className="port-chart" width={675} height={200}  data={data.length > 1 ? data : []}>
                   <Line type="monotone" dataKey="total_value"  stroke={stroke} dot={false}/>
                  <XAxis dataKey="date" hide={true}/>
                  <YAxis  domain={[min,max]} hide={true}/>
@@ -91,14 +91,14 @@ class Portfolio extends React.Component{
 const mapStateToProps = (state) => {
   return{
     snapshots: state.entities.snapshots
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return{
     fetchSnapshots: () => dispatch(fetchSnapshots())
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,

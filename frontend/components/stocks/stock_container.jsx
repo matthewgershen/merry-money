@@ -4,8 +4,8 @@ import React from 'react';
 import CompanyInfo from './info';
 import Chart from './chart';
 import WatchlistButton from './watchlist_button';
-import { updateColor } from './../../actions/ui_actions'
-import News from './../news/news'
+import { updateColor } from './../../actions/ui_actions';
+import News from './../news/news';
 
 
 class Stock extends React.Component{
@@ -15,14 +15,14 @@ class Stock extends React.Component{
       range: '1y',
       rangeShow: "Past Year"
     };
-    this.handleChartClick = this.handleChartClick.bind(this)
+    this.handleChartClick = this.handleChartClick.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchCompany(this.props.id).then(action =>
       this.props.fetchStockInfo(action.company.symbol))
       .then(action => {
-        return this.props.fetchChart(action.stockInfo.company.symbol,"1y")
+        return this.props.fetchChart(action.stockInfo.company.symbol,"1y");
       });
   }
 
@@ -31,9 +31,9 @@ class Stock extends React.Component{
       this.props.fetchCompany(nextProps.id).then(action =>
         this.props.fetchStockInfo(action.company.symbol))
         .then(action => {
-          return this.props.fetchChart(action.stockInfo.company.symbol,"1y")
+          return this.props.fetchChart(action.stockInfo.company.symbol,"1y");
         }).then(action =>
-          this.setState({range: "1y", rangeShow: "Past Year"}))
+          this.setState({range: "1y", rangeShow: "Past Year"}));
     }
   }
 
@@ -42,36 +42,36 @@ class Stock extends React.Component{
       const find_first_not_null = (data) => {
         for (var i = 0; i < data.length; i++) {
           if (!!data[i].close) {
-            return data[i].close
+            return data[i].close;
           }
         }
-      }
+      };
 
       const find_last_not_null = (data) => {
         for (var i = 1; i < data.length; i++) {
           if (!!data[data.length - i].close) {
-            return data[data.length - i].close
+            return data[data.length - i].close;
           }
         }
-      }
-      const data = this.props.stock.chart
-      const first = find_first_not_null(data)
-      const last = find_last_not_null(data)
+      };
+      const data = this.props.stock.chart;
+      const first = find_first_not_null(data);
+      const last = find_last_not_null(data);
       const stroke = (last > first) ? "#21ce99" : "#f45531";
       if (stroke !== this.props.color){
-        this.props.updateColor(stroke)
+        this.props.updateColor(stroke);
       }
     }
   }
 
   handleChartClick(event,range, rangeShow){
-    this.props.fetchChart(this.props.stock.company.symbol,range)
+    this.props.fetchChart(this.props.stock.company.symbol,range);
     this.setState({range: range, rangeShow: rangeShow});
   }
 
   render(){
-      const color = this.props.color
-      const bColor = color === "#21ce99" ? "rgb(33,206,153, .15)" : "rgb(244,85,49, .15)"
+      const color = this.props.color;
+      const bColor = color === "#21ce99" ? "rgb(33,206,153, .15)" : "rgb(244,85,49, .15)";
 
 
       if (!this.props.stock.chart[0] || (this.props.color === "")  ) {
@@ -84,7 +84,7 @@ class Stock extends React.Component{
             {this.props.stock.stockInfo.company.tags.map((tag,idx)=>{
               return (
                 <li style={{color: color,backgroundColor:bColor}} className="tag" key={idx}>{tag}</li>
-              )
+              );
             })}
             </ul>
             <h1>{this.props.stock.company.name}</h1>

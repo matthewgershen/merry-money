@@ -16,28 +16,28 @@ class Chart extends React.Component{
   const find_first_not_null = (data) => {
     for (var i = 0; i < data.length; i++) {
       if (!!data[i].close) {
-        return data[i].close
+        return data[i].close;
       }
     }
-  }
+  };
 
   const find_last_not_null = (data) => {
     for (var i = 1; i < data.length; i++) {
       if (!!data[data.length - i].close) {
-        return data[data.length - i].close
+        return data[data.length - i].close;
       }
     }
-  }
+  };
 
-  const data = this.props.data
-  const max = parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close)
-  const min = parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close)
-  const first = find_first_not_null(data)
-  const last = find_last_not_null(data)
+  const data = this.props.data;
+  const max = parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
+  const min = parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
+  const first = find_first_not_null(data);
+  const last = find_last_not_null(data);
   const stroke = (last > first) ? "#21ce99" : "#f45531";
-  const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'})
-  const percent = (((last - first)/first) * 100).toFixed(2) + '%'
-  const sign = ((last-first) > 0) ? "+" : ""
+  const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+  const percent = (((last - first)/first) * 100).toFixed(2) + '%';
+  const sign = ((last-first) > 0) ? "+" : "";
 
     return(
     <div>
@@ -55,7 +55,7 @@ class Chart extends React.Component{
     </div>
     );
   }
-};
+}
 
 
 export default Chart;

@@ -44,10 +44,10 @@ class News extends React.Component{
                 </div>
               </div>
             </a>
-          )
+          );
         })}
       </div>
-      )
+    );
     }
   }
 }
@@ -55,14 +55,14 @@ class News extends React.Component{
 const mapStateToProps = (state) => {
   return{
     news: state.entities.news
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return{
     fetchNews: (search) => dispatch(fetchNews(search))
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,

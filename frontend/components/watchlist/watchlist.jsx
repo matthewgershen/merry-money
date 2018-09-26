@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchWatchlistMemberships } from './../../actions/watchlist_memberships_actions';
 import React from 'react';
-import { selectAllWatchlistMemberships } from './../../reducers/selectors'
+import { selectAllWatchlistMemberships } from './../../reducers/selectors';
 import { Link } from 'react-router-dom';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
@@ -10,7 +10,7 @@ class Watchlist extends React.Component{
   constructor(props){
     super(props);
 
-    };
+    }
 
   componentDidMount(){
     this.props.fetchWatchlistMemberships();
@@ -20,14 +20,14 @@ class Watchlist extends React.Component{
 
   render(){
       const priceCheck = (obj) => {
-        let check = 0
+        let check = 0;
         obj.forEach((item) => {
           if (!item.price) {
-            check += 1
+            check += 1;
           }
-        })
-        return check
-      }
+        });
+        return check;
+      };
 
     if (Object.keys(this.props.companies).length === 0 ||
         !this.props.watchlist.length ||
@@ -42,27 +42,27 @@ class Watchlist extends React.Component{
 
 
       const watchlistItems = this.props.watchlist.map((item,idx)=>{
-        let stockshow = `/stocks/${item.company_id}`
+        let stockshow = `/stocks/${item.company_id}`;
 
         const find_first_not_null = (data) => {
           for (var i = 0; i < data.length; i++) {
             if (!!data[i].close) {
-              return data[i].close
+              return data[i].close;
             }
           }
-        }
+        };
         const find_last_not_null = (data) => {
           for (var i = 1; i < data.length; i++) {
             if (!!data[data.length - i].close) {
-              return data[data.length - i].close
+              return data[data.length - i].close;
             }
           }
-        }
-        const data = item.chart
-        const max = parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close)
-        const min = parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close)
-        const first = find_first_not_null(data)
-        const last = find_last_not_null(data)
+        };
+        const data = item.chart;
+        const max = parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
+        const min = parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
+        const first = find_first_not_null(data);
+        const last = find_last_not_null(data);
         const stroke = (last > first) ? "#21ce99" : "#f45531";
 
 
