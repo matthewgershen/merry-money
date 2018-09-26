@@ -23,7 +23,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   after_initialize :ensure_session_token
-  after_create :create_initial_snapshot
+  after_create :create_initial_snapshot, :seed_buying_power
 
   attr_reader :password
 
@@ -102,5 +102,9 @@ class User < ApplicationRecord
 
   def create_initial_snapshot
     PortfolioSnapshot.create(user_id: self.id, cash:0,assets:0,total_value:0,date:Date.today())
+  end
+
+  def seed_buying_power
+    Transaction.create(user_id: self.id, transaction_type: "deposit", price: 100000)
   end
 end
