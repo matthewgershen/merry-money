@@ -18,7 +18,7 @@ class SearchBar extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleMouse = this.handleMouse.bind(this);
-    // this.handleBlur = this.handleBlur.bind(this)
+
 
 
   }
@@ -38,10 +38,6 @@ class SearchBar extends React.Component{
 
   }
 
-  // handleBlur(){
-  //   this.setState({searched: []});
-  //   this.setState({inputVal:''});
-  // }
 
   handleSubmit(){
     this.setState({inputVal:''});

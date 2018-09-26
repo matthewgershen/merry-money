@@ -51,8 +51,53 @@ alt="stock details" width="480" height="262" />
 
 Debouncing on search to prevent an AJAX call for each key press. Uses timeout to wait .5 seconds after the last key stroke to fetch data.
 
-*code snippet here*
+```
+handleInput(e){
+  e.preventDefault();
+  this.setState({inputVal: e.currentTarget.value});
+  if (this.timeoutId) {
+    clearTimeout(this.timeoutId);
+  }
+  this.timeoutId = setTimeout(()=> {
+    this.props.fetchSearch(this.state.inputVal).then((action)=> {
+      this.setState({searched:Object.values(action.companies)});
+    });},500);
+}
+```
 
 Highlighting selected search option based on up and down arrow presses as well as hovering with the mouse and submitting correct search on enter or click.
 
-*code snippet here*
+```
+  handleKeyDown(e){
+    if (e.key === "Enter") {
+      let newId = this.state.searched[this.state.searchIdx].id;
+      this.props.history.push(`/stocks/${newId}`);
+      this.setState({inputVal:''});
+      this.setState({searched: []});
+    } else if (e.key === "ArrowDown") {
+      if (this.state.searchIdx < this.state.searched.slice(0,10).length-1) {
+        let newIdx = (this.state.searchIdx + 1);
+        this.setState({searchIdx: newIdx});
+      }
+    } else if (e.key === "ArrowUp") {
+      if (this.state.searchIdx === 0) {
+        this.setState({searchIdx: 0});
+      } else {
+        let newIdx = (this.state.searchIdx - 1);
+        this.setState({searchIdx: newIdx});
+      }
+    } else {
+      this.setState({searchIdx: 0});
+    }
+
+  }
+```
+```
+handleMouse(e){
+  let idx = parseInt(e.currentTarget.attributes.class.value);
+  if (!isNaN(idx)) {
+    this.setState({searchIdx: idx});
+  }
+
+}
+```
