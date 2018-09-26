@@ -60,7 +60,7 @@ class SignupForm extends React.Component {
               <input className="signup-input1-2" type='text' placeholder="Last name" value={this.state.last_name} onChange={this.update('last_name')}></input>
             </div>
 
-              <input className="signup-input2" type='email' placeholder = "Email address" value={this.state.email} onChange={this.update('email')}></input>
+              <input className="signup-input2" type="email" placeholder = "Email address" value={this.state.email} onChange={this.update('email')}></input>
 
               <input className="signup-input2" placeholder="Password (min. 6 characters)" type='password' value={this.state.password} onChange={this.update('password')}></input>
 
