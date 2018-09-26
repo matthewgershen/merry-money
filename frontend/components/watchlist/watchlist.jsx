@@ -35,7 +35,7 @@ class Watchlist extends React.Component{
       return (
         <div className="watchlist">
           <h3>Watchlist</h3>
-
+            <img src={window.loading_url}/>
         </div>
       );
     } else {
