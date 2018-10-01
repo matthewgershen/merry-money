@@ -2,7 +2,8 @@ import React from 'react';
 
 
 const CompanyInfo = (props) =>{
-  const vol = (!props.stockInfo.quote.avgTotalVolume) ?  "-" : props.stockInfo.quote.avgTotalVolume.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+  const avgVol = (!props.stockInfo.quote.avgTotalVolume) ?  "-" : props.stockInfo.quote.avgTotalVolume.toLocaleString('en-US');
+  const vol = (!props.stockInfo.quote.iexVolume) ?  "-" : props.stockInfo.quote.iexVolume.toLocaleString('en-US');
   const highToday = (!props.stockInfo.quote.high) ?  "-" : props.stockInfo.quote.high.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
   const lowToday = (!props.stockInfo.quote.low) ?  "-" : props.stockInfo.quote.low.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
   const openPrice = (!props.stockInfo.quote.open) ?  "-" : props.stockInfo.quote.open.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
@@ -34,11 +35,11 @@ const CompanyInfo = (props) =>{
           </div>
           <div>
             <span>Average Volume</span>
-            <p>{vol}</p>
+            <p>{avgVol}</p>
           </div>
           <div>
             <span>Volume</span>
-            <p>{props.stockInfo.quote.iexVolume}</p>
+            <p>{vol}</p>
           </div>
           <div>
             <span>High Today</span>
