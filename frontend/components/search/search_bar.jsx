@@ -54,8 +54,7 @@ class SearchBar extends React.Component{
 
 
   handleKeyDown(e){
-
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && this.state.searched.length>0) {
       let newId = this.state.searched[this.state.searchIdx].id;
       this.props.history.push(`/stocks/${newId}`);
       this.setState({inputVal:''});
