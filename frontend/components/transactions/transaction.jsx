@@ -38,7 +38,7 @@ class Transaction extends React.Component{
         transaction1["user_id"] = this.props.user_id
         transaction1["company_id"] = this.props.company_id
         transaction1["price"] = this.props.stockInfo.quote.latestPrice
-        transaction1["shares"] = this.state.shares
+        transaction1["shares"] = Number.isInteger(this.state.shares) ? this.state.shares : 0
         transaction1["transaction_type"] = this.state.buy === true ? "buy" : "sell"
 
       const transaction2 = {}
@@ -83,7 +83,7 @@ class Transaction extends React.Component{
             <div>Estimated Cost</div>
             <div>{(this.state.shares * this.props.stockInfo.quote.latestPrice).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</div>
           </div>
-          <button style={{backgroundColor: color}} onClick={this.handleSubmit}>Submit Buy Order</button>
+          <button  style={{backgroundColor: color}} onClick={this.handleSubmit}>Submit Buy Order</button>
             {this.props.errors.transaction.length > 0 &&
               <p className="transaction-errors">{this.props.errors.transaction}</p>
             }

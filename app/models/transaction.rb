@@ -2,8 +2,10 @@ class Transaction < ApplicationRecord
 
   validates :user_id, :transaction_type, presence: true
   validates :transaction_type, inclusion: { in: %w(buy sell deposit withdraw)}
+  validate :zero_shares
   validate :sufficient_funds
   validate :sufficient_shares
+
 
   belongs_to :user
 
@@ -20,6 +22,13 @@ class Transaction < ApplicationRecord
       errors.add(:shares, "exceeds amount currently owned")
     end
   end
+
+  def zero_shares
+    if (self.transaction_type == "buy" || self.transaction_type == "sell") && ( self.shares == nil || self.shares < 1)
+      errors.add(:shares, "must be greater than 0")
+    end
+  end
+
 
 
 
