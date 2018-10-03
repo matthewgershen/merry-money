@@ -16,7 +16,7 @@ const entitiesReducer = combineReducers({
   transaction: transactionReducer,
   snapshots: portfolioSnapshotReducer,
   news: newsReducer,
-  portfolio_holdings: portfolioHoldingsReducer
+  holdings: portfolioHoldingsReducer
 });
 
 export default entitiesReducer;

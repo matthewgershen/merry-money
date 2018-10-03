@@ -6,5 +6,6 @@ current_user.portfolio_holdings.each do |asset|
     json.symbol comp.symbol
     json.shares asset[1]
     json.price comp.get_price
+    json.chart comp.get_chart
   end
 end
