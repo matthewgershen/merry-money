@@ -101,7 +101,10 @@ class Watchlist extends React.Component{
           <div key={item.id} className="items">
             <Link to={stockshow}>
               <li>
-                <span>{item.symbol}</span>
+                <div className="stock-watch">
+                  <span>{item.symbol}</span>
+                  <div>{item.shares} Shares</div>
+                </div>
                 <LineChart width={75} height={50} data={data}>
                   <Line connectNulls={true} type="monotone" dataKey="close" stroke={stroke} dot={false}/>
                   <XAxis dataKey="date" hide={true}/>

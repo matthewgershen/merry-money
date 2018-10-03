@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { clearErrors } from './../../actions/session_actions'
 import { selectAllWatchlistMemberships } from './../../reducers/selectors';
+import { removeWatchlistMembership} from './../../actions/watchlist_memberships_actions';
 
 
 class Transaction extends React.Component{
@@ -48,7 +49,17 @@ class Transaction extends React.Component{
         transaction2["transaction_type"] = this.state.buy === true ? "withdraw" : "deposit"
 
       this.props.createTransaction(transaction1).then(action => this.props.createTransaction(transaction2));
-      this.setState({shares: 0});
+      this.setState({shares: ''});
+      const cId = this.props.match.params.id
+      const watchlistId = [];
+      this.props.watchlist.forEach((item)=>{
+        if (item.company_id === parseInt(cId)) {
+          watchlistId.push(item.id);
+        }
+      });
+      if (this.state.buy === true && watchlistId.length > 0) {
+        this.props.removeWatchlistMembership(watchlistId[0]);
+      }
     }
 
   render(){
@@ -147,7 +158,8 @@ const mapStateToProps = (state) => {
       user_id: state.session.id,
       stockInfo: state.entities.stock.stockInfo,
       errors: state.errors,
-      color: state.ui
+      color: state.ui,
+      watchlist: selectAllWatchlistMemberships(state)
     };
   }
 
@@ -156,6 +168,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     createTransaction: (transaction) => dispatch(createTransaction(transaction)),
+    removeWatchlistMembership: (id) => dispatch(removeWatchlistMembership(id)),
     clearErrors: () => dispatch(clearErrors())
   };
 };
