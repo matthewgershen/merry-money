@@ -9,6 +9,7 @@ import { createTransaction } from './actions/transaction_actions';
 import { updateColor } from './actions/ui_actions';
 import { fetchSnapshots } from './actions/portfolio_snapshot_actions'
 import { fetchNews } from './actions/news_actions'
+import { fetchPortfolioHoldings } from './actions/portfolio_holdings_actions'
 
 
 
@@ -48,4 +49,5 @@ window.createTransaction = createTransaction
 window.updateColor = updateColor
 window.fetchSnapshots = fetchSnapshots
 window.fetchNews = fetchNews
+window.fetchPortfolioHoldings = fetchPortfolioHoldings
 // testing

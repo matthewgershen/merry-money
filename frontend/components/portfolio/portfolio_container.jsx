@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchSnapshots } from '../../actions/portfolio_snapshot_actions';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'recharts';
 import News from './../news/news';
+import Holdings from './../holdings/holdings';
 
 class Portfolio extends React.Component{
   constructor(props) {
@@ -79,6 +80,7 @@ class Portfolio extends React.Component{
                 <button onClick={()=>this.handleChartClick(365,"Past Year")}>1Y</button>
                 <button onClick={()=>this.handleChartClick(1825,"Past 5 Years")}>5Y</button>
               </div>
+              <Holdings />
               <News search={"stock market"}/>
             </div>
 
