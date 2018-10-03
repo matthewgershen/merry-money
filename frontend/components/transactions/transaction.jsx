@@ -3,6 +3,7 @@ import { createTransaction } from './../../actions/transaction_actions';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { clearErrors } from './../../actions/session_actions'
+import { selectAllWatchlistMemberships } from './../../reducers/selectors';
 
 
 class Transaction extends React.Component{
@@ -34,7 +35,6 @@ class Transaction extends React.Component{
     }
 
     handleSubmit(){
-      
       const transaction1 = {}
         transaction1["user_id"] = this.props.user_id
         transaction1["company_id"] = this.props.company_id
