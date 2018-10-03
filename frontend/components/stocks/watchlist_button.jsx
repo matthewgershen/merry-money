@@ -11,6 +11,9 @@ class WatchlistButton extends React.Component{
     }
 
   render(){
+    if (this.props.sharesOwned[this.props.contprops.id] > 0) {
+      return <div></div>
+    } else {
     const color = this.props.color;
 
     const watchlistId = [];
@@ -27,9 +30,8 @@ class WatchlistButton extends React.Component{
       return(
         <button style={{color: color,borderColor:color}} className="watch-remove" onClick={()=>this.props.removeWatchlistMembership(watchlistId[0])}>Remove From Watchlist</button>
       );}
-
+    }
   }
-
 
 
 }
@@ -37,7 +39,8 @@ class WatchlistButton extends React.Component{
 
 const mapStateToProps = (state, ownProps) => {
   return{
-    watchlist: selectAllWatchlistMemberships(state)
+    watchlist: selectAllWatchlistMemberships(state),
+    sharesOwned: state.entities.users[state.session.id].portfolioHoldings
   };
 };
 

@@ -34,11 +34,12 @@ class Transaction extends React.Component{
     }
 
     handleSubmit(){
+      
       const transaction1 = {}
         transaction1["user_id"] = this.props.user_id
         transaction1["company_id"] = this.props.company_id
         transaction1["price"] = this.props.stockInfo.quote.latestPrice
-        transaction1["shares"] = Number.isInteger(this.state.shares) ? this.state.shares : 0
+        transaction1["shares"] = Number.isInteger(parseInt(this.state.shares)) ? this.state.shares : 0
         transaction1["transaction_type"] = this.state.buy === true ? "buy" : "sell"
 
       const transaction2 = {}
