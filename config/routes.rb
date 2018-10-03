@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :watchlist_memberships
     resources :transactions
     resources :portfolio_snapshots
-
+    resources :portfolios
   end
 
 end
