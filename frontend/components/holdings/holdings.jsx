@@ -18,7 +18,7 @@ class Holdings extends React.Component{
   render(){
 
     if (Object.keys(this.props.holdings).length === 0) {
-        return <div>hang on</div>
+        return <div></div>
     }else {
     const data = []
     this.props.holdings.forEach((holding)=>{
@@ -27,12 +27,15 @@ class Holdings extends React.Component{
       pie["value"] = holding.shares * holding.price
       data.push(pie);
     });
-    
+
     return (
-      <PieChart width={800} height={400}>
-        <Pie data={data} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d"/>
-        <Tooltip/>
-       </PieChart>
+      <div>
+        <h2>Portfolio Holdings</h2>
+        <PieChart width={800} height={350}>
+          <Pie data={data} cx={400} cy={200} innerRadius={40} outerRadius={120} fill="#82ca9d" />
+          <Tooltip unit="$"/>
+        </PieChart>
+      </div>
     );
     }
   }
