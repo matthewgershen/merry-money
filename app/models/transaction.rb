@@ -24,7 +24,7 @@ class Transaction < ApplicationRecord
   end
 
   def zero_shares
-    
+
     if (self.transaction_type == "buy" || self.transaction_type == "sell") && ( self.shares == nil || self.shares < 1)
       errors.add(:shares, "must be greater than 0")
     end

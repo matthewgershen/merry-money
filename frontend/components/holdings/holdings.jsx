@@ -32,7 +32,7 @@ class Holdings extends React.Component{
       <div>
         <h2>Portfolio Holdings</h2>
         <PieChart width={800} height={350}>
-          <Pie data={data} cx={400} cy={200} innerRadius={40} outerRadius={120} fill="#82ca9d" />
+          <Pie data={data} cx={400} cy={200} innerRadius={40} outerRadius={120} fill={this.props.stroke} />
           <Tooltip unit="$"/>
         </PieChart>
       </div>

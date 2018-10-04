@@ -60,7 +60,7 @@ class User < ApplicationRecord
         holdings[transaction.company_id] -= transaction.shares
       end
     end
-    return holdings.select{|k,v| v > 0}
+    return holdings
   end
 
   def cash

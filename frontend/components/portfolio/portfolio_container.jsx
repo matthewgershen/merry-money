@@ -80,7 +80,7 @@ class Portfolio extends React.Component{
                 <button onClick={()=>this.handleChartClick(365,"Past Year")}>1Y</button>
                 <button onClick={()=>this.handleChartClick(1825,"Past 5 Years")}>5Y</button>
               </div>
-              <Holdings />
+              <Holdings stroke={stroke}/>
               <News search={"stock market"}/>
             </div>
 

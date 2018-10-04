@@ -61,11 +61,12 @@ class Watchlist extends React.Component{
 
 
       const watchlistItems = this.props.watchlist.map((item,idx)=>{
+
         let stockshow = `/stocks/${item.company_id}`;
 
         const data = item.chart;
-        const max = parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
-        const min = parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
+        const max = data.length < 0 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
+        const min = data.length < 0 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
         const first = findFirstNotNull(data);
         const last = findLastNotull(data);
         const stroke = (last > first) ? "#21ce99" : "#f45531";
@@ -87,12 +88,13 @@ class Watchlist extends React.Component{
         );
       });
 
-      const stocks = this.props.holdings.map((item,idx)=>{
+      const stocksOwned = this.props.holdings.filter(item => item.shares > 0);
+      const stocks = stocksOwned.map((item,idx)=>{
         let stockshow = `/stocks/${item.id}`;
 
         const data = item.chart;
-        const max = parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
-        const min = parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
+        const max = data.length < 0 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
+        const min = data.length < 0 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
         const first = findFirstNotNull(data);
         const last = findLastNotull(data);
         const stroke = (last > first) ? "#21ce99" : "#f45531";
