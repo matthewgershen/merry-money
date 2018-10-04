@@ -28,8 +28,9 @@ const deleteWatchlistMembership = (watchlist_membership) => {
 };
 
 export const fetchWatchlistMemberships = () => dispatch => (
-  WatchlistApiUtil.fetchWatchlistMemberships().then((payload) =>
-  dispatch(receiveWatchlist(payload)))
+  WatchlistApiUtil.fetchWatchlistMemberships().then((payload) => {
+    dispatch(receiveWatchlist(payload));
+  })
 );
 
 export const createWatchlistMembership = (company_id) => dispatch => (

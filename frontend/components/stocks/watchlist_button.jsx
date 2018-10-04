@@ -15,8 +15,9 @@ class WatchlistButton extends React.Component{
     }
 
   render(){
-    if (this.props.sharesOwned[this.props.contprops.id] > 0 ||
-    !this.props.watchlist.length) {
+    if (this.props.sharesOwned[this.props.contprops.id] > 0
+      // || !this.props.watchlist.length
+    ) {
       return <div></div>
     } else {
 

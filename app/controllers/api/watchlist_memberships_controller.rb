@@ -18,8 +18,8 @@ class Api::WatchlistMembershipsController < ApplicationController
   end
 
   def index
-    @watchlist = current_user.watchlist_memberships
-    render :index
+      @watchlist = current_user.watchlist_memberships
+      render :index
   end
 
 

@@ -6,7 +6,7 @@ const watchlistReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_WATCHLIST:
-      return action.watchlist;
+      return action.watchlist || ["No watchlist items"];
     case RECEIVE_WATCHLIST_MEMBERSHIP:
       return merge({}, state, {[action.watchlist_membership.id]: action.watchlist_membership });
     case DELETE_WATCHLIST_MEMBERSHIP:

@@ -11,8 +11,7 @@ const usersReducer = (state = {}, action) => {
       const newUser = merge( {}, state[action.transaction.user_id]);
       newUser.buyingPower = action.transaction.buyingPower;
       newUser.portfolioHoldings = action.transaction.portfolioHoldings;
-      const newState = merge({}, state, {[action.transaction.user_id]: newUser});
-      return newState;
+      return {[action.transaction.user_id]: newUser};
     case LOGOUT_CURRENT_USER:
       return {};
     default:

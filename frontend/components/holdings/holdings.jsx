@@ -17,9 +17,9 @@ class Holdings extends React.Component{
 
   render(){
 
-    if (Object.keys(this.props.holdings).length === 0) {
+    if (Object.keys(this.props.holdings).length === 0 ||this.props.holdings[0] === "No portfolio holdings") {
         return <div></div>
-    }else {
+    } else {
     const data = []
     let totalHoldingsValue = 0
     this.props.holdings.forEach((holding)=>{
@@ -36,7 +36,7 @@ class Holdings extends React.Component{
         <PieChart width={800} height={350}>
           <Pie data={data} cx={400} cy={180} innerRadius={80} outerRadius={150} fill={this.props.stroke}>
             <Label width={30} position="center">
-              { `Total Value: ${totalHoldingsValue.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}` }
+              { `Total Holdings: ${totalHoldingsValue.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}` }
             </Label>
           </Pie>
           <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(value)}/>

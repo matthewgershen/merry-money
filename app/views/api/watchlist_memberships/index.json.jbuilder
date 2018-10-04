@@ -1,6 +1,4 @@
-if current_user.watchlist_memberships.length == 0
-  return ({})
-else
+
   json.watchlist do
     current_user.watchlist_memberships.each do |item|
       json.set! item.id do
@@ -18,4 +16,3 @@ else
       end
     end
   end
-end

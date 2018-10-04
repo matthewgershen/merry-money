@@ -4,6 +4,7 @@ import { fetchSnapshots } from '../../actions/portfolio_snapshot_actions';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'recharts';
 import News from './../news/news';
 import Holdings from './../holdings/holdings';
+import StockWatch from './stock_watch'
 
 class Portfolio extends React.Component{
   constructor(props) {
@@ -61,6 +62,7 @@ class Portfolio extends React.Component{
         return(
 
             <div className="portfolio-wrapper">
+                <StockWatch />
                 <div className="diff">
                   <h1>{parseFloat(last).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
                   <span>{sign}{diff}</span>
