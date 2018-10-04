@@ -48,7 +48,7 @@ class Chart extends React.Component{
       </div>
       <LineChart width={675} height={200} data={data}>
         <Line connectNulls={true} type="monotone" dataKey="close" stroke={this.props.color} dot={false}/>
-        <Tooltip />
+        <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(value)}/>
         <XAxis dataKey="date" hide={true}/>
         <YAxis  domain={[min,max]} hide={true}/>
       </LineChart>

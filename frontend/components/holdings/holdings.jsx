@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPortfolioHoldings } from '../../actions/portfolio_holdings_actions';
-import { PieChart, Pie, Sector, Cell, Tooltip } from 'recharts';
+import { PieChart, Pie, Sector, Cell, Tooltip, Label } from 'recharts';
 import { selectAllPortfolioHoldings } from './../../reducers/selectors';
 
 class Holdings extends React.Component{
@@ -21,10 +21,12 @@ class Holdings extends React.Component{
         return <div></div>
     }else {
     const data = []
+    let totalHoldingsValue = 0
     this.props.holdings.forEach((holding)=>{
       let pie = {}
       pie["name"] = holding.name
       pie["value"] = holding.shares * holding.price
+      totalHoldingsValue += holding.shares * holding.price
       data.push(pie);
     });
 
@@ -32,8 +34,12 @@ class Holdings extends React.Component{
       <div>
         <h2>Portfolio Holdings</h2>
         <PieChart width={800} height={350}>
-          <Pie data={data} cx={400} cy={200} innerRadius={40} outerRadius={120} fill={this.props.stroke} />
-          <Tooltip unit="$"/>
+          <Pie data={data} cx={400} cy={180} innerRadius={80} outerRadius={150} fill={this.props.stroke}>
+            <Label width={30} position="center">
+              { `Total Value: ${totalHoldingsValue.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}` }
+            </Label>
+          </Pie>
+          <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(value)}/>
         </PieChart>
       </div>
     );

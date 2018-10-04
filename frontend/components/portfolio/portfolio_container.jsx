@@ -46,7 +46,7 @@ class Portfolio extends React.Component{
       );
 
     } else {
-      
+
       const data = this.filterRange();
       const max = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) > parseFloat(current.total_value)) ? prev : current).total_value);
       const min = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) < parseFloat(current.total_value)) ? prev : current).total_value);
@@ -56,6 +56,7 @@ class Portfolio extends React.Component{
       const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
       const percent = isNaN((last - first)/first) ? '0.00%' : (((last - first)/first) * 100).toFixed(2) + '%';
       const sign = ((last-first) > 0) ? "+" : "";
+
 
         return(
 
@@ -70,7 +71,9 @@ class Portfolio extends React.Component{
                   <Line type="monotone" dataKey="total_value"  stroke={stroke} dot={false}/>
                  <XAxis dataKey="date" hide={true}/>
                  <YAxis  domain={[min,max]} hide={true}/>
-                 <Tooltip />
+                <Tooltip
+                  formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(value)}
+                  />
               </LineChart>
 
               <div className="chart-ranges">
