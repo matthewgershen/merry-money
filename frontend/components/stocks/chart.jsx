@@ -30,11 +30,11 @@ class Chart extends React.Component{
   };
 
   const data = this.props.data;
-  const max = parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
-  const min = parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
+  const max = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
+  const min = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
   const first = find_first_not_null(data);
   const last = find_last_not_null(data);
-  const stroke = (last > first) ? "#21ce99" : "#f45531";
+  const stroke = (last < first) ? "#f45531" : "#21ce99";
   const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
   const percent = (((last - first)/first) * 100).toFixed(2) + '%';
   const sign = ((last-first) > 0) ? "+" : "";

@@ -46,13 +46,13 @@ class Portfolio extends React.Component{
       );
 
     } else {
-
+      
       const data = this.filterRange();
-      const max = parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) > parseFloat(current.total_value)) ? prev : current).total_value);
-      const min = parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) < parseFloat(current.total_value)) ? prev : current).total_value);
-      const first = data[0].total_value;
-      const last = data[data.length - 1].total_value;
-      const stroke = (last > first) ? "#21ce99" : "#f45531";
+      const max = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) > parseFloat(current.total_value)) ? prev : current).total_value);
+      const min = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (parseFloat(prev.total_value) < parseFloat(current.total_value)) ? prev : current).total_value);
+      const first = data.length < 1 ? 0 : data[0].total_value;
+      const last = data.length < 1 ? 0 : data[data.length - 1].total_value;
+      const stroke = (last < first) ? "#f45531" : "#21ce99";
       const diff  = (last - first).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
       const percent = isNaN((last - first)/first) ? '0.00%' : (((last - first)/first) * 100).toFixed(2) + '%';
       const sign = ((last-first) > 0) ? "+" : "";

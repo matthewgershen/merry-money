@@ -57,7 +57,7 @@ class Stock extends React.Component{
       const data = this.props.stock.chart;
       const first = find_first_not_null(data);
       const last = find_last_not_null(data);
-      const stroke = (last > first) ? "#21ce99" : "#f45531";
+      const stroke = (last < first) ? "#f45531" : "#21ce99";
       if (stroke !== this.props.color){
         this.props.updateColor(stroke);
       }
