@@ -10,7 +10,7 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_TRANSACTION:
       const newUser = merge( {}, state[action.transaction.user_id]);
       newUser.buyingPower = action.transaction.buyingPower;
-      newUser.portfolioHoldings = action.transaction.portfolioHoldings;
+      // newUser.portfolioHoldings = action.transaction.portfolioHoldings;
       return {[action.transaction.user_id]: newUser};
     case LOGOUT_CURRENT_USER:
       return {};

@@ -15,7 +15,8 @@ class WatchlistButton extends React.Component{
     }
 
   render(){
-    if (this.props.sharesOwned[this.props.contprops.id] > 0
+    
+    if (this.props.holdings[this.props.contprops.id].shares > 0
       // || !this.props.watchlist.length
     ) {
       return <div></div>
@@ -47,7 +48,7 @@ class WatchlistButton extends React.Component{
 const mapStateToProps = (state, ownProps) => {
   return{
     watchlist: selectAllWatchlistMemberships(state),
-    sharesOwned: state.entities.users[state.session.id].portfolioHoldings
+    holdings: state.entities.holdings
   };
 };
 

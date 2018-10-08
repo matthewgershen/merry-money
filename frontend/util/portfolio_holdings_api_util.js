@@ -4,3 +4,10 @@ export const fetchPortfolioHoldings = () => {
     url: '/api/portfolios'
   });
 };
+
+export const fetchAssetShares = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/portfolios/${id}`
+  });
+};

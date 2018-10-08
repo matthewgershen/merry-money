@@ -4,6 +4,11 @@ class Api::PortfoliosController  < ApplicationController
     render :index
   end
 
+  def show
+    @company_id = params[:id].to_i
+    render :show
+  end
+
 
 
 end

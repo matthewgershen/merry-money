@@ -15,7 +15,7 @@ class Stocklist extends React.Component{
 
   render(){
 
-    if (!this.props.holdings.length) {
+    if (!this.props.holdings.length || !this.props.holdings[0].chart) {
       return (
         <div className="watchlist">
           <h3>Stocks</h3>

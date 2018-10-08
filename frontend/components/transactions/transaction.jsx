@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { clearErrors } from './../../actions/session_actions'
 import { selectAllWatchlistMemberships } from './../../reducers/selectors';
 import { removeWatchlistMembership} from './../../actions/watchlist_memberships_actions';
-
+import { fetchAssetShares } from './../../actions/portfolio_holdings_actions';
 
 class Transaction extends React.Component{
   constructor(props){
@@ -19,6 +19,9 @@ class Transaction extends React.Component{
       this.handleSwitch = this.handleSwitch.bind(this)
     }
 
+    componentDidMount(){
+      this.props.fetchAssetShares(this.props.match.params.id)
+    }
 
     handleInput(e){
     e.preventDefault()
@@ -130,7 +133,7 @@ class Transaction extends React.Component{
             {this.props.errors.transaction.length > 0 &&
               <p className="transaction-errors">{this.props.errors.transaction}</p>
             }
-          <span className="available" >{this.props.sharesOwned > 0 ? this.props.sharesOwned : 0} Shares Available</span>
+          <span className="available" >{this.props.holdings[this.props.match.params.id].shares > 0 ? this.props.holdings[this.props.match.params.id].shares : 0} Shares Available</span>
       </div>
       );
     }
@@ -151,8 +154,7 @@ const mapStateToProps = (state) => {
     return{
       loading: false,
       buyingPower: state.entities.users[state.session.id].buyingPower,
-      sharesOwned: state.entities.users[state.session.id].portfolioHoldings[state.entities.stock.company.id],
-      portfolioHoldings: state.entities.users[state.session.id].portfolioHoldings,
+      holdings: state.entities.holdings,
       symbol: state.entities.stock.company.symbol,
       company_id: state.entities.stock.company.id,
       user_id: state.session.id,
@@ -169,7 +171,8 @@ const mapDispatchToProps = (dispatch) => {
   return{
     createTransaction: (transaction) => dispatch(createTransaction(transaction)),
     removeWatchlistMembership: (id) => dispatch(removeWatchlistMembership(id)),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    fetchAssetShares: (id) => dispatch(fetchAssetShares(id))
   };
 };
 
