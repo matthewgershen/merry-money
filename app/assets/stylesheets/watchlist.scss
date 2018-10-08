@@ -44,4 +44,15 @@
     padding-bottom: 10px;
     font-style: italic;
   }
+
+  .chart-load{
+    width: 65%;
+    height: 65%
+  }
+
+  .chart-price{
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+  }
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { selectAllPortfolioHoldings } from './../../reducers/selectors';
 import { Link } from 'react-router-dom';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-
+import StockChart from './../lists/stock_charts';
 
 class Stocklist extends React.Component{
   constructor(props){
@@ -22,7 +22,7 @@ class Stocklist extends React.Component{
             <img src={window.loading_url}/>
         </div>
       );
-    }
+    }  
     else if (this.props.holdings[0] === "No portfolio holdings") {
       return (
         <div className="watchlist">
@@ -32,32 +32,32 @@ class Stocklist extends React.Component{
       );
     }
     else{
-
-      const findFirstNotNull = (data) => {
-        for (var i = 0; i < data.length; i++) {
-          if (!!data[i].close) {
-            return data[i].close;
-          }
-        }
-      };
-      const findLastNotull = (data) => {
-        for (var i = 1; i < data.length; i++) {
-          if (!!data[data.length - i].close) {
-            return data[data.length - i].close;
-          }
-        }
-      };
+      debugger
+      // const findFirstNotNull = (data) => {
+      //   for (var i = 0; i < data.length; i++) {
+      //     if (!!data[i].close) {
+      //       return data[i].close;
+      //     }
+      //   }
+      // };
+      // const findLastNotull = (data) => {
+      //   for (var i = 1; i < data.length; i++) {
+      //     if (!!data[data.length - i].close) {
+      //       return data[data.length - i].close;
+      //     }
+      //   }
+      // };
 
       const stocksOwned = this.props.holdings.filter(item => item.shares > 0);
       const stocks = stocksOwned.map((item,idx)=>{
         let stockshow = `/stocks/${item.id}`;
 
-        const data = item.chart;
-        const max = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
-        const min = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
-        const first = findFirstNotNull(data);
-        const last = findLastNotull(data);
-        const stroke = (last < first) ? "#f45531" : "#21ce99";
+        // const data = item.chart;
+        // const max = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
+        // const min = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
+        // const first = findFirstNotNull(data);
+        // const last = findLastNotull(data);
+        // const stroke = (last < first) ? "#f45531" : "#21ce99";
 
         return (
           <div key={item.id} className="items">
@@ -67,12 +67,7 @@ class Stocklist extends React.Component{
                   <span>{item.symbol}</span>
                   <div>{item.shares} Shares</div>
                 </div>
-                <LineChart width={75} height={50} data={data}>
-                  <Line connectNulls={true} type="monotone" dataKey="close" stroke={stroke} dot={false}/>
-                  <XAxis dataKey="date" hide={true}/>
-                  <YAxis  domain={[min,max]} hide={true}/>
-                </LineChart>
-                <span>{item.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</span>
+                <StockChart item={item}/>
               </li>
             </Link>
           </div>
