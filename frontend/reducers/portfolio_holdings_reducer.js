@@ -13,9 +13,13 @@ const portfolioHoldingsReducer = (state = {},action) => {
       return merge({}, state, action.portfolio_holdings);
     }
     case RECEIVE_ASSET_SHARES:
+    if (action.share.shares) {
       const newHolding = merge( {}, state[action.shares.id]);
       newHolding.shares = action.shares.shares;
       return merge({}, state, {[action.shares.id]:newHolding});
+    } else {
+      return state
+    }
     case RECEIVE_TRANSACTION:
     if (action.transaction.shares) {
       const newShares = merge( {}, state[action.transaction.company_id]);
