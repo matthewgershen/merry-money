@@ -19,4 +19,10 @@ class Company < ApplicationRecord
   def self.filter_companies(query)
     Company.where('name ILIKE ?',"%#{query}%")
   end
+
+  def is_watched?(current_user)
+    item = WatchlistMembership.find_by(company_id: self.id, user_id: current_user.id)
+    return item.id if item
+    false
+  end
 end
