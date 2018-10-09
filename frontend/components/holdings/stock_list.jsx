@@ -22,7 +22,7 @@ class Stocklist extends React.Component{
             <img src={window.loading_url}/>
         </div>
       );
-    }  
+    }
     else if (this.props.holdings[0] === "No portfolio holdings") {
       return (
         <div className="watchlist">
@@ -32,7 +32,7 @@ class Stocklist extends React.Component{
       );
     }
     else{
-      debugger
+      
       // const findFirstNotNull = (data) => {
       //   for (var i = 0; i < data.length; i++) {
       //     if (!!data[i].close) {

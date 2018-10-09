@@ -12,7 +12,6 @@ export default class StockChart extends React.Component{
 
 
 render(){
-  debugger
   if (!this.props.item.chart) {
     return <img className="chart-load" src={window.loading_dots}/>
   } else {

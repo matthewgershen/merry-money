@@ -34,7 +34,7 @@ class Holdings extends React.Component{
       <div>
         <h2>Portfolio Holdings</h2>
         <PieChart width={800} height={350}>
-          <Pie data={data} cx={400} cy={180} innerRadius={80} outerRadius={150} fill={this.props.stroke}>
+          <Pie dataKey='value' data={data} cx={400} cy={180} innerRadius={80} outerRadius={150} fill={this.props.stroke}>
             <Label width={30} position="center">
               { `Total Holdings: ${totalHoldingsValue.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}` }
             </Label>
