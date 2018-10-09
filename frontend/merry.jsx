@@ -27,27 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  // testing
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  // testing
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });
-
-// testing
-window.login = login;
-window.signup = signup;
-window.logout = logout;
-window.fetchCompany = fetchCompany;
-window.fetchChart = fetchChart;
-window.fetchCompanyInfo = fetchCompanyInfo;
-window.fetchWatchlistMemberships = fetchWatchlistMemberships
-window.createWatchlistMembership = createWatchlistMembership
-window.removeWatchlistMembership = removeWatchlistMembership
-window.createTransaction = createTransaction
-window.updateColor = updateColor
-window.fetchSnapshots = fetchSnapshots
-window.fetchNews = fetchNews
-window.fetchPortfolioHoldings = fetchPortfolioHoldings
-// testing

@@ -29,12 +29,6 @@ class WatchlistButton extends React.Component{
 
     const color = this.props.color;
 
-    // const watchlistId = [];
-    // this.props.watchlist.forEach((item)=>{
-    //   if (item.company_id === parseInt(this.props.contprops.id)) {
-    //     watchlistId.push(item.id);
-    //   }
-    // });
     if (this.props.onWatchlist) {
       return(
         <button style={{color: color,borderColor:color}} className="watch-remove" onClick={()=>this.handleClick("remove")}>Remove From Watchlist</button>

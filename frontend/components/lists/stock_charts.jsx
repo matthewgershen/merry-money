@@ -50,23 +50,3 @@ render(){
     }
   }
 }
-
-
-
-// const mapStateToProps = (state) => {
-//   return{
-//     holdings: selectAllPortfolioHoldings(state),
-//     companies: state.entities.companies
-//   };
-// };
-//
-// const mapDispatchToProps = (dispatch) => {
-//   return{
-//     fetchCompany: (id) => dispatch(fetchCompany(id))
-//   };
-// };
-//
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(StockChart);

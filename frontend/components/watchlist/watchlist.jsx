@@ -48,33 +48,10 @@ class Watchlist extends React.Component{
       );
     }else{
 
-      // const findFirstNotNull = (data) => {
-      //   for (var i = 0; i < data.length; i++) {
-      //     if (!!data[i].close) {
-      //       return data[i].close;
-      //     }
-      //   }
-      // };
-      // const findLastNotull = (data) => {
-      //   for (var i = 1; i < data.length; i++) {
-      //     if (!!data[data.length - i].close) {
-      //       return data[data.length - i].close;
-      //     }
-      //   }
-      // };
-
-
 
       const watchlistItems = this.props.watchlist.map((item,idx)=>{
-        
-        let stockshow = `/stocks/${item.company_id}`;
 
-        // const data = item.chart;
-        // const max = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close > current.close) ? prev : current).close);
-        // const min = data.length < 1 ? 0 : parseFloat(data.reduce((prev, current) => (prev.close < current.close) ? prev : current).close);
-        // const first = findFirstNotNull(data);
-        // const last = findLastNotull(data);
-        // const stroke = (last < first) ? "#f45531" : "#21ce99";
+        let stockshow = `/stocks/${item.company_id}`;
 
         return (
           <div key={item.id} className="items">

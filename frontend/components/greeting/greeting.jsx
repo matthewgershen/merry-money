@@ -12,7 +12,6 @@ export default class Greeting extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.logout();
-    // .then(() => history.push("/"));
   }
 
   render() {

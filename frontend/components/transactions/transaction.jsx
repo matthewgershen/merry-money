@@ -53,13 +53,6 @@ class Transaction extends React.Component{
 
       this.props.createTransaction(transaction1).then(action => this.props.createTransaction(transaction2));
       this.setState({shares: ''});
-      // const cId = this.props.match.params.id
-      // const watchlistId = [];
-      // this.props.watchlist.forEach((item)=>{
-      //   if (item.company_id === parseInt(cId)) {
-      //     watchlistId.push(item.id);
-      //   }
-      // });
       if (this.state.buy === true && this.props.onWatchlist) {
         this.props.removeWatchlistMembership(this.props.onWatchlist).then(()=>this.props.fetchCompany(this.props.company_id));
       }
