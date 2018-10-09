@@ -47,7 +47,7 @@ class Watchlist extends React.Component{
         </div>
       );
     }else{
-      debugger
+
       // const findFirstNotNull = (data) => {
       //   for (var i = 0; i < data.length; i++) {
       //     if (!!data[i].close) {
@@ -66,7 +66,7 @@ class Watchlist extends React.Component{
 
 
       const watchlistItems = this.props.watchlist.map((item,idx)=>{
-        debugger
+        
         let stockshow = `/stocks/${item.company_id}`;
 
         // const data = item.chart;

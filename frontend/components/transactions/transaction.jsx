@@ -53,15 +53,15 @@ class Transaction extends React.Component{
 
       this.props.createTransaction(transaction1).then(action => this.props.createTransaction(transaction2));
       this.setState({shares: ''});
-      const cId = this.props.match.params.id
-      const watchlistId = [];
-      this.props.watchlist.forEach((item)=>{
-        if (item.company_id === parseInt(cId)) {
-          watchlistId.push(item.id);
-        }
-      });
-      if (this.state.buy === true && watchlistId.length > 0) {
-        this.props.removeWatchlistMembership(watchlistId[0]);
+      // const cId = this.props.match.params.id
+      // const watchlistId = [];
+      // this.props.watchlist.forEach((item)=>{
+      //   if (item.company_id === parseInt(cId)) {
+      //     watchlistId.push(item.id);
+      //   }
+      // });
+      if (this.state.buy === true && this.props.onWatchlist) {
+        this.props.removeWatchlistMembership(this.props.onWatchlist).then(()=>this.props.fetchCompany(this.props.company_id));
       }
     }
 
@@ -155,6 +155,7 @@ const mapStateToProps = (state) => {
       loading: false,
       buyingPower: state.entities.users[state.session.id].buyingPower,
       holdings: state.entities.holdings,
+      onWatchlist: state.entities.stock.company.isWatched,
       symbol: state.entities.stock.company.symbol,
       company_id: state.entities.stock.company.id,
       user_id: state.session.id,
@@ -172,7 +173,8 @@ const mapDispatchToProps = (dispatch) => {
     createTransaction: (transaction) => dispatch(createTransaction(transaction)),
     removeWatchlistMembership: (id) => dispatch(removeWatchlistMembership(id)),
     clearErrors: () => dispatch(clearErrors()),
-    fetchAssetShares: (id) => dispatch(fetchAssetShares(id))
+    fetchAssetShares: (id) => dispatch(fetchAssetShares(id)),
+    fetchCompany: (company_id) => dispatch(fetchCompany(company_id))
   };
 };
 

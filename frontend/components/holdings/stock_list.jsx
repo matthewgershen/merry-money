@@ -14,8 +14,15 @@ class Stocklist extends React.Component{
 
 
   render(){
+    
+    if (this.props.holdings[0] === "No portfolio holdings") {
+      return (
+        <div className="watchlist">
+          <h3>Stocks</h3>
+            <p>Search a stock to add to your holdings</p>
+        </div>
+      );
 
-    if (!this.props.holdings.length || !this.props.holdings[0].chart) {
       return (
         <div className="watchlist">
           <h3>Stocks</h3>
@@ -23,16 +30,16 @@ class Stocklist extends React.Component{
         </div>
       );
     }
-    else if (this.props.holdings[0] === "No portfolio holdings") {
+    else if (!this.props.holdings.length || !this.props.holdings[0].chart) {
       return (
         <div className="watchlist">
           <h3>Stocks</h3>
-            <p>Search a stock to add to your holdings</p>
+            <img src={window.loading_url}/>
         </div>
       );
     }
     else{
-      
+
       // const findFirstNotNull = (data) => {
       //   for (var i = 0; i < data.length; i++) {
       //     if (!!data[i].close) {
