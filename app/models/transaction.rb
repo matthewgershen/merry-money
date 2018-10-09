@@ -18,7 +18,9 @@ class Transaction < ApplicationRecord
   end
 
   def sufficient_shares
-    if self.transaction_type == "sell" && (User.find(self.user_id).portfolio_holdings[self.company_id] < self.shares)
+    
+    if self.transaction_type == "sell" && (!User.find(self.user_id).portfolio_holdings[self.company_id] ||
+      User.find(self.user_id).portfolio_holdings[self.company_id] < self.shares)
       errors.add(:shares, "exceeds amount currently owned")
     end
   end
