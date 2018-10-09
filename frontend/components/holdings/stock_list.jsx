@@ -14,8 +14,8 @@ class Stocklist extends React.Component{
 
 
   render(){
-    
-    if (this.props.holdings[0] === "No portfolio holdings") {
+
+    if (this.props.holdings[0] === "No portfolio holdings" && Object.values(this.props.holdings).length === 1) {
       return (
         <div className="watchlist">
           <h3>Stocks</h3>
@@ -23,14 +23,8 @@ class Stocklist extends React.Component{
         </div>
       );
 
-      return (
-        <div className="watchlist">
-          <h3>Stocks</h3>
-            <img src={window.loading_url}/>
-        </div>
-      );
     }
-    else if (!this.props.holdings.length || !this.props.holdings[0].chart) {
+    else if (!this.props.holdings.length) {
       return (
         <div className="watchlist">
           <h3>Stocks</h3>
