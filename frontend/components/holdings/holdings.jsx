@@ -17,7 +17,7 @@ class Holdings extends React.Component{
 
   render(){
 
-    if (Object.keys(this.props.holdings).length === 0 ||this.props.holdings[0] === "No portfolio holdings") {
+    if (Object.keys(this.props.holdings).length === 0 || this.props.holdings[0] === "No portfolio holdings") {
         return <div></div>
     } else {
     const data = []
@@ -29,6 +29,9 @@ class Holdings extends React.Component{
       totalHoldingsValue += holding.shares * holding.price
       data.push(pie);
     });
+
+    totalHoldingsValue = isNaN(totalHoldingsValue) ? "" : totalHoldingsValue
+
 
     return (
       <div>
