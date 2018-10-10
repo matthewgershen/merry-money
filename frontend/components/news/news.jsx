@@ -31,9 +31,10 @@ class News extends React.Component{
         </div>
         {this.props.news.articles.map((article,idx)=>{
           return (
-            <a key={idx} href={article.url}>
+
+            <a key={idx} href={article.url} >
               <div className="news-block" >
-                <img src={article.urlToImage}/>
+                <img src={article.urlToImage} onError={(e)=>{e.target.onerror = null; e.target.src=window.logo_url}}/>
                 <div className="news-content">
                   <div className="news-source">
                     <p>{article.source.name}</p>

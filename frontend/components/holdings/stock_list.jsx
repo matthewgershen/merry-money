@@ -40,7 +40,7 @@ class Stocklist extends React.Component{
 
 
         return (
-          <div key={item.id} className="items">
+          <div key={idx} className="items">
             <Link to={stockshow}>
               <li>
                 <div className="stock-shares">
