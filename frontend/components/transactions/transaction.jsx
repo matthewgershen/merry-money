@@ -20,7 +20,7 @@ class Transaction extends React.Component{
     }
 
     componentDidMount(){
-      this.props.fetchAssetShares(this.props.match.params.id)
+      this.props.fetchAssetShares(this.props.params.id)
     }
 
     handleInput(e){
@@ -126,7 +126,7 @@ class Transaction extends React.Component{
             {this.props.errors.transaction.length > 0 &&
               <p className="transaction-errors">{this.props.errors.transaction}</p>
             }
-          <span className="available" >{!this.props.holdings[this.props.match.params.id] ? 0 : this.props.holdings[this.props.match.params.id].shares} Shares Available</span>
+          <span className="available" >{!this.props.holdings[this.props.params.id] ? 0 : this.props.holdings[this.props.params.id].shares} Shares Available</span>
       </div>
       );
     }

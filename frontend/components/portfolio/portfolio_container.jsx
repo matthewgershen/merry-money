@@ -60,9 +60,8 @@ class Portfolio extends React.Component{
 
 
         return(
-
+          <div className="main-wrapper">
             <div className="portfolio-wrapper">
-                <StockWatch />
                 <div className="diff">
                   <h1>{parseFloat(last).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</h1>
                   <span>{sign}{diff}</span>
@@ -88,7 +87,8 @@ class Portfolio extends React.Component{
               <Holdings stroke={stroke}/>
               <News search={"stock market"}/>
             </div>
-
+            <StockWatch />
+          </div>
         );
     }
   }

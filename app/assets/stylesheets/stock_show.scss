@@ -1,5 +1,7 @@
 .show-wrapper{
   display: flex;
+  justify-content: space-between;
+  min-width: 1235px;
 }
 
 .stock-wrapper{
@@ -92,9 +94,9 @@
 
   }
   .watch-add{
-    position: fixed;
+    position: sticky;
     top: 475px;
-    right: 220px;
+    margin:46px;
     border: 1px solid gray;
     width: 130px;
     height: 46px;
@@ -106,9 +108,9 @@
     text-align: center;
 }
   .watch-remove{
-    position: fixed;
+    position: sticky;
     top: 475px;
-    right: 220px;
+    margin:46px;
     border: 1px solid gray;
     width: 130px;
     height: 46px;
@@ -137,4 +139,9 @@
   vertical-align: center;
   border-radius: 17px;
   padding: 6px 8px 0px 8px;
+}
+
+.watch-trans{
+  padding-right: 75px;
+  align-items: center;
 }

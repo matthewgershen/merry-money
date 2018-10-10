@@ -8,7 +8,6 @@ import Splash from './splash/splash';
 import StockContainer from './stocks/stock_container';
 import PortfolioContainer from './portfolio/portfolio_container';
 import Watchlist from './watchlist/watchlist';
-import Transaction from './transactions/transaction';
 import Portfolio from './portfolio/portfolio_container';
 
 const App = () => (
@@ -18,7 +17,6 @@ const App = () => (
     <AuthRoute exact path="/login" component={LoginForm} />
     <AuthRoute exact path="/signup" component={SignupForm} />
     <ProtectedRoute path="/" component={GreetingContainer} />
-    <ProtectedRoute path="/stocks/:id" component={Transaction} />
     <ProtectedRoute path="/stocks/:id" component={StockContainer} />
     <ProtectedRoute exact path="/" component={Portfolio} />
   </div>

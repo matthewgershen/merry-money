@@ -1,3 +1,9 @@
+.main-wrapper{
+  display: flex;
+  justify-content: space-between;
+  min-width: 1235px;
+}
+
 .portfolio-wrapper{
   width: 50%;
   padding-left: 15%;
@@ -51,8 +57,8 @@
 }
 
 .stock-watch{
-  position: absolute;
+  position: sticky;
   width: 285px;
-  top: 100px;
-  right: 175px;
+  padding-right: 75px;
+  padding-top: 100px;
 }

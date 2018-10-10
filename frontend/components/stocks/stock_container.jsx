@@ -6,7 +6,7 @@ import Chart from './chart';
 import WatchlistButton from './watchlist_button';
 import { updateColor } from './../../actions/ui_actions';
 import News from './../news/news';
-
+import Transaction from './../transactions/transaction';
 
 class Stock extends React.Component{
   constructor(props){
@@ -100,7 +100,10 @@ class Stock extends React.Component{
             <CompanyInfo stockInfo={this.props.stock.stockInfo} news={this.props.news}/>
             <News search={this.props.stock.company.name}/>
           </div>
-          <WatchlistButton contprops={this.props} watchlist={this.props.watchlist} color={this.props.color}/>
+          <div className="watch-trans">
+            <Transaction params={this.props.match.params}/>
+            <WatchlistButton contprops={this.props} watchlist={this.props.watchlist} color={this.props.color}/>
+          </div>
         </div>
         );
       }
