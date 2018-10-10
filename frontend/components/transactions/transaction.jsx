@@ -6,6 +6,7 @@ import { clearErrors } from './../../actions/session_actions'
 import { selectAllWatchlistMemberships } from './../../reducers/selectors';
 import { removeWatchlistMembership} from './../../actions/watchlist_memberships_actions';
 import { fetchAssetShares } from './../../actions/portfolio_holdings_actions';
+import { fetchCompany } from './../../actions/company_actions';
 
 class Transaction extends React.Component{
   constructor(props){
@@ -78,6 +79,7 @@ class Transaction extends React.Component{
             <div className="shares">Shares</div>
             <input
               type="number"
+              min="1"
               value={this.state.shares}
               placeholder="0"
               onChange={this.handleInput}
@@ -109,6 +111,7 @@ class Transaction extends React.Component{
             <div className="shares">Shares</div>
             <input
               type="number"
+              min="1"
               value={this.state.shares}
               placeholder="0"
               onChange={this.handleInput}

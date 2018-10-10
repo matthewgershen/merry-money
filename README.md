@@ -51,7 +51,7 @@ alt="stock details" width="480" height="262" />
 
 Debouncing on search to prevent an AJAX call for each key press. Uses timeout to wait .5 seconds after the last key stroke to fetch data.
 
-```
+```javascript
 handleInput(e){
   e.preventDefault();
   this.setState({inputVal: e.currentTarget.value});
@@ -67,7 +67,7 @@ handleInput(e){
 
 Highlighting selected search option based on up and down arrow presses as well as hovering with the mouse and submitting correct search on enter or click.
 
-```
+```javascript
   handleKeyDown(e){
     if (e.key === "Enter") {
       let newId = this.state.searched[this.state.searchIdx].id;
@@ -92,7 +92,7 @@ Highlighting selected search option based on up and down arrow presses as well a
 
   }
 ```
-```
+```javascript
 handleMouse(e){
   let idx = parseInt(e.currentTarget.attributes.class.value);
   if (!isNaN(idx)) {
