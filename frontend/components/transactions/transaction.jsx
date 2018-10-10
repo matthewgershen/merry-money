@@ -21,6 +21,7 @@ class Transaction extends React.Component{
     }
 
     componentDidMount(){
+      this.props.clearErrors();
       this.props.fetchAssetShares(this.props.params.id)
     }
 
