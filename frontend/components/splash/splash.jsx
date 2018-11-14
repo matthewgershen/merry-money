@@ -111,6 +111,14 @@ const Splash = () => (
           </p>
       </div>
     </section>
+    <div className="footer">
+      <div>Created by Matthew Gershen</div>
+      <ul className="footer-links">
+    		<li><a href="https://github.com/matthewgershen">Github</a></li>
+    		<li><a href="https://www.linkedin.com/in/matthew-gershen/">LinkedIn</a></li>
+    		<li><a href="https://angel.co/matthew-gershen-1">AngelList</a></li>
+  	  </ul>
+    </div>
   </div>
 );
 
